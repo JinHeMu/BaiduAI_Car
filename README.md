@@ -5,5 +5,7 @@
 
 已经初步将硬件主板和驱动板完成
 
-update
+## 2024/3/5
+
+config edgeboard ssh and git 
 
