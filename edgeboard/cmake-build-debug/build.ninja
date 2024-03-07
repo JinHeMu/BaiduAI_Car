@@ -41,41 +41,41 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target icar
+# Object build statements for EXECUTABLE target preprocess
 
 
 #############################################
-# Order-only phony target for icar
+# Order-only phony target for preprocess
 
-build cmake_object_order_depends_target_icar: phony || CMakeFiles/icar.dir
+build cmake_object_order_depends_target_preprocess: phony || CMakeFiles/preprocess.dir
 
-build CMakeFiles/icar.dir/demo.cpp.obj: CXX_COMPILER__icar_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/demo.cpp || cmake_object_order_depends_target_icar
-  DEP_FILE = CMakeFiles\icar.dir\demo.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
+build CMakeFiles/preprocess.dir/demo.cpp.obj: CXX_COMPILER__preprocess_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/demo.cpp || cmake_object_order_depends_target_preprocess
+  DEP_FILE = CMakeFiles\preprocess.dir\demo.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
   INCLUDES = -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/." -isystem D:/OpenCV/opencv/mingw_build/install/include
-  OBJECT_DIR = CMakeFiles\icar.dir
-  OBJECT_FILE_DIR = CMakeFiles\icar.dir
-  TARGET_COMPILE_PDB = CMakeFiles\icar.dir\
-  TARGET_PDB = icar.pdb
+  OBJECT_DIR = CMakeFiles\preprocess.dir
+  OBJECT_FILE_DIR = CMakeFiles\preprocess.dir
+  TARGET_COMPILE_PDB = CMakeFiles\preprocess.dir\
+  TARGET_PDB = preprocess.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target icar
+# Link build statements for EXECUTABLE target preprocess
 
 
 #############################################
-# Link the executable icar.exe
+# Link the executable preprocess.exe
 
-build icar.exe: CXX_EXECUTABLE_LINKER__icar_Debug CMakeFiles/icar.dir/demo.cpp.obj | D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a
+build preprocess.exe: CXX_EXECUTABLE_LINKER__preprocess_Debug CMakeFiles/preprocess.dir/demo.cpp.obj | D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a
   FLAGS = -g
   LINK_LIBRARIES = D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\icar.dir
+  OBJECT_DIR = CMakeFiles\preprocess.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\icar.dir\
-  TARGET_FILE = icar.exe
-  TARGET_IMPLIB = libicar.dll.a
-  TARGET_PDB = icar.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\preprocess.dir\
+  TARGET_FILE = preprocess.exe
+  TARGET_IMPLIB = libpreprocess.dll.a
+  TARGET_PDB = preprocess.pdb
 
 
 #############################################
@@ -103,7 +103,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build icar: phony icar.exe
+build preprocess: phony preprocess.exe
 
 # =============================================================================
 # Folder targets.
@@ -113,7 +113,7 @@ build icar: phony icar.exe
 #############################################
 # Folder: E:/jhm files/github-repository/BaiduAI_Car/edgeboard/cmake-build-debug
 
-build all: phony icar.exe
+build all: phony preprocess.exe
 
 # =============================================================================
 # Built-in targets
