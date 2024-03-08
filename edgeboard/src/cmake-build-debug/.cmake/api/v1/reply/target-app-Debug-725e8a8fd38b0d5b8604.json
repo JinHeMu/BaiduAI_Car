@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "preprocess.exe"
+			"path" : "app.exe"
 		},
 		{
-			"path" : "preprocess.pdb"
+			"path" : "app.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -30,7 +30,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 24,
+				"line" : 23,
 				"parent" : 0
 			},
 			{
@@ -42,7 +42,7 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 29,
+				"line" : 28,
 				"parent" : 0
 			},
 			{
@@ -54,13 +54,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 21,
-				"parent" : 0
-			},
-			{
-				"command" : 3,
-				"file" : 0,
-				"line" : 22,
+				"line" : 20,
 				"parent" : 0
 			}
 		]
@@ -94,10 +88,6 @@
 				},
 				{
 					"backtrace" : 5,
-					"path" : "E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/."
-				},
-				{
-					"backtrace" : 6,
 					"isSystem" : true,
 					"path" : "D:/OpenCV/opencv/mingw_build/install/include"
 				}
@@ -113,12 +103,11 @@
 			},
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
-	"id" : "preprocess::@6890427a1f51a3e7e1df",
+	"id" : "app::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -218,8 +207,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "preprocess",
-	"nameOnDisk" : "preprocess.exe",
+	"name" : "app",
+	"nameOnDisk" : "app.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -231,8 +220,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -241,13 +229,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/recognition/tracking.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "src/preprocess.cpp",
+			"path" : "src/icar.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

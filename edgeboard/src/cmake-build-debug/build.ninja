@@ -41,46 +41,39 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target preprocess
+# Object build statements for EXECUTABLE target app
 
 
 #############################################
-# Order-only phony target for preprocess
+# Order-only phony target for app
 
-build cmake_object_order_depends_target_preprocess: phony || CMakeFiles/preprocess.dir
+build cmake_object_order_depends_target_app: phony || CMakeFiles/app.dir
 
-build CMakeFiles/preprocess.dir/src/recognition/tracking.cpp.obj: CXX_COMPILER__preprocess_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/src/recognition/tracking.cpp || cmake_object_order_depends_target_preprocess
-  DEP_FILE = CMakeFiles\preprocess.dir\src\recognition\tracking.cpp.obj.d
+build CMakeFiles/app.dir/src/icar.cpp.obj: CXX_COMPILER__app_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/src/icar.cpp || cmake_object_order_depends_target_app
+  DEP_FILE = CMakeFiles\app.dir\src\icar.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/include" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/config" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/src" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/tool" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/." -isystem D:/OpenCV/opencv/mingw_build/install/include
-  OBJECT_DIR = CMakeFiles\preprocess.dir
-  OBJECT_FILE_DIR = CMakeFiles\preprocess.dir\src\recognition
-
-build CMakeFiles/preprocess.dir/src/preprocess.cpp.obj: CXX_COMPILER__preprocess_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/src/preprocess.cpp || cmake_object_order_depends_target_preprocess
-  DEP_FILE = CMakeFiles\preprocess.dir\src\preprocess.cpp.obj.d
-  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/include" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/config" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/src" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/tool" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/." -isystem D:/OpenCV/opencv/mingw_build/install/include
-  OBJECT_DIR = CMakeFiles\preprocess.dir
-  OBJECT_FILE_DIR = CMakeFiles\preprocess.dir\src
+  INCLUDES = -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/include" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/config" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/src" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/tool" -isystem D:/OpenCV/opencv/mingw_build/install/include
+  OBJECT_DIR = CMakeFiles\app.dir
+  OBJECT_FILE_DIR = CMakeFiles\app.dir\src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target preprocess
+# Link build statements for EXECUTABLE target app
 
 
 #############################################
-# Link the executable preprocess.exe
+# Link the executable app.exe
 
-build preprocess.exe: CXX_EXECUTABLE_LINKER__preprocess_Debug CMakeFiles/preprocess.dir/src/recognition/tracking.cpp.obj CMakeFiles/preprocess.dir/src/preprocess.cpp.obj | D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a
+build app.exe: CXX_EXECUTABLE_LINKER__app_Debug CMakeFiles/app.dir/src/icar.cpp.obj | D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a
   FLAGS = -g
   LINK_LIBRARIES = D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -L"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/lib"
-  OBJECT_DIR = CMakeFiles\preprocess.dir
+  OBJECT_DIR = CMakeFiles\app.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = preprocess.exe
-  TARGET_IMPLIB = libpreprocess.dll.a
-  TARGET_PDB = preprocess.exe.dbg
+  TARGET_FILE = app.exe
+  TARGET_IMPLIB = libapp.dll.a
+  TARGET_PDB = app.exe.dbg
 
 
 #############################################
@@ -108,7 +101,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build preprocess: phony preprocess.exe
+build app: phony app.exe
 
 # =============================================================================
 # Folder targets.
@@ -118,7 +111,7 @@ build preprocess: phony preprocess.exe
 #############################################
 # Folder: E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/cmake-build-debug
 
-build all: phony preprocess.exe
+build all: phony app.exe
 
 # =============================================================================
 # Built-in targets

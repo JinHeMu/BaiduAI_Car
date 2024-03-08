@@ -1,6 +1,10 @@
 # ninja log v5
-3	1794	7315152693384166	CMakeFiles/preprocess.dir/src/preprocess.cpp.obj	825d1771a682cb0
-1794	1967	7315152695069370	preprocess.exe	6788c85f33d83a20
+4	2892	7315275989310827	CMakeFiles/app.dir/src/icar.cpp.obj	df1c5dc621bb5a7b
+0	158	7315276143259980	build.ninja	85b6d65f87433c74
+13	2895	7315265179591242	CMakeFiles/preprocess.dir/src/preprocess.cpp.obj	7b730cb69c734322
 1	1790	7315172303037876	CMakeFiles/preprocess.dir/src/recognition/tracking.cpp.obj	fcd19517df742665
-11	1841	7315172303492989	CMakeFiles/preprocess.dir/src/preprocess.cpp.obj	944719ddd188e1c1
-1842	2129	7315172306186866	preprocess.exe	e5249d50b8a7c171
+2477	2736	7315268971197445	app.exe	3eaa3ddfde70cf62
+3	2480	7315266591379079	CMakeFiles/preprocess.dir/src/icar.cpp.obj	82483523c21da6f3
+14	2888	7315275989110844	CMakeFiles/app.dir/src/preprocess.cpp.obj	908c460a1ec5e355
+1	169	7315276143259980	build.ninja	85b6d65f87433c74
+3	293	7315276146205992	app.exe	3eaa3ddfde70cf62
