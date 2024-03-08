@@ -1,0 +1,3 @@
+D:\Cmake\bin\cmake.exe -E rm -f CMakeFiles\icar.dir/objects.a
+D:\mingw64\bin\ar.exe qc CMakeFiles\icar.dir/objects.a @CMakeFiles\icar.dir\objects1.rsp
+D:\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\icar.dir/objects.a -Wl,--no-whole-archive -o icar.exe -Wl,--out-implib,libicar.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\icar.dir\linkLibs.rsp

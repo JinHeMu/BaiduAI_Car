@@ -1,0 +1,8 @@
+[
+{
+  "directory": "E:/jhm files/github-repository/BaiduAI_Car/edgeboard/build",
+  "command": "D:\\mingw64\\bin\\g++.exe  @CMakeFiles/icar.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\icar.dir\\src\\icar.cpp.obj -c \"E:\\jhm files\\github-repository\\BaiduAI_Car\\edgeboard\\src\\src\\icar.cpp\"",
+  "file": "E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/src/icar.cpp",
+  "output": "CMakeFiles/icar.dir/src/icar.cpp.obj"
+}
+]

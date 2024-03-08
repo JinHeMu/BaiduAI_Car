@@ -41,39 +41,53 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target app
+# Object build statements for EXECUTABLE target icar
 
 
 #############################################
-# Order-only phony target for app
+# Order-only phony target for icar
 
-build cmake_object_order_depends_target_app: phony || CMakeFiles/app.dir
+build cmake_object_order_depends_target_icar: phony || CMakeFiles/icar.dir
 
-build CMakeFiles/app.dir/src/icar.cpp.obj: CXX_COMPILER__app_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/src/icar.cpp || cmake_object_order_depends_target_app
-  DEP_FILE = CMakeFiles\app.dir\src\icar.cpp.obj.d
+build CMakeFiles/icar.dir/src/preprocess.cpp.obj: CXX_COMPILER__icar_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/src/preprocess.cpp || cmake_object_order_depends_target_icar
+  DEP_FILE = CMakeFiles\icar.dir\src\preprocess.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
   INCLUDES = -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/include" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/config" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/src" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/tool" -isystem D:/OpenCV/opencv/mingw_build/install/include
-  OBJECT_DIR = CMakeFiles\app.dir
-  OBJECT_FILE_DIR = CMakeFiles\app.dir\src
+  OBJECT_DIR = CMakeFiles\icar.dir
+  OBJECT_FILE_DIR = CMakeFiles\icar.dir\src
+
+build CMakeFiles/icar.dir/src/icar.cpp.obj: CXX_COMPILER__icar_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/src/icar.cpp || cmake_object_order_depends_target_icar
+  DEP_FILE = CMakeFiles\icar.dir\src\icar.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/include" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/config" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/src" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/tool" -isystem D:/OpenCV/opencv/mingw_build/install/include
+  OBJECT_DIR = CMakeFiles\icar.dir
+  OBJECT_FILE_DIR = CMakeFiles\icar.dir\src
+
+build CMakeFiles/icar.dir/src/mapping.cpp.obj: CXX_COMPILER__icar_unscanned_Debug E$:/jhm$ files/github-repository/BaiduAI_Car/edgeboard/src/src/mapping.cpp || cmake_object_order_depends_target_icar
+  DEP_FILE = CMakeFiles\icar.dir\src\mapping.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/include" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/config" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/src" -I"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/tool" -isystem D:/OpenCV/opencv/mingw_build/install/include
+  OBJECT_DIR = CMakeFiles\icar.dir
+  OBJECT_FILE_DIR = CMakeFiles\icar.dir\src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target app
+# Link build statements for EXECUTABLE target icar
 
 
 #############################################
-# Link the executable app.exe
+# Link the executable icar.exe
 
-build app.exe: CXX_EXECUTABLE_LINKER__app_Debug CMakeFiles/app.dir/src/icar.cpp.obj | D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a
+build icar.exe: CXX_EXECUTABLE_LINKER__icar_Debug CMakeFiles/icar.dir/src/preprocess.cpp.obj CMakeFiles/icar.dir/src/icar.cpp.obj CMakeFiles/icar.dir/src/mapping.cpp.obj | D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a D$:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a
   FLAGS = -g
   LINK_LIBRARIES = D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_gapi490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_highgui490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_ml490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_objdetect490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_photo490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_stitching490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_video490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_videoio490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgcodecs490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_dnn490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_calib3d490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_features2d490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_flann490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_imgproc490.dll.a  D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib/libopencv_core490.dll.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -L"E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/lib"
-  OBJECT_DIR = CMakeFiles\app.dir
+  OBJECT_DIR = CMakeFiles\icar.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = app.exe
-  TARGET_IMPLIB = libapp.dll.a
-  TARGET_PDB = app.exe.dbg
+  TARGET_FILE = icar.exe
+  TARGET_IMPLIB = libicar.dll.a
+  TARGET_PDB = icar.exe.dbg
 
 
 #############################################
@@ -101,7 +115,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build app: phony app.exe
+build icar: phony icar.exe
 
 # =============================================================================
 # Folder targets.
@@ -111,7 +125,7 @@ build app: phony app.exe
 #############################################
 # Folder: E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/cmake-build-debug
 
-build all: phony app.exe
+build all: phony icar.exe
 
 # =============================================================================
 # Built-in targets

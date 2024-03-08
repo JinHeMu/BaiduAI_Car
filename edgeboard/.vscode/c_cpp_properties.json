@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${default}",
+                "E:\\jhm files\\github-repository\\BaiduAI_Car\\edgeboard\\src\\include",
+                "E:\\jhm files\\modelcar\\linux_include\\include",
+                "D:\\OpenCV\\opencv\\mingw_build\\install\\include",
+                "D:\\mingw64\\bin\\..\\lib\\gcc\\x86_64-w64-mingw32\\8.1.0\\include\\c++",
+                "D:\\mingw64\\bin\\..\\lib\\gcc\\x86_64-w64-mingw32\\8.1.0\\include\\c++\\x86_64-w64-mingw32",
+                "D:\\mingw64\\bin\\..\\lib\\gcc\\x86_64-w64-mingw32\\8.1.0\\include\\c++\\backward",
+                "D:\\mingw64\\bin\\..\\lib\\gcc\\x86_64-w64-mingw32\\8.1.0\\include",
+                "D:\\mingw64\\bin\\..\\lib\\gcc\\x86_64-w64-mingw32\\8.1.0\\include-fixed",
+                "D:\\mingw64\\bin\\..\\lib\\gcc\\x86_64-w64-mingw32\\8.1.0\\..\\..\\..\\..\\x86_64-w64-mingw32\\include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "8.1",
+            "compilerPath": "cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}
