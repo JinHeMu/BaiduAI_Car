@@ -27,12 +27,12 @@ public:
         {
             file["cameraMatrix"] >> cameraMatrix;
             file["distCoeffs"] >> distCoeffs;
-            cout << "相机矫正参数初始化成功!" << endl;
+            cout << "Camera correction parameters initialized successfully." << endl;
             enable = true;
         }
         else
         {
-            cout << "打开相机参数矫正失败!!!" << endl;
+            cout << "Camera correction parameters initialized failed." << endl;
             enable = false;
         }
     };

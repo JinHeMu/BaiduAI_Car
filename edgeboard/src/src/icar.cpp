@@ -55,7 +55,11 @@ int main(int argc, char const *argv[]) {
         display.show();
 
 
-        waitKey(1);
+        int key = waitKey(30);
+        if (key == 'q' || key == 27) 
+        { // 按下 "q" 键或 ESC 键退出循环
+            break;
+        }
     }
 
 
