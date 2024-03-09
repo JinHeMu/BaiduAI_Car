@@ -25,6 +25,8 @@ public:
         FileStorage file;
         if (file.open("E:/jhm files/github-repository/BaiduAI_Car/edgeboard/res/calibration/valid/calibration.xml", FileStorage::READ)) // 读取本地保存的标定文件
         {
+            // WINDOWS "E:/jhm files/github-repository/BaiduAI_Car/edgeboard/res/calibration/valid/calibration.xml"
+            // LINUXS "../res/calibration/valid/calibration.xml"
             file["cameraMatrix"] >> cameraMatrix;
             file["distCoeffs"] >> distCoeffs;
             cout << "Camera correction parameters initialized successfully." << endl;

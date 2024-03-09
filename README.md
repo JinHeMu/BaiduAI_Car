@@ -32,9 +32,36 @@
 3. 主体巡线采用骨架提取与补线相互辅助
 4. 在二值化之后的图像仅有黑白两个色块，因此赛道边缘的特征十分的明显，即在边缘 处存在黑白跳变，这样我们就可以把赛道边缘提取出来。本次比赛我们为了减小运算量而 没有采取遍历整张图片的方式，而是利用边线是连续的的特征，可以根据上一行的边界所 在的位置近似确定下一行边线的位置，这样可以快速找到两条边线。再用两条边线拟合出 中线，通过中线求出目前小车偏离中线的误差，再以此误差作为舵机 PID 控制器的输入， 以此控制小车的姿态
 
+- 这段代码定义了一个名为`Tracking`的类，用于识别和追踪图像中的赛道线。赛道线识别对于自动驾驶车辆和机器人导航系统等领域非常重要。这个类使用OpenCV库来处理图像，从而识别出赛道的左右边缘，以及处理其他相关的任务如岔路识别和车库标识识别等。以下是代码中各个部分的详细解释：
 
+  ### 类成员变量
+  - `vector<POINT> pointsEdgeLeft;`和`vector<POINT> pointsEdgeRight;`：分别存储赛道左边缘和右边缘的点集。
+  - `vector<POINT> widthBlock;`：存储赛道宽度信息，每个元素表示一行中赛道的起始和终止点。
+  - `vector<POINT> spurroad;`：存储岔路信息。
+  - `double stdevLeft;`和`double stdevRight;`：分别存储左右边缘斜率的方差，用于评估赛道线的直线性。
+  - `int validRowsLeft;`和`int validRowsRight;`：分别记录左右边缘有效的行数。
+  - `POINT garageEnable;`：标志位，用于识别车库入口，x=1表示已识别，y存储识别行。
+  - `uint16_t rowCutUp;`和`uint16_t rowCutBottom;`：图像顶部和底部切行的数量，用于裁剪图像以减少处理区域。
+  - `Mat imagePath;`：存储待识别的图像。
+  - `enum ImageType`：定义图像类型（二值化或RGB）。
 
+  ### 主要方法
+  - `void trackRecognition(bool isResearch, uint16_t rowStart);`：核心方法，执行赛道线识别逻辑。它支持两种模式：完全搜索模式和从指定行开始的重复搜索模式。
+  - `void trackRecognition(Mat &imageBinary);`：重载的方法，接受二值化图像为参数并调用`trackRecognition`方法。
+  - `void drawImage(Mat &trackImage);`：在给定图像上绘制赛道边缘和岔路信息。
+  - `double stdevEdgeCal(vector<POINT> &v_edge, int img_height);`：计算边缘斜率的标准偏差。
+  - `void slopeCal(vector<POINT> &edge, int index);`：计算边缘点斜率。
+  - `void validRowsCal(void);`：计算左右边缘的有效行数。
+  - `int getMiddleValue(vector<int> vec);`：使用冒泡排序法求取集合的中值。
 
+  ### 识别流程简述
+  1. **初始化和预处理**：初始化类变量，清理之前的结果，设置图像类型（二值化或RGB），并根据是否为重复搜索模式调整搜索起始行。
+  2. **行遍历**：从图像底部向顶部遍历每一行，寻找赛道边缘。这一过程包括色块识别（赛道区域）和边缘点提取。
+  3. **色块处理**：对于每一行，识别出所有色块的起始和终止列，处理车库标志识别，岔路信息提取，以及赛道宽度计算。
+  4. **边缘点处理**：根据色块信息提取赛道的左右边缘点，并计算其斜率和方差，评估赛道线的直线性和稳定性。
+  5. **结果绘制**：在指定图像上绘制识别的赛道边缘和其他信息（如岔路）。
+
+  整体而言，这段代码展示了一种基于图像处理技
 
 
 

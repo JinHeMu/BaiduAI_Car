@@ -29,12 +29,17 @@ using namespace cv;
 int main(int argc, char const *argv[]) {
 
     string path = "E:/jhm files/modelcar/sample.mp4";
+    // LINUX string path = "../res/samples/sample.mp4";
+
     VideoCapture cap(path);
 //	VideoCapture cap(0);读取设备摄像头
     Mat img;
     Mat imgBin;
     Mat imageIPM(240, 320, CV_8UC3, Scalar(0, 0, 0));
+
     Preprocess preprocess;
+    Tracking tracker;
+
     Mapping IPM(cv::Size(320, 240), cv::Size(COLSIMAGEIPM, ROWSIMAGEIPM));
     Display display(4); // 创建一个窗口数量为1的对象
 
@@ -44,18 +49,22 @@ int main(int argc, char const *argv[]) {
         Mat imageCorrection = preprocess.correction(img);
         Mat imageBinary = preprocess.binaryzation(imageCorrection);
         IPM.homography(imageCorrection, imageIPM);
+        tracker.trackRecognition(imageBinary);
 
+
+        tracker.drawImage(imageCorrection);
         // 设置新窗口的属性并显示图像
         display.setNewWindow(1, "Original Image", img);
         display.setNewWindow(2, "Corrected Image", imageCorrection);
         display.setNewWindow(3, "imageBinary", imageBinary);
-        display.setNewWindow(4, "imageIPM", imageIPM);
+        // display.setNewWindow(4, "imageIPM", imageIPM);
+        // display.setNewWindow(4, "imageIPM", imageBinary);
 
         // 显示融合后的图像
         display.show();
 
 
-        int key = waitKey(30);
+        int key = waitKey(10);
         if (key == 'q' || key == 27) 
         { // 按下 "q" 键或 ESC 键退出循环
             break;
