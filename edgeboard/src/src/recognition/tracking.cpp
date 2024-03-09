@@ -81,6 +81,8 @@ public:
         {
             counterBlock = 0; // 色块计数器清空
             // 搜索色（block）块信息
+
+            //RGB图像
             if (imageType == ImageType::Rgb) // 输入RGB图像
             {
                 if (imagePath.at<Vec3b>(row, 1)[2] > 0)
@@ -111,31 +113,33 @@ public:
                         endBlock[counterBlock++] = COLSIMAGE - 1;
                 }
             }
+
+            // 二值化图像
             if (imageType == ImageType::Binary) // 输入二值化图像
             {
-                if (imagePath.at<uchar>(row, 1) > 127)
+                if (imagePath.at<uchar>(row, 1) > 127)//第一列如果是白色
                 {
-                    startBlock[counterBlock] = 0;
+                    startBlock[counterBlock] = 0;//色块初始值为0
                 }
                 for (int col = 1; col < COLSIMAGE; col++) // 搜索出每行的所有色块
                 {
                     if (imagePath.at<uchar>(row, col) > 127 &&
-                        imagePath.at<uchar>(row, col - 1) <= 127)
+                        imagePath.at<uchar>(row, col - 1) <= 127)//寻找到黑->白的变化色块
                     {
-                        startBlock[counterBlock] = col;
+                        startBlock[counterBlock] = col;//记录色块起始位置
                     }
                     else
                     {
                         if (imagePath.at<uchar>(row, col) <= 127 &&
-                            imagePath.at<uchar>(row, col - 1) > 127)
+                            imagePath.at<uchar>(row, col - 1) > 127)//寻找到白->黑的变化色块
                         {
-                            endBlock[counterBlock++] = col;
-                            if (counterBlock >= end(endBlock) - begin(endBlock))
+                            endBlock[counterBlock++] = col;//记录色块结束位置
+                            if (counterBlock >= end(endBlock) - begin(endBlock))//判断是否超出数组
                                 break;
                         }
                     }
                 }
-                if (imagePath.at<uchar>(row, COLSIMAGE - 1) > 127)
+                if (imagePath.at<uchar>(row, COLSIMAGE - 1) > 127)//最后一列如果是白色
                 {
                     if (counterBlock < end(endBlock) - begin(endBlock) - 1)
                         endBlock[counterBlock++] = COLSIMAGE - 1;
@@ -144,11 +148,11 @@ public:
 
             int widthBlocks = endBlock[0] - startBlock[0]; // 色块宽度临时变量
             int indexWidestBlock = 0;                      // 最宽色块的序号
-            if (flagStartBlock)                            // 起始行做特殊处理
+            if (flagStartBlock)                            // 起始行做特殊处理(第一行rowstart)
             {
-                if (row < ROWSIMAGE / 3)
+                if (row < ROWSIMAGE / 3)// 首行不满足宽度要求(第一行那有这么小的)
                     return;
-                if (counterBlock == 0)
+                if (counterBlock == 0)// 无色块
                 {
                     continue;
                 }
@@ -162,22 +166,22 @@ public:
                     }
                 }
 
-                int limitWidthBlock = COLSIMAGE * 0.8; // 首行色块宽度限制（不能太小）
+                int limitWidthBlock = COLSIMAGE * 0.8; // 首行色块宽度限制（不能太小）0.8的图像大小
                 if (row < ROWSIMAGE * 0.6)
                 {
                     limitWidthBlock = COLSIMAGE * 0.4;
                 }
                 if (widthBlocks > limitWidthBlock) // 满足首行宽度要求
                 {
-                    flagStartBlock = false;
-                    POINT pointTmp(row, startBlock[indexWidestBlock]);
-                    pointsEdgeLeft.push_back(pointTmp);
-                    pointTmp.y = endBlock[indexWidestBlock];
-                    pointsEdgeRight.push_back(pointTmp);
-                    widthBlock.emplace_back(row, endBlock[indexWidestBlock] - startBlock[indexWidestBlock]);
+                    flagStartBlock = false;//第一行处理完成
+                    POINT pointTmp(row, startBlock[indexWidestBlock]);//记录最大的色块起始点x,y
+                    pointsEdgeLeft.push_back(pointTmp);//记录至左点集
+                    pointTmp.y = endBlock[indexWidestBlock];//记录最大的色块结束点x,y
+                    pointsEdgeRight.push_back(pointTmp);//记录至右点集
+                    widthBlock.emplace_back(row, endBlock[indexWidestBlock] - startBlock[indexWidestBlock]);//记录色块宽度row, width
                     counterSearchRows++;
                 }
-                spurroadEnable = false;
+                spurroadEnable = false;//起始行不搜索岔路
             }
             else // 其它行色块坐标处理
             {
@@ -187,7 +191,7 @@ public:
                 }
 
                 //-------------------------------------------------<车库标识识别>-------------------------------------------------------------
-                if (counterBlock > 5 && !garageEnable.x)
+                if (counterBlock > 5 && !garageEnable.x)//色块数量大于五而且未标识
                 {
                     int widthThis = 0;        // 色块的宽度
                     int widthVer = 0;         // 当前行色块的平均值
@@ -210,7 +214,7 @@ public:
 
                     for (int i = 0; i < widthGarage.size(); i++)
                     {
-                        if (abs(widthGarage[i] - widthMiddle) < widthMiddle / 3)
+                        if (abs(widthGarage[i] - widthMiddle) < widthMiddle / 3)// 验证斑马线色块宽度是否符合
                         {
                             indexGarage.push_back(i);
                         }
@@ -218,11 +222,11 @@ public:
                     if (indexGarage.size() >= 4) // 验证有效斑马线色块个数
                     {
                         vector<int> distance;
-                        for (int i = 1; i < indexGarage.size(); i++) // 质心间距的方差校验
+                        for (int i = 1; i < indexGarage.size(); i++) // 质心间距的方差校验(?这里有用到质心吗?)
                         {
                             distance.push_back(widthGarage[indexGarage[i]] - widthGarage[indexGarage[i - 1]]);
                         }
-                        double var = sigma(distance);
+                        double var = sigma(distance);//计算间距方差
                         if (var < 5.0) // 经验参数
                         {
                             garageEnable.x = 1;                      // 车库标志使能
@@ -249,7 +253,7 @@ public:
                 }
                 else if (indexBlocks.size() == 1) // 只存在单个色块，正常情况，提取边缘信息
                 {
-                    if (endBlock[indexBlocks[0]] - startBlock[indexBlocks[0]] < COLSIMAGE / 10)
+                    if (endBlock[indexBlocks[0]] - startBlock[indexBlocks[0]] < COLSIMAGE / 10)//色块宽度过小
                     {
                         continue;
                     }

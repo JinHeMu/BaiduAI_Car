@@ -41,7 +41,7 @@ int main(int argc, char const *argv[]) {
     Tracking tracker;
 
     Mapping IPM(cv::Size(320, 240), cv::Size(COLSIMAGEIPM, ROWSIMAGEIPM));
-    Display display(4); // 创建一个窗口数量为1的对象
+    Display display(1); // 创建一个窗口数量为1的对象
 
     while(true)
     {
@@ -54,9 +54,9 @@ int main(int argc, char const *argv[]) {
 
         tracker.drawImage(imageCorrection);
         // 设置新窗口的属性并显示图像
-        display.setNewWindow(1, "Original Image", img);
-        display.setNewWindow(2, "Corrected Image", imageCorrection);
-        display.setNewWindow(3, "imageBinary", imageBinary);
+        // display.setNewWindow(1, "Original Image", img);
+        display.setNewWindow(1, "Corrected Image", imageCorrection);
+        // display.setNewWindow(3, "imageBinary", imageBinary);
         // display.setNewWindow(4, "imageIPM", imageIPM);
         // display.setNewWindow(4, "imageIPM", imageBinary);
 
