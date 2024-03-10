@@ -21,123 +21,16 @@ Target DLL:      CMSIS_AGDI.dll V1.32.12.0
 Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-E:\jhm files\github-repository\BaiduAI_Car\rt1064\Project\MDK\RT106X.uvprojx
-Project File Date:  03/03/2024
+E:\jhm files\github-repository\BaiduAI_Car\RT1064\Project\MDK\RT106X.uvprojx
+Project File Date:  03/10/2024
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'D:\keil_5.33\ARM\ARMCLANG\Bin'
 Build target 'nor_sdram_zf_dtcm_v6'
-../../Libraries/seekfree_libraries/zf_pwm.c(261): error: unknown type name 'PWMCH_enum'
-void pwm_freq(PWMCH_enum pwmch, uint32 freq, uint32 duty)
-              ^
-../../Libraries/seekfree_libraries/zf_pwm.c(268): error: use of undeclared identifier 'pwm_config_t'
-    pwm_config_t pwmConfig;
-    ^
-../../Libraries/seekfree_libraries/zf_pwm.c(270): warning: implicit declaration of function 'PWM_GetDefaultConfig' is invalid in C99 [-Wimplicit-function-declaration]
-    PWM_GetDefaultConfig(&pwmConfig);
-    ^
-../../Libraries/seekfree_libraries/zf_pwm.c(270): error: use of undeclared identifier 'pwmConfig'
-    PWM_GetDefaultConfig(&pwmConfig);
-                          ^
-../../Libraries/seekfree_libraries/zf_pwm.c(272): error: use of undeclared identifier 'pwmConfig'
-    pwmConfig.reloadLogic = kPWM_ReloadPwmFullCycle;
-    ^
-../../Libraries/seekfree_libraries/zf_pwm.c(272): error: use of undeclared identifier 'kPWM_ReloadPwmFullCycle'
-    pwmConfig.reloadLogic = kPWM_ReloadPwmFullCycle;
-                            ^
-../../Libraries/seekfree_libraries/zf_pwm.c(273): error: use of undeclared identifier 'pwmConfig'
-    pwmConfig.pairOperation = kPWM_Independent;
-    ^
-../../Libraries/seekfree_libraries/zf_pwm.c(273): error: use of undeclared identifier 'kPWM_Independent'
-    pwmConfig.pairOperation = kPWM_Independent;
-                              ^
-../../Libraries/seekfree_libraries/zf_pwm.c(274): error: use of undeclared identifier 'pwmConfig'
-    pwmConfig.enableDebugMode = true;
-    ^
-../../Libraries/seekfree_libraries/zf_pwm.c(277): error: use of undeclared identifier 'PWM_SRC_CLK_FREQ'
-    temp_prsc = (PWM_SRC_CLK_FREQ/freq)>>16;
-                 ^
-../../Libraries/seekfree_libraries/zf_pwm.c(278): error: use of undeclared identifier 'pwmConfig'
-    if      (1   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_1;
-                                ^
-../../Libraries/seekfree_libraries/zf_pwm.c(278): error: use of undeclared identifier 'kPWM_Prescale_Divide_1'
-    if      (1   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_1;
-                                                     ^
-../../Libraries/seekfree_libraries/zf_pwm.c(279): error: use of undeclared identifier 'pwmConfig'
-    else if (2   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_2;
-                                ^
-../../Libraries/seekfree_libraries/zf_pwm.c(279): error: use of undeclared identifier 'kPWM_Prescale_Divide_2'
-    else if (2   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_2;
-                                                     ^
-../../Libraries/seekfree_libraries/zf_pwm.c(280): error: use of undeclared identifier 'pwmConfig'
-    else if (4   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_4;
-                                ^
-../../Libraries/seekfree_libraries/zf_pwm.c(280): error: use of undeclared identifier 'kPWM_Prescale_Divide_4'
-    else if (4   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_4;
-                                                     ^
-../../Libraries/seekfree_libraries/zf_pwm.c(281): error: use of undeclared identifier 'pwmConfig'
-    else if (8   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_8;
-                                ^
-../../Libraries/seekfree_libraries/zf_pwm.c(281): error: use of undeclared identifier 'kPWM_Prescale_Divide_8'
-    else if (8   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_8;
-                                                     ^
-../../Libraries/seekfree_libraries/zf_pwm.c(282): error: use of undeclared identifier 'pwmConfig'
-    else if (16  >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_16;
-                                ^
-../../Libraries/seekfree_libraries/zf_pwm.c(282): error: use of undeclared identifier 'kPWM_Prescale_Divide_16'
-    else if (16  >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_16;
-                                                     ^
-fatal error: too many errors emitted, stopping now [-ferror-limit=]
-1 warning and 20 errors generated.
-compiling zf_pwm.c...
-compiling servo.c...
-../CODE/motor.c(10): error: redefinition of 'Incremental_kp' with a different type: 'float' vs 'float [4]'
-float Incremental_kp = 0;
-      ^
-../CODE\motor.h(14): note: previous declaration is here
-extern float Incremental_kp[4], Incremental_ki[4], Incremental_kd[4];//增量式PID，控制电机输出值
-             ^
-../CODE/motor.c(11): error: redefinition of 'Incremental_ki' with a different type: 'float' vs 'float [4]'
-float Incremental_ki = 0;
-      ^
-../CODE\motor.h(14): note: previous declaration is here
-extern float Incremental_kp[4], Incremental_ki[4], Incremental_kd[4];//增量式PID，控制电机输出值
-                                ^
-../CODE/motor.c(12): error: redefinition of 'Incremental_kd' with a different type: 'float' vs 'float [4]'
-float Incremental_kd = 0;
-      ^
-../CODE\motor.h(14): note: previous declaration is here
-extern float Incremental_kp[4], Incremental_ki[4], Incremental_kd[4];//增量式PID，控制电机输出值
-                                                   ^
-../CODE/motor.c(25): error: use of undeclared identifier 'Incrementa_kp'; did you mean 'Incremental_kp'?
-    Pwm += Incrementa_kp * (Bias - Last_Bias)  + Incrementa_ki * Bias;
-           ^~~~~~~~~~~~~
-           Incremental_kp
-../CODE\motor.h(14): note: 'Incremental_kp' declared here
-extern float Incremental_kp[4], Incremental_ki[4], Incremental_kd[4];//增量式PID，控制电机输出值
-             ^
-../CODE/motor.c(25): error: invalid operands to binary expression ('float [4]' and 'float')
-    Pwm += Incrementa_kp * (Bias - Last_Bias)  + Incrementa_ki * Bias;
-           ~~~~~~~~~~~~~ ^ ~~~~~~~~~~~~~~~~~~
-../CODE/motor.c(25): error: use of undeclared identifier 'Incrementa_ki'; did you mean 'Incremental_ki'?
-    Pwm += Incrementa_kp * (Bias - Last_Bias)  + Incrementa_ki * Bias;
-                                                 ^~~~~~~~~~~~~
-                                                 Incremental_ki
-../CODE\motor.h(14): note: 'Incremental_ki' declared here
-extern float Incremental_kp[4], Incremental_ki[4], Incremental_kd[4];//增量式PID，控制电机输出值
-                                ^
-../CODE/motor.c(25): error: invalid operands to binary expression ('float [4]' and 'float')
-    Pwm += Incrementa_kp * (Bias - Last_Bias)  + Incrementa_ki * Bias;
-                                                 ~~~~~~~~~~~~~ ^ ~~~~
-../CODE/motor.c(33): warning: implicit declaration of function 'Incremental_pid' is invalid in C99 [-Wimplicit-function-declaration]
-        duty = Incremental_pid(speed_tar, RC_encoder); // 计算得到每个电机输出目标值
-               ^
-../CODE/motor.c(33): error: use of undeclared identifier 'RC_encoder'
-        duty = Incremental_pid(speed_tar, RC_encoder); // 计算得到每个电机输出目标值
-                                          ^
-1 warning and 8 errors generated.
-compiling motor.c...
-".\Objects\RT106X.axf" - 27 Error(s), 2 Warning(s).
+compiling SEEKFREE_BLUETOOTH_CH9141.c...
+linking...
+Program Size: Code=59728 RO-data=7216 RW-data=240 ZI-data=459536  
+".\Objects\RT106X.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -150,8 +43,7 @@ Package Vendor: NXP
   D:\keil_5.33\NXP\MIMXRT1064_DFP\15.0.0
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

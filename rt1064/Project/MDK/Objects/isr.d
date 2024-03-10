@@ -124,6 +124,4 @@
   ..\..\Libraries\rttherad_libraries\include\rtservice.h \
   ..\..\Libraries\rttherad_libraries\include\rtm.h \
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
-  ..\CODE\motor.h ..\CODE\encoder.h ..\CODE\timer_pit.h \
-  ..\CODE\display.h ..\CODE\servo.h ..\CODE\buzzer.h ..\CODE\button.h \
-  ..\CODE\filter.h ..\USER\inc\isr.h
+  ..\USER\inc\isr.h

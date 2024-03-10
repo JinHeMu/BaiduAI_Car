@@ -125,5 +125,6 @@
   ..\..\Libraries\rttherad_libraries\include\rtm.h \
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\motor.h ..\CODE\encoder.h ..\CODE\timer_pit.h \
-  ..\CODE\display.h ..\CODE\servo.h ..\CODE\buzzer.h ..\CODE\button.h \
-  ..\CODE\filter.h
+  ..\CODE\display.h ..\CODE\smotor.h ..\CODE\buzzer.h ..\CODE\button.h \
+  ..\CODE\filter.h ..\CODE\carmove.h ..\CODE\imu963.h ..\CODE\openart1.h \
+  ..\CODE\openart2.h ..\CODE\icm20602.h

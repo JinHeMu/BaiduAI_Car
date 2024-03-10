@@ -2173,88 +2173,6 @@
         </Group>
         <Group>
           <GroupName>code</GroupName>
-          <Files>
-            <File>
-              <FileName>display.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\display.h</FilePath>
-            </File>
-            <File>
-              <FileName>display.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\display.c</FilePath>
-            </File>
-            <File>
-              <FileName>buzzer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\buzzer.h</FilePath>
-            </File>
-            <File>
-              <FileName>buzzer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\buzzer.c</FilePath>
-            </File>
-            <File>
-              <FileName>button.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\button.h</FilePath>
-            </File>
-            <File>
-              <FileName>button.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\button.c</FilePath>
-            </File>
-            <File>
-              <FileName>encoder.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\encoder.c</FilePath>
-            </File>
-            <File>
-              <FileName>encoder.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\encoder.h</FilePath>
-            </File>
-            <File>
-              <FileName>motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\motor.c</FilePath>
-            </File>
-            <File>
-              <FileName>motor.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\motor.h</FilePath>
-            </File>
-            <File>
-              <FileName>timer_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\timer_pit.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer_pit.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\timer_pit.h</FilePath>
-            </File>
-            <File>
-              <FileName>filter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\filter.c</FilePath>
-            </File>
-            <File>
-              <FileName>filter.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\filter.h</FilePath>
-            </File>
-            <File>
-              <FileName>servo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\servo.c</FilePath>
-            </File>
-            <File>
-              <FileName>servo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\servo.h</FilePath>
-            </File>
-          </Files>
         </Group>
       </Groups>
     </Target>
@@ -2262,7 +2180,6 @@
       <TargetName>nor_sdram_zf_dtcm_v6</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pArmCC>6150000::V6.15::ARMCLANG</pArmCC>
       <pCCUsed>6150000::V6.15::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
@@ -4425,88 +4342,6 @@
         </Group>
         <Group>
           <GroupName>code</GroupName>
-          <Files>
-            <File>
-              <FileName>display.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\display.h</FilePath>
-            </File>
-            <File>
-              <FileName>display.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\display.c</FilePath>
-            </File>
-            <File>
-              <FileName>buzzer.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\buzzer.h</FilePath>
-            </File>
-            <File>
-              <FileName>buzzer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\buzzer.c</FilePath>
-            </File>
-            <File>
-              <FileName>button.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\button.h</FilePath>
-            </File>
-            <File>
-              <FileName>button.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\button.c</FilePath>
-            </File>
-            <File>
-              <FileName>encoder.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\encoder.c</FilePath>
-            </File>
-            <File>
-              <FileName>encoder.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\encoder.h</FilePath>
-            </File>
-            <File>
-              <FileName>motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\motor.c</FilePath>
-            </File>
-            <File>
-              <FileName>motor.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\motor.h</FilePath>
-            </File>
-            <File>
-              <FileName>timer_pit.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\timer_pit.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer_pit.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\timer_pit.h</FilePath>
-            </File>
-            <File>
-              <FileName>filter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\filter.c</FilePath>
-            </File>
-            <File>
-              <FileName>filter.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\filter.h</FilePath>
-            </File>
-            <File>
-              <FileName>servo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\CODE\servo.c</FilePath>
-            </File>
-            <File>
-              <FileName>servo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\CODE\servo.h</FilePath>
-            </File>
-          </Files>
         </Group>
       </Groups>
     </Target>

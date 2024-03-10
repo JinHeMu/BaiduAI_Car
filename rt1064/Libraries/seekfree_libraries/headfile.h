@@ -1,16 +1,16 @@
 /*********************************************************************************************************************
  * COPYRIGHT NOTICE
- * Copyright (c) 2019,闁跨喐鏋婚幏椋庡悢閽€宥夋晸閿燂拷
+ * Copyright (c) 2019,��ɿƼ�
  * All rights reserved.
- * 闁跨喐鏋婚幏鐑芥晸閺傘倖瀚归柨鐔告灮閹风兘鏁撻弬銈嗗QQ缂囥倝鏁撻弬銈嗗娑撯偓缂囥倝鏁撻弬銈嗗179029047(闁跨喐鏋婚幏鐑芥晸閺傘倖瀚�)  闁跨喐鏋婚幏椋庡參闁跨喐鏋婚幏锟�244861897
+ * ��������QQȺ��һȺ��179029047(����)  ��Ⱥ��244861897
  *
- * 闁跨喐鏋婚幏鐑芥晸閺傘倖瀚归柨鐔告灮閹风兘鏁撻弬銈嗗闁跨喐鏋婚幏鐑芥晸閹瑰嘲搴滈幏閿嬫綀闁跨喐鏋婚幏鐑芥晸閺傘倖瀚归柨鐔告灮閹烽鍚旈拃宥夋晸閺傘倖瀚归柨鐔告灮閹烽攱鐗庨柨鐔诲▏鏉堢偓瀚归柨鐔告灮閹风兘鏁撻弬銈嗗闁跨喐鏋婚幏鐑芥晸閺傘倖瀚归柨鐔告灮閹风兘鏁撻弬銈嗗闁跨喐鏋婚幏鐑芥晸閹活厾顣幏鐑芥晸闁板灚鎷濋幏鐑芥晸閿燂拷
- * 闁跨喐鏋婚幏鐤箣闁跨喐鏋婚幏铚傜秴娴ｅ潡鏁撻惌顐ヮ嚋閹风兘鏁撻弬銈嗗闁跨喐鏋婚幏鐑芥晸閺傘倖瀚归柨鐔告灮閹风兘鏁撻弬銈嗗闁跨喓娼鹃棃鈺傚闁跨喐鏋婚幏鐑芥晸閺傘倖瀚归弮鍫曟晸閺傘倖瀚归柨鐔活嚑娣囨繈鏁撻弬銈嗗闁跨喐鏋婚幏椋庡悢閽€宥夋晸閺傘倖瀚归梽宀勬晸妤椾警鐓夐幏鐑芥晸閺傘倖瀚归柨鐔告灮閹风兘鏁撻敓锟�
+ * �����������ݰ�Ȩ������ɿƼ����У�δ����������������ҵ��;��
+ * ��ӭ��λʹ�ò������������޸�����ʱ���뱣����ɿƼ��İ�Ȩ������
  *
  * @file       		headfile
- * @company	   		闁跨喓鍗崇拋瑙勫闁跨喐鏋婚幏椋庡悢閽€宥夋晸閺傘倖瀚归柨鐔告灮閹风柉鏌婇柨鐔峰閿燂拷
- * @author     		闁跨喐鏋婚幏椋庡悢閽€宥夋晸閿燂拷(QQ3184284598)
- * @version    		闁跨喍绮欓惇濯巓c闁跨喐鏋婚幏绌爀rsion闁跨喍鑼庣涵閿嬪 闁跨喕濮ら張顒冾嚛闁跨喐鏋婚幏锟�
+ * @company	   		�ɶ���ɿƼ����޹�˾
+ * @author     		��ɿƼ�(QQ3184284598)
+ * @version    		�鿴doc��version�ļ� �汾˵��
  * @Software 		IAR 8.3 or MDK 5.28
  * @Target core		NXP RT1064DVL6A
  * @Taobao   		https://seekfree.taobao.com/
@@ -35,7 +35,7 @@
 #include "common.h"
 #include "zf_vector.h"
 
-//------闁跨喍鑼庣涵閿嬪缁崵绮洪柨鐔告灮閹风兘鏁撻柊闈涘殩閹峰嘲瀚欓柨鐕傛嫹
+//------�ļ�ϵͳ���ͷ�ļ�
 #include "ff.h"
 #include "diskio.h"
 #include "fsl_sd_disk.h"
@@ -43,7 +43,7 @@
 #include "SEEKFREE_PRINTF.h"
 
 
-//------闁跨喐鏋婚幏椋庡悢閽€宥夋晸閺傘倖瀚归柨鐔哄珱椤掑﹥瀚归柨鐔告灮閹风兘鏁撻弬銈嗗闁跨喐鏋婚幏鐑芥晸閺傘倖瀚归柨鐔煎徍閸戙倖瀚归崟鐔兼晸閿燂拷
+//------��ɿƼ���Ƭ����������ͷ�ļ�
 #include "zf_gpio.h"
 #include "zf_iomuxc.h"
 #include "zf_pit.h"
@@ -61,7 +61,7 @@
 #include "zf_usb_cdc.h"
 #include "zf_sdcard.h"
 
-//------闁跨喐鏋婚幏椋庡悢閽€宥夋晸閺傘倖瀚归柨鐔哄珱閸戙倖瀚归柨鐔告灮閹风兘鏁撻柊闈涘殩閹峰嘲瀚欓柨鐕傛嫹
+//------��ɿƼ���Ʒ����ͷ�ļ�
 #include "SEEKFREE_FONT.h"
 #include "SEEKFREE_18TFT.h"
 #include "SEEKFREE_IPS114_SPI.h"
@@ -87,14 +87,7 @@
 
 ////------User Defined
 #include "rtthread.h"
-#include "motor.h"
-#include "encoder.h"
-#include "timer_pit.h"
-#include "display.h"
-#include "servo.h"
-#include "buzzer.h"
-#include "button.h"
-#include "filter.h"
+
 
 #endif
 

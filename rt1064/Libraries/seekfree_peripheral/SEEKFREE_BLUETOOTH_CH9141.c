@@ -34,7 +34,6 @@
 #include "zf_uart.h"
 #include "assert.h"
 #include "SEEKFREE_BLUETOOTH_CH9141.h"
-#include "motor.h"
 
 uint8               bluetooth_ch9141_rx_buffer;
 lpuart_transfer_t   bluetooth_ch9141_receivexfer;

@@ -4,20 +4,10 @@ void main()
 {
 	
 
-	rt_thread_mdelay(150);					// å»¶æ—¶150msï¼Œç­‰å¾…ä¸»æ¿å…¶ä»–å¤–è®¾ä¸Šç”µæˆåŠŸ
-	gpio_init(B9, GPO, 1, GPIO_PIN_CONFIG); // åˆå§‹åŒ–B9ç¯
+	rt_thread_mdelay(100);					// ÑÓÊ±150ms£¬µÈ´ıÖ÷°åÆäËûÍâÉèÉÏµç³É¹¦
+	gpio_init(B9, GPO, 1, GPIO_PIN_CONFIG); // ³õÊ¼»¯B9µÆ
 
-	servo_init();
 
-	display_init(); // æ˜¾ç¤ºå±åˆå§‹åŒ–	
-	
-	buzzer_init(); // åˆå§‹åŒ–èœ‚é¸£å™¨
-	button_init(); // åˆå§‹åŒ–æŒ‰é”®
-
-	encoder_init();	  // åˆå§‹åŒ–ç¼–ç å™¨
-
-	timer_pit_init(); // å‘¨æœŸå®šæ—¶å™¨
-	
 	while (1)
 	{
 		gpio_toggle(B9);

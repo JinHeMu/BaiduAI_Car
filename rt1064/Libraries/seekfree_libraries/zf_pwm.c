@@ -1,262 +1,263 @@
 /*********************************************************************************************************************
  * COPYRIGHT NOTICE
- * Copyright (c) 2019,é€é£ç§‘æŠ€
+ * Copyright (c) 2019,Öğ·É¿Æ¼¼
  * All rights reserved.
- * æŠ€æœ¯è®¨è®ºQQç¾¤ï¼šä¸€ç¾¤ï¼š179029047(å·²æ»¡)  äºŒç¾¤ï¼š244861897
+ * ¼¼ÊõÌÖÂÛQQÈº£ºÒ»Èº£º179029047(ÒÑÂú)  ¶şÈº£º244861897
  *
- * ä»¥ä¸‹æ‰€æœ‰å†…å®¹ç‰ˆæƒå‡å±é€é£ç§‘æŠ€æ‰€æœ‰ï¼Œæœªç»å…è®¸ä¸å¾—ç”¨äºå•†ä¸šç”¨é€”ï¼Œ
- * æ¬¢è¿å„ä½ä½¿ç”¨å¹¶ä¼ æ’­æœ¬ç¨‹åºï¼Œä¿®æ”¹å†…å®¹æ—¶å¿…é¡»ä¿ç•™é€é£ç§‘æŠ€çš„ç‰ˆæƒå£°æ˜ã€‚
+ * ÒÔÏÂËùÓĞÄÚÈİ°æÈ¨¾ùÊôÖğ·É¿Æ¼¼ËùÓĞ£¬Î´¾­ÔÊĞí²»µÃÓÃÓÚÉÌÒµÓÃÍ¾£¬
+ * »¶Ó­¸÷Î»Ê¹ÓÃ²¢´«²¥±¾³ÌĞò£¬ĞŞ¸ÄÄÚÈİÊ±±ØĞë±£ÁôÖğ·É¿Æ¼¼µÄ°æÈ¨ÉùÃ÷¡£
  *
- * @file       		common
- * @company	   		æˆéƒ½é€é£ç§‘æŠ€æœ‰é™å…¬å¸
- * @author     		é€é£ç§‘æŠ€(QQ3184284598)
- * @version    		æŸ¥çœ‹docå†…versionæ–‡ä»¶ ç‰ˆæœ¬è¯´æ˜
+ * @file       		pwm
+ * @company	   		³É¶¼Öğ·É¿Æ¼¼ÓĞÏŞ¹«Ë¾
+ * @author     		Öğ·É¿Æ¼¼(QQ3184284598)
+ * @version    		²é¿´docÄÚversionÎÄ¼ş °æ±¾ËµÃ÷
  * @Software 		IAR 8.3 or MDK 5.28
  * @Target core		NXP RT1064DVL6A
  * @Taobao   		https://seekfree.taobao.com/
  * @date       		2019-04-30
  ********************************************************************************************************************/
- 
- 
- 
-#ifndef _common_h
-#define _common_h
-
-#include "fsl_common.h"
-
-//æ•°æ®ç±»å‹å£°æ˜
-typedef unsigned char       uint8;   //  8 bits 
-typedef unsigned short int  uint16;  // 16 bits 
-typedef unsigned long int   uint32;  // 32 bits 
-typedef unsigned long long  uint64;  // 64 bits 
-
-typedef char                int8;    //  8 bits 
-typedef short int           int16;   // 16 bits 
-typedef long  int           int32;   // 32 bits 
-typedef long  long          int64;   // 64 bits 
-
-typedef volatile int8       vint8;   //  8 bits 
-typedef volatile int16      vint16;  // 16 bits 
-typedef volatile int32      vint32;  // 32 bits 
-typedef volatile int64      vint64;  // 64 bits 
-
-typedef volatile uint8      vuint8;  //  8 bits 
-typedef volatile uint16     vuint16; // 16 bits 
-typedef volatile uint32     vuint32; // 32 bits 
-typedef volatile uint64     vuint64; // 64 bits 
 
 
-typedef enum //æšä¸¾ç«¯å£æ–¹å‘
+#include "zf_iomuxc.h"
+#include "zf_pwm.h"
+
+
+#define PWM_SRC_CLK_FREQ    CLOCK_GetFreq(kCLOCK_IpgClk)        //¶¨ÒåPWMÊäÈëÊ±ÖÓÔ´ÆµÂÊ
+#define PWM_PIN_CONF        SPEED_100MHZ | KEEPER_EN | DSE_R0_6 //ÅäÖÃPWMÒı½ÅÄ¬ÈÏÅäÖÃ   
+
+static PWM_Type * PWMPTR[] = PWM_BASE_PTRS;
+
+
+void pwm_iomuxc(PWMCH_enum pwmch)
 {
-    A0,  A1,  A2,  A3,  A4,  A5,  A6,  A7, //RT1064 æ²¡æœ‰GPIO0ç«¯å£ è¿™é‡Œä»…ä»…ç”¨äºä¿ç•™å ä½
-    A8,  A9,  A10, A11, A12, A13, A14, A15,//RT1064 æ²¡æœ‰GPIO0ç«¯å£ è¿™é‡Œä»…ä»…ç”¨äºä¿ç•™å ä½
-    A16, A17, A18, A19, A20, A21, A22, A23,//RT1064 æ²¡æœ‰GPIO0ç«¯å£ è¿™é‡Œä»…ä»…ç”¨äºä¿ç•™å ä½
-    A24, A25, A26, A27, A28, A29, A30, A31,//RT1064 æ²¡æœ‰GPIO0ç«¯å£ è¿™é‡Œä»…ä»…ç”¨äºä¿ç•™å ä½
-    
-    B0,  B1,  B2,  B3,  B4,  B5,  B6,  B7,  //GPIO1ç«¯å£ 0-7
-    B8,  B9,  B10, B11, B12, B13, B14, B15, //GPIO1ç«¯å£ 8-15
-    B16, B17, B18, B19, B20, B21, B22, B23, //GPIO1ç«¯å£ 16-23
-    B24, B25, B26, B27, B28, B29, B30, B31, //GPIO1ç«¯å£ 24-31
-    
-    C0,  C1,  C2,  C3,  C4,  C5,  C6,  C7,  //GPIO2ç«¯å£ 0-7
-    C8,  C9,  C10, C11, C12, C13, C14, C15, //GPIO2ç«¯å£ 8-15
-    C16, C17, C18, C19, C20, C21, C22, C23, //GPIO2ç«¯å£ 16-23
-    C24, C25, C26, C27, C28, C29, C30, C31, //GPIO2ç«¯å£ 24-31
-    
-    D0,  D1,  D2,  D3,  D4,  D5,  D6,  D7,  //GPIO3ç«¯å£ 0-7
-    D8,  D9,  D10, D11, D12, D13, D14, D15, //GPIO3ç«¯å£ 8-15
-    D16, D17, D18, D19, D20, D21, D22, D23, //GPIO3ç«¯å£ 16-23
-    D24, D25, D26, D27, D28, D29, D30, D31, //GPIO3ç«¯å£ 24-31
-    
-    E0,  E1,  E2,  E3,  E4,  E5,  E6,  E7,  //RT1064 æ²¡æœ‰GPIO4ç«¯å£ è¿™é‡Œä»…ä»…ç”¨äºä¿ç•™å ä½
-    E8,  E9,  E10, E11, E12, E13, E14, E15, //RT1064 æ²¡æœ‰GPIO4ç«¯å£ è¿™é‡Œä»…ä»…ç”¨äºä¿ç•™å ä½
-    E16, E17, E18, E19, E20, E21, E22, E23, //RT1064 æ²¡æœ‰GPIO4ç«¯å£ è¿™é‡Œä»…ä»…ç”¨äºä¿ç•™å ä½
-    E24, E25, E26, E27, E28, E29, E30, E31, //RT1064 æ²¡æœ‰GPIO4ç«¯å£ è¿™é‡Œä»…ä»…ç”¨äºä¿ç•™å ä½
-    
-    F0,  F1,  F2,  F3,  F4,  F5,  F6,  F7,  //GPIO5ç«¯å£ 0-7
-    F8,  F9,  F10, F11, F12, F13, F14, F15, //GPIO5ç«¯å£ 8-15
-    F16, F17, F18, F19, F20, F21, F22, F23, //GPIO5ç«¯å£ 16-23
-    F24, F25, F26, F27, F28, F29, F30, F31, //GPIO5ç«¯å£ 24-31
-    
-    G0,  G1,  G2,  G3,  G4,  G5,  G6,  G7,  //GPIO6ç«¯å£ 0-7   //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£B
-    G8,  G9,  G10, G11, G12, G13, G14, G15, //GPIO6ç«¯å£ 8-15  //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£B
-    G16, G17, G18, G19, G20, G21, G22, G23, //GPIO6ç«¯å£ 16-23 //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£B
-    G24, G25, G26, G27, G28, G29, G30, G31, //GPIO6ç«¯å£ 24-31 //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£B
-    
-    H0,  H1,  H2,  H3,  H4,  H5,  H6,  H7,  //GPIO7ç«¯å£ 0-7   //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£C
-    H8,  H9,  H10, H11, H12, H13, H14, H15, //GPIO7ç«¯å£ 8-15  //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£C
-    H16, H17, H18, H19, H20, H21, H22, H23, //GPIO7ç«¯å£ 16-23 //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£C
-    H24, H25, H26, H27, H28, H29, H30, H31, //GPIO7ç«¯å£ 24-31 //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£C
-    
-    I0,  I1,  I2,  I3,  I4,  I5,  I6,  I7,  //GPIO8ç«¯å£ 0-7   //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£D
-    I8,  I9,  I10, I11, I12, I13, I14, I15, //GPIO8ç«¯å£ 8-15  //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£D
-    I16, I17, I18, I19, I20, I21, I22, I23, //GPIO8ç«¯å£ 16-23 //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£D
-    I24, I25, I26, I27, I28, I29, I30, I31, //GPIO8ç«¯å£ 24-31 //å¿«é€ŸGPIOç«¯å£  å¯¹åº”ç«¯å£D
-}PIN_enum;
+    switch(pwmch)
+    {
+        case PWM1_MODULE0_CHA_D12:  iomuxc_pinconf(D12,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE0_CHA_E23:  iomuxc_pinconf(E23,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM1_MODULE0_CHB_D13:  iomuxc_pinconf(D13,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE0_CHB_E24:  iomuxc_pinconf(E24,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM1_MODULE1_CHA_D14:  iomuxc_pinconf(D14,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE1_CHA_E25:  iomuxc_pinconf(E25,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM1_MODULE1_CHB_D15:  iomuxc_pinconf(D15,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE1_CHB_E26:  iomuxc_pinconf(E26,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM1_MODULE2_CHA_D16:  iomuxc_pinconf(D16,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE2_CHA_E27:  iomuxc_pinconf(E27,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM1_MODULE2_CHB_D17:  iomuxc_pinconf(D17,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE2_CHB_E28:  iomuxc_pinconf(E28,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM1_MODULE3_CHA_B10:  iomuxc_pinconf(B10,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE3_CHA_C16:  iomuxc_pinconf(C16,ALT6,PWM_PIN_CONF); break;
+        case PWM1_MODULE3_CHA_D0 :  iomuxc_pinconf(D0 ,ALT2,PWM_PIN_CONF); break;
+        case PWM1_MODULE3_CHA_D24:  iomuxc_pinconf(D24,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE3_CHA_E12:  iomuxc_pinconf(E12,ALT4,PWM_PIN_CONF); break;
+                                                   
+                                                   
+        case PWM1_MODULE3_CHB_B11:  iomuxc_pinconf(B11,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE3_CHB_C17:  iomuxc_pinconf(C17,ALT6,PWM_PIN_CONF); break;
+        case PWM1_MODULE3_CHB_D1 :  iomuxc_pinconf(D1 ,ALT2,PWM_PIN_CONF); break;
+        case PWM1_MODULE3_CHB_D25:  iomuxc_pinconf(D25,ALT1,PWM_PIN_CONF); break;
+        case PWM1_MODULE3_CHB_E13:  iomuxc_pinconf(E13,ALT4,PWM_PIN_CONF); break;
+                                                   
+                                                   
+                                                   
+        case PWM2_MODULE0_CHA_C6 :  iomuxc_pinconf(C6 ,ALT2,PWM_PIN_CONF); break;
+        case PWM2_MODULE0_CHA_E6 :  iomuxc_pinconf(E6 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM2_MODULE0_CHB_C7 :  iomuxc_pinconf(C7 ,ALT2,PWM_PIN_CONF); break;
+        case PWM2_MODULE0_CHB_E7 :  iomuxc_pinconf(E7 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM2_MODULE1_CHA_C8 :  iomuxc_pinconf(C8 ,ALT2,PWM_PIN_CONF); break;
+        case PWM2_MODULE1_CHA_E8 :  iomuxc_pinconf(E8 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM2_MODULE1_CHB_C9 :  iomuxc_pinconf(C9 ,ALT2,PWM_PIN_CONF); break;
+        case PWM2_MODULE1_CHB_E9 :  iomuxc_pinconf(E9 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM2_MODULE2_CHA_C10:  iomuxc_pinconf(C10,ALT2,PWM_PIN_CONF); break;
+        case PWM2_MODULE2_CHA_E10:  iomuxc_pinconf(E10,ALT1,PWM_PIN_CONF); break;
 
+        case PWM2_MODULE2_CHB_C11:  iomuxc_pinconf(C11,ALT2,PWM_PIN_CONF); break;
+        case PWM2_MODULE2_CHB_E11:  iomuxc_pinconf(E11,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM2_MODULE3_CHA_B0 :  iomuxc_pinconf(B0 ,ALT0,PWM_PIN_CONF); break;
+        case PWM2_MODULE3_CHA_C18:  iomuxc_pinconf(C18,ALT6,PWM_PIN_CONF); break;
+        case PWM2_MODULE3_CHA_D2 :  iomuxc_pinconf(D2 ,ALT2,PWM_PIN_CONF); break;
+        case PWM2_MODULE3_CHA_E19:  iomuxc_pinconf(E19,ALT1,PWM_PIN_CONF); break;
+        case PWM2_MODULE3_CHA_B9 :  iomuxc_pinconf(B9 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM2_MODULE3_CHB_B1 :  iomuxc_pinconf(B1 ,ALT0,PWM_PIN_CONF); break;
+        case PWM2_MODULE3_CHB_C19:  iomuxc_pinconf(C19,ALT6,PWM_PIN_CONF); break;
+        case PWM2_MODULE3_CHB_D3 :  iomuxc_pinconf(D3 ,ALT2,PWM_PIN_CONF); break;
+        case PWM2_MODULE3_CHB_E20:  iomuxc_pinconf(E20,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM3_MODULE0_CHA_E29:  iomuxc_pinconf(E29,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM3_MODULE0_CHB_E30:  iomuxc_pinconf(E30,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM3_MODULE1_CHA_E31:  iomuxc_pinconf(E31,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM3_MODULE1_CHB_D18:  iomuxc_pinconf(D18,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM3_MODULE2_CHA_D19:  iomuxc_pinconf(D19,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM3_MODULE2_CHB_D20:  iomuxc_pinconf(D20,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM3_MODULE3_CHA_E21:  iomuxc_pinconf(E21,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM3_MODULE3_CHB_E22:  iomuxc_pinconf(E22,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM4_MODULE0_CHA_B24:  iomuxc_pinconf(B24,ALT1,PWM_PIN_CONF); break;
+        case PWM4_MODULE0_CHA_E0 :  iomuxc_pinconf(E0 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM4_MODULE0_CHB_E1 :  iomuxc_pinconf(E1 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM4_MODULE1_CHA_B25:  iomuxc_pinconf(B25,ALT1,PWM_PIN_CONF); break;
+        case PWM4_MODULE1_CHA_E2 :  iomuxc_pinconf(E2 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM4_MODULE1_CHB_E3 :  iomuxc_pinconf(E3 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM4_MODULE2_CHA_C30:  iomuxc_pinconf(C30,ALT1,PWM_PIN_CONF); break;
+        case PWM4_MODULE2_CHA_E4 :  iomuxc_pinconf(E4 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM4_MODULE2_CHB_E5 :  iomuxc_pinconf(E5 ,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM4_MODULE3_CHA_C31:  iomuxc_pinconf(C31,ALT1,PWM_PIN_CONF); break;
+        case PWM4_MODULE3_CHA_E17:  iomuxc_pinconf(E17,ALT1,PWM_PIN_CONF); break;
+                                                   
+        case PWM4_MODULE3_CHB_E18:  iomuxc_pinconf(E18,ALT1,PWM_PIN_CONF); break;
 
+        default :assert(0);break;
+    }
+}
 
-typedef enum //æšä¸¾ç«¯å£æ–¹å‘
-{
-    GPI = 0, //å®šä¹‰ç®¡è„šè¾“å…¥æ–¹å‘      
-    GPO = 1, //å®šä¹‰ç®¡è„šè¾“å‡ºæ–¹å‘
-}GPIODIR_enum;
-
-typedef enum //æšä¸¾ç«¯å£ç”µå¹³
-{
-    GPIO_LOW = 0,  //å®šä¹‰ç®¡è„šè¾“å…¥æ–¹å‘      
-    GPIO_HIGH = 1, //å®šä¹‰ç®¡è„šè¾“å‡ºæ–¹å‘
-}GPIOLEVEL_enum;
-
-
-typedef enum //æšä¸¾ç«¯å£ç”µå¹³
-{
-	CAMERA_BIN=1,		//å°é’»é£
-	CAMERA_BIN_UART,	//å°é’»é£ä¸²å£ç‰ˆæœ¬
-	CAMERA_GRAYSCALE,	//æ€»é’»é£
-	CAMERA_COLOR,		//å‡Œç³
-}CAMERA_TYPE_enum;
-
-
-
-// Compiler Related Definitions 
-#ifdef __CC_ARM                         // ARM Compiler 
-    #define ALIGN(n)                    __attribute__((aligned(n)))
-#elif defined (__IAR_SYSTEMS_ICC__)     // for IAR Compiler 
-    #define PRAGMA(x)                   _Pragma(#x)
-    #define ALIGN(n)                    PRAGMA(data_alignment=n)
-#elif defined (__GNUC__)                // GNU GCC Compiler 
-    #define ALIGN(n)                    __attribute__((aligned(n)))
-#endif // Compiler Related Definitions 
-
-
-
-
-
-#if (defined(__ICCARM__))
-	//å®šä¹‰å°†ä»£ç æ”¾åœ¨ITCMçš„æ–¹å¼
-    #define AT_ITCM_SECTION_INIT(var) var @"ITCM_NonCacheable.init"
-	//å®šä¹‰å°†ä»£ç æˆ–è€…å˜é‡æ”¾åœ¨DTCMçš„æ–¹å¼
-	#if ((!(defined(FSL_FEATURE_HAS_NO_NONCACHEABLE_SECTION) && FSL_FEATURE_HAS_NO_NONCACHEABLE_SECTION)) && defined(FSL_FEATURE_L1ICACHE_LINESIZE_BYTE))
-        #define AT_DTCM_SECTION(var) var @"NonCacheable"
-        #define AT_DTCM_SECTION_ALIGN(var, alignbytes) SDK_PRAGMA(data_alignment = alignbytes) var @"NonCacheable"
-        #define AT_DTCM_SECTION_INIT(var) var @"NonCacheable.init"
-        #define AT_DTCM_SECTION_ALIGN_INIT(var, alignbytes) SDK_PRAGMA(data_alignment = alignbytes) var @"NonCacheable.init"
-    #endif 
-	//å®šä¹‰å°†ä»£ç æˆ–è€…å˜é‡æ”¾åœ¨OCRAMçš„æ–¹å¼
-	#define AT_OCRAM_SECTION(var) var @"OCRAM_CACHE"
-    #define AT_OCRAM_SECTION_ALIGN(var, alignbytes) SDK_PRAGMA(data_alignment = alignbytes) var @"OCRAM_CACHE"
-    #define AT_OCRAM_SECTION_INIT(var) var @"OCRAM_CACHE.init"
-    #define AT_OCRAM_SECTION_ALIGN_INIT(var, alignbytes) SDK_PRAGMA(data_alignment = alignbytes) var @"OCRAM_CACHE.init"
-	//å®šä¹‰å°†ä»£ç æˆ–è€…å˜é‡æ”¾åœ¨SDRAMçš„æ–¹å¼
-	#define AT_SDRAM_SECTION(var) var @"SDRAM_CACHE"
-    #define AT_SDRAM_SECTION_ALIGN(var, alignbytes) SDK_PRAGMA(data_alignment = alignbytes) var @"SDRAM_CACHE"
-    #define AT_SDRAM_SECTION_INIT(var) var @"SDRAM_CACHE.init"
-    #define AT_SDRAM_SECTION_ALIGN_INIT(var, alignbytes) SDK_PRAGMA(data_alignment = alignbytes) var @"SDRAM_CACHE.init"
-	//å®šä¹‰å°†ä»£ç æˆ–è€…å˜é‡æ”¾åœ¨SDRAM_NONCACHEçš„æ–¹å¼
-	#define AT_SDRAM_NONCACHE_SECTION(var) var @"SDRAM_NonCacheable"
-    #define AT_SDRAM_NONCACHE_SECTION_ALIGN(var, alignbytes) SDK_PRAGMA(data_alignment = alignbytes) var @"SDRAM_NonCacheable"
-    #define AT_SDRAM_NONCACHE_SECTION_INIT(var) var @"SDRAM_NonCacheable.init"
-    #define AT_SDRAM_NONCACHE_SECTION_ALIGN_INIT(var, alignbytes) SDK_PRAGMA(data_alignment = alignbytes) var @"SDRAM_NonCacheable.init"
-	
-	
-#elif(defined(__CC_ARM) || defined(__ARMCC_VERSION))
-	//å®šä¹‰å°†ä»£ç æ”¾åœ¨ITCMçš„æ–¹å¼
-    #define AT_ITCM_SECTION_INIT(var) __attribute__((section("ITCM_NonCacheable.init"))) var
-	//å®šä¹‰å°†ä»£ç æˆ–è€…å˜é‡æ”¾åœ¨DTCMçš„æ–¹å¼
-	#if ((!(defined(FSL_FEATURE_HAS_NO_NONCACHEABLE_SECTION) && FSL_FEATURE_HAS_NO_NONCACHEABLE_SECTION)) && defined(FSL_FEATURE_L1ICACHE_LINESIZE_BYTE))
-        #if(defined(__CC_ARM))
-			#define AT_DTCM_SECTION(var) __attribute__((section("NonCacheable"), zero_init)) var
-			#define AT_DTCM_SECTION_ALIGN(var, alignbytes) \
-				__attribute__((section("NonCacheable"), zero_init)) __attribute__((aligned(alignbytes))) var
-		#else
-			#define AT_DTCM_SECTION(var) __attribute__((section(".bss.NonCacheable"))) var
-			#define AT_DTCM_SECTION_ALIGN(var, alignbytes) \
-				__attribute__((section(".bss.NonCacheable"))) __attribute__((aligned(alignbytes))) var
-		#endif
-
-        #define AT_DTCM_SECTION_INIT(var) __attribute__((section("NonCacheable.init"))) var
-        #define AT_DTCM_SECTION_ALIGN_INIT(var, alignbytes) \
-            __attribute__((section("NonCacheable.init"))) __attribute__((aligned(alignbytes))) var
-    #endif
-	
-	//å®šä¹‰å°†ä»£ç æˆ–è€…å˜é‡æ”¾åœ¨OCRAMçš„æ–¹å¼
-    #if(defined(__CC_ARM))
-		#define AT_OCRAM_SECTION(var) __attribute__((section("OCRAM_CACHE"), zero_init)) var
-		#define AT_OCRAM_SECTION_ALIGN(var, alignbytes) \
-			__attribute__((section("OCRAM_CACHE"), zero_init)) __attribute__((aligned(alignbytes))) var
-	#else
-		#define AT_OCRAM_SECTION(var) __attribute__((section(".bss.OCRAM_CACHE"))) var
-		#define AT_OCRAM_SECTION_ALIGN(var, alignbytes) \
-			__attribute__((section(".bss.OCRAM_CACHE"))) __attribute__((aligned(alignbytes))) var
-	#endif
-
-    #define AT_OCRAM_SECTION_INIT(var) __attribute__((section("OCRAM_CACHE.init"))) var
-    #define AT_OCRAM_SECTION_ALIGN_INIT(var, alignbytes) \
-        __attribute__((section("OCRAM_CACHE.init"))) __attribute__((aligned(alignbytes))) var
-	
-	
-	//å®šä¹‰å°†ä»£ç æˆ–è€…å˜é‡æ”¾åœ¨SDRAMçš„æ–¹å¼
-	#if(defined(__CC_ARM))
-		#define AT_SDRAM_SECTION(var) __attribute__((section("SDRAM_CACHE"), zero_init)) var
-		#define AT_SDRAM_SECTION_ALIGN(var, alignbytes) \
-			__attribute__((section("SDRAM_CACHE"), zero_init)) __attribute__((aligned(alignbytes))) var
-	#else
-		#define AT_SDRAM_SECTION(var) __attribute__((section(".bss.SDRAM_CACHE"))) var
-		#define AT_SDRAM_SECTION_ALIGN(var, alignbytes) \
-			__attribute__((section(".bss.SDRAM_CACHE"))) __attribute__((aligned(alignbytes))) var
-	#endif
-	
-    #define AT_SDRAM_SECTION_INIT(var) __attribute__((section("SDRAM_CACHE.init"))) var
-    #define AT_SDRAM_SECTION_ALIGN_INIT(var, alignbytes) \
-        __attribute__((section("SDRAM_CACHE.init"))) __attribute__((aligned(alignbytes))) var
-	//å®šä¹‰å°†ä»£ç æˆ–è€…å˜é‡æ”¾åœ¨SDRAM_NONCACHEçš„æ–¹å¼
-	#if(defined(__CC_ARM))
-		#define AT_SDRAM_NONCACHE_SECTION(var) __attribute__((section("SDRAM_NonCacheable"), zero_init)) var
-		#define AT_SDRAM_NONCACHE_SECTION_ALIGN(var, alignbytes) \
-			__attribute__((section("SDRAM_NonCacheable"), zero_init)) __attribute__((aligned(alignbytes))) var
-	#else
-		#define AT_SDRAM_NONCACHE_SECTION(var) __attribute__((section(".bss.SDRAM_NonCacheable"))) var
-		#define AT_SDRAM_NONCACHE_SECTION_ALIGN(var, alignbytes) \
-			__attribute__((section(".bss.SDRAM_NonCacheable"))) __attribute__((aligned(alignbytes))) var
-	#endif
-	
-    #define AT_SDRAM_NONCACHE_SECTION_INIT(var) __attribute__((section("SDRAM_NonCacheable.init"))) var
-    #define AT_SDRAM_NONCACHE_SECTION_ALIGN_INIT(var, alignbytes) \
-        __attribute__((section("SDRAM_NonCacheable.init"))) __attribute__((aligned(alignbytes))) var
-	
-#endif
-
-
-
-
-#include <math.h>
-#include <string.h>
-
-            
-            
-extern CAMERA_TYPE_enum flexio_camera_type;     //æ‘„åƒå¤´å‹å·
-extern uint8 *flexio_camera_buffer_addr;        //æ‘„åƒå¤´æ•°ç»„åœ°å€
-            
-
-void NMI_Handler(void);
-void HardFault_Handler(void);
-void MemManage_Handler(void);
-void BusFault_Handler(void);
-void UsageFault_Handler(void);
-void SVC_Handler(void);
-void DebugMon_Handler(void);
-void PendSV_Handler(void);
-void SysTick_Handler(void);
-	
-
-
-
-#endif
-//  @param      freq        PWMé¢‘ç‡
-//  @param      duty        PWMå ç©ºæ¯”
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      PWM³õÊ¼»¯
+//  @param      pwmch       PWMÍ¨µÀºÅ¼°Òı½Å
+//  @param      freq        PWMÆµÂÊ
+//  @param      duty        PWMÕ¼¿Õ±È
 //  @return     void
-//  Sample usage:           pwm_freq(PWM1_MODULE0_CHB_D13, 50);     //è®¾ç½®é¢‘ç‡ä¸º50HZ   
+//  Sample usage:           pwm_init(PWM1_MODULE0_CHB_D13, 50, 5000);     //³õÊ¼»¯PWM1  ×ÓÄ£¿é0 Í¨µÀB Ê¹ÓÃÒı½ÅD13  Êä³öPWMÆµÂÊ50HZ   Õ¼¿Õ±ÈÎª°Ù·ÖÖ® 5000/PWM_DUTY_MAX*100
+//							PWM_DUTY_MAXÔÚfsl_pwm.hÎÄ¼şÖĞ Ä¬ÈÏÎª50000 
+//-------------------------------------------------------------------------------------------------------------------
+void pwm_init(PWMCH_enum pwmch, uint32 freq, uint32 duty)
+{
+    uint8  pwm_num;
+    uint8  pwm_module;
+    uint8  pwm_module_ch;
+    uint32 temp_prsc;
+    pwm_config_t pwmConfig;
+    
+    pwm_iomuxc(pwmch);
+
+    //pwmConfig.enableDebugMode = false;
+    //pwmConfig.enableWait = false;
+    //pwmConfig.reloadSelect = kPWM_LocalReload;
+    //pwmConfig.faultFilterCount = 0;
+    //pwmConfig.faultFilterPeriod = 0;
+    //pwmConfig.clockSource = kPWM_BusClock;
+    //pwmConfig.prescale = kPWM_Prescale_Divide_1;
+    //pwmConfig.initializationControl = kPWM_Initialize_LocalSync;
+    //pwmConfig.forceTrigger = kPWM_Force_Local;
+    //pwmConfig.reloadFrequency = kPWM_LoadEveryOportunity;
+    //pwmConfig.reloadLogic = kPWM_ReloadImmediate;
+    //pwmConfig.pairOperation = kPWM_Independent;
+
+    PWM_GetDefaultConfig(&pwmConfig);
+
+    pwmConfig.reloadLogic = kPWM_ReloadPwmFullCycle;
+    pwmConfig.pairOperation = kPWM_Independent;
+    pwmConfig.enableDebugMode = true;
+    
+
+    //¼ÆËã·ÖÆµÏµÊı
+    temp_prsc = (PWM_SRC_CLK_FREQ/freq)>>16;
+	if(PWM_SRC_CLK_FREQ%(freq<<16))	temp_prsc++;
+
+    if      (1   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_1;
+    else if (2   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_2;
+    else if (4   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_4;
+    else if (8   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_8;
+    else if (16  >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_16;
+    else if (32  >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_32;
+    else if (64  >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_64;
+    else if (128 >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_128;
+    else
+    {
+        assert(0) ;//ÆµÂÊ¹ıĞ¡ »òÕßIPGÆµÂÊ¹ı¸ß
+    }
+
+    pwm_num = pwmch/40;             //¼ÆËãÄ£¿é±àºÅ
+    pwm_module = pwmch%40/10;       //¼ÆËã×ÓÄ£¿é±àºÅ
+    pwm_module_ch = pwmch%40%10/5;  //¼ÆËã×ÓÄ£¿éµÄÍ¨µÀ
+    //³õÊ¼»¯PWMÄ£¿é 
+    if (PWM_Init(PWMPTR[pwm_num], (pwm_submodule_t)pwm_module, &pwmConfig) == kStatus_Fail)//µÚÒ»´Î³õÊ¼»¯±ãÓÚ´ò¿ªÊ±ÖÓ
+    {
+        assert(0) ;//³õÊ¼»¯Ê§°Ü
+    }
+    PWM_Deinit(PWMPTR[pwm_num], (pwm_submodule_t)pwm_module);
+    
+    if (PWM_Init(PWMPTR[pwm_num], (pwm_submodule_t)pwm_module, &pwmConfig) == kStatus_Fail)//ÖØĞÂ³õÊ¼»¯ÉèÖÃÕıÈ·µÄ²ÎÊı
+    {
+        assert(0) ;//³õÊ¼»¯Ê§°Ü
+    }
+
+    //ÉèÖÃÆµÂÊÕ¼¿Õ±ÈµÈ²ÎÊı
+    pwm_signal_param_t pwmSignal;
+
+    pwmSignal.pwmChannel = (pwm_channels_t)(pwm_module_ch); 
+    pwmSignal.level = kPWM_HighTrue;
+    pwmSignal.dutyCyclePercent = duty;  //PWM_DUTY_MAX
+    pwmSignal.deadtimeValue = 0;//((uint64_t)PWM_SRC_CLK_FREQ * 650) / 1000000000;
+
+    //Çå³ıLOAD OKAYÎ»  ÒÔÉèÖÃĞÂµÄ²ÎÊı
+    PWM_SetPwmLdok(PWMPTR[pwm_num], (pwm_module_control_t)(1<<(pwm_module)), false);
+    PWM_SetupPwm(PWMPTR[pwm_num], (pwm_submodule_t)pwm_module, &pwmSignal, 1, kPWM_EdgeAligned, freq, PWM_SRC_CLK_FREQ);     
+    //ÉèÖÃLOAD OKAYÎ»  ÒÔ¸üĞÂÉèÖÃ
+    PWM_SetPwmLdok(PWMPTR[pwm_num], (pwm_module_control_t)(1<<(pwm_module)), true);
+
+    //Æô¶¯¶¨Ê±Æ÷
+    PWM_StartTimer(PWMPTR[pwm_num], (pwm_module_control_t)(1<<(pwm_module)));
+    
+    PWMPTR[pwm_num]->SM[pwm_module].DISMAP[0]=0;
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      PWMÕ¼¿Õ±ÈÉèÖÃ
+//  @param      pwmch       PWMÍ¨µÀºÅ¼°Òı½Å
+//  @param      freq        PWMÆµÂÊ
+//  @param      duty        PWMÕ¼¿Õ±È
+//  @return     void
+//  Sample usage:           pwm_duty(PWM1_MODULE0_CHB_D13, 5000);     //ÉèÖÃÕ¼¿Õ±ÈÎª°Ù·ÖÖ® 5000/PWM_DUTY_MAX*100
+//							PWM_DUTY_MAXÔÚfsl_pwm.hÎÄ¼şÖĞ Ä¬ÈÏÎª50000
+//-------------------------------------------------------------------------------------------------------------------
+void pwm_duty(PWMCH_enum pwmch, uint32 duty)
+{
+    uint8  pwm_num;
+    uint8  pwm_module;
+    uint8  pwm_module_ch;
+    
+    pwm_num = pwmch/40;             //¼ÆËãÄ£¿é±àºÅ
+    pwm_module = pwmch%40/10;       //¼ÆËã×ÓÄ£¿é±àºÅ
+    pwm_module_ch = pwmch%40%10/5;  //¼ÆËã×ÓÄ£¿éµÄÍ¨µÀ
+    
+    //Çå³ıLOAD OKAYÎ»  ÒÔÉèÖÃĞÂµÄ²ÎÊı
+    PWM_SetPwmLdok(PWMPTR[pwm_num], (pwm_module_control_t)(1<<(pwm_module)), false);
+    PWM_UpdatePwmDutycycle(PWMPTR[pwm_num], (pwm_submodule_t)pwm_module, (pwm_channels_t)(pwm_module_ch), kPWM_EdgeAligned, duty);
+    //ÉèÖÃLOAD OKAYÎ»  ÒÔ¸üĞÂÉèÖÃ
+    PWM_SetPwmLdok(PWMPTR[pwm_num], (pwm_module_control_t)(1<<(pwm_module)), true);
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      PWMÆµÂÊÉèÖÃ
+//  @param      pwmch       PWMÍ¨µÀºÅ¼°Òı½Å
+//  @param      freq        PWMÆµÂÊ
+//  @param      duty        PWMÕ¼¿Õ±È
+//  @return     void
+//  Sample usage:           pwm_freq(PWM1_MODULE0_CHB_D13, 50);     //ÉèÖÃÆµÂÊÎª50HZ   
 //-------------------------------------------------------------------------------------------------------------------
 void pwm_freq(PWMCH_enum pwmch, uint32 freq, uint32 duty)
 {
@@ -273,7 +274,7 @@ void pwm_freq(PWMCH_enum pwmch, uint32 freq, uint32 duty)
     pwmConfig.pairOperation = kPWM_Independent;
     pwmConfig.enableDebugMode = true;
     
-    //è®¡ç®—åˆ†é¢‘ç³»æ•°
+    //¼ÆËã·ÖÆµÏµÊı
     temp_prsc = (PWM_SRC_CLK_FREQ/freq)>>16;
     if      (1   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_1;
     else if (2   >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_2;
@@ -285,20 +286,20 @@ void pwm_freq(PWMCH_enum pwmch, uint32 freq, uint32 duty)
     else if (128 >= temp_prsc)  pwmConfig.prescale = kPWM_Prescale_Divide_128;
     else
     {
-        assert(0) ;//é¢‘ç‡è¿‡å° æˆ–è€…IPGé¢‘ç‡è¿‡é«˜
+        assert(0) ;//ÆµÂÊ¹ıĞ¡ »òÕßIPGÆµÂÊ¹ı¸ß
     }
     
-    pwm_num = pwmch/40;             //è®¡ç®—æ¨¡å—ç¼–å·
-    pwm_module = pwmch%40/10;       //è®¡ç®—å­æ¨¡å—ç¼–å·
-    pwm_module_ch = pwmch%40%10/5;  //è®¡ç®—å­æ¨¡å—çš„é€šé“
+    pwm_num = pwmch/40;             //¼ÆËãÄ£¿é±àºÅ
+    pwm_module = pwmch%40/10;       //¼ÆËã×ÓÄ£¿é±àºÅ
+    pwm_module_ch = pwmch%40%10/5;  //¼ÆËã×ÓÄ£¿éµÄÍ¨µÀ
     
-    //åˆå§‹åŒ–PWMæ¨¡å— 
+    //³õÊ¼»¯PWMÄ£¿é 
     if (PWM_Init(PWMPTR[pwm_num], (pwm_submodule_t)pwm_module, &pwmConfig) == kStatus_Fail)
     {
-        assert(0) ;//åˆå§‹åŒ–å¤±è´¥
+        assert(0) ;//³õÊ¼»¯Ê§°Ü
     }
 
-    //è®¾ç½®é¢‘ç‡å ç©ºæ¯”ç­‰å‚æ•°
+    //ÉèÖÃÆµÂÊÕ¼¿Õ±ÈµÈ²ÎÊı
     pwm_signal_param_t pwmSignal;
 
     pwmSignal.pwmChannel = (pwm_channels_t)(pwm_module_ch); 
@@ -306,13 +307,13 @@ void pwm_freq(PWMCH_enum pwmch, uint32 freq, uint32 duty)
     pwmSignal.dutyCyclePercent = duty;  //PWM_DUTY_MAX
     pwmSignal.deadtimeValue = 0;//((uint64_t)PWM_SRC_CLK_FREQ * 650) / 1000000000;
     
-    //æ¸…é™¤LOAD OKAYä½  ä»¥è®¾ç½®æ–°çš„å‚æ•°
+    //Çå³ıLOAD OKAYÎ»  ÒÔÉèÖÃĞÂµÄ²ÎÊı
     PWM_SetPwmLdok(PWMPTR[pwm_num], (pwm_module_control_t)(1<<(pwm_module)), false);
     PWM_SetupPwm(PWMPTR[pwm_num], (pwm_submodule_t)pwm_module, &pwmSignal, 1, kPWM_EdgeAligned, freq, PWM_SRC_CLK_FREQ);     
-    //è®¾ç½®LOAD OKAYä½  ä»¥æ›´æ–°è®¾ç½®
+    //ÉèÖÃLOAD OKAYÎ»  ÒÔ¸üĞÂÉèÖÃ
     PWM_SetPwmLdok(PWMPTR[pwm_num], (pwm_module_control_t)(1<<(pwm_module)), true);
 
-    //å¯åŠ¨å®šæ—¶å™¨
+    //Æô¶¯¶¨Ê±Æ÷
     PWM_StartTimer(PWMPTR[pwm_num], (pwm_module_control_t)(1<<(pwm_module)));
     
     PWMPTR[pwm_num]->SM[pwm_module].DISMAP[0]=0;
