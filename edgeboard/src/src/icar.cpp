@@ -20,7 +20,7 @@
 #include <iostream>
 #include <opencv2/highgui.hpp> //OpenCV终端部署
 #include <opencv2/opencv.hpp>  //OpenCV终端部署
-//#include <signal.h>
+#include <signal.h>
 #include <unistd.h>
 
 using namespace std;

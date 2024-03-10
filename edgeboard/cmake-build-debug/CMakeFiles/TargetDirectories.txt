@@ -1,3 +1,0 @@
-E:/jhm files/github-repository/BaiduAI_Car/edgeboard/cmake-build-debug/CMakeFiles/preprocess.dir
-E:/jhm files/github-repository/BaiduAI_Car/edgeboard/cmake-build-debug/CMakeFiles/edit_cache.dir
-E:/jhm files/github-repository/BaiduAI_Car/edgeboard/cmake-build-debug/CMakeFiles/rebuild_cache.dir

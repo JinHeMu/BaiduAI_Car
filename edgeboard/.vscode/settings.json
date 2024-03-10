@@ -19,7 +19,8 @@
         "string": "cpp",
         "unordered_map": "cpp",
         "string_view": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "thread": "cpp"
     },
     "cmake.sourceDirectory": "E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src",
     "C_Cpp.errorSquiggles": "disabled",
