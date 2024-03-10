@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug",
+  "command": "/usr/bin/c++ -I/home/jinhemu/BaiduAI_Car/edgeboard/src/include -I/home/jinhemu/BaiduAI_Car/edgeboard/src/config -I/home/jinhemu/BaiduAI_Car/edgeboard/src/src -I/home/jinhemu/BaiduAI_Car/edgeboard/src/tool -isystem /usr/local/include/opencv4 -O3 -Wall -mcpu=native -flto -pthread -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/icar.dir/src/icar.cpp.o -c /home/jinhemu/BaiduAI_Car/edgeboard/src/src/icar.cpp",
+  "file": "/home/jinhemu/BaiduAI_Car/edgeboard/src/src/icar.cpp",
+  "output": "CMakeFiles/icar.dir/src/icar.cpp.o"
+}
+]

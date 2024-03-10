@@ -22,7 +22,7 @@
         "*.tcc": "cpp",
         "thread": "cpp"
     },
-    "cmake.sourceDirectory": "E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src",
+    "cmake.sourceDirectory": "/home/jinhemu/BaiduAI_Car/edgeboard/src",
     "C_Cpp.errorSquiggles": "disabled",
     "python.autoComplete.extraPaths": [
         "/opt/ros/humble/lib/python3.10/site-packages",
@@ -32,4 +32,10 @@
         "/opt/ros/humble/lib/python3.10/site-packages",
         "/opt/ros/humble/local/lib/python3.10/dist-packages"
     ],
+    "editor.fontLigatures": true, // 是否启用字体连字
+    "editor.fontSize": 13, // 设置字体大小
+    "editor.fontFamily": "'JetBrains Mono', 'Courier New', monospace",
+    "editor.lineHeight": 1.2,
+    "editor.fontWeight": 1,
+    
 }

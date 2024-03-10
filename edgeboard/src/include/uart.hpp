@@ -1,11 +1,11 @@
-#pragma once
+﻿#pragma once
 
 #include "common.hpp"
 #include <iostream>               // 输入输出类
 #include <libserial/SerialPort.h> // 串口通信
-#include <math.h>                 // 数学函数类
-#include <stdint.h>               // 整型数据类
-#include <string.h>
+#include <cmath>                 // 数学函数类
+#include <cstdint>               // 整型数据类
+#include <cstring>
 #include <thread>
 
 using namespace LibSerial;
@@ -22,6 +22,12 @@ using namespace std;
 #define USB_ADDR_LED 5     // LED灯效控制
 #define USB_ADDR_KEY 6     // 按键信息
 
+// USB通信帧长
+#define USB_FRAME_LEN_CARCTRL 10 //
+#define USB_FRAME_LEN_BUZZER 5  //
+#define USB_FRAME_LEN_LED 8 //
+#define USB_FRAME_LEN_KEY 6 //
+
 class Uart {
 private:
   /**
@@ -35,14 +41,16 @@ private:
     uint8_t buffFinish[USB_FRAME_LENMAX]; // 校验成功数据
   } SerialStruct;
 
+  //独占智能指针->std::thread
   std::unique_ptr<std::thread> threadRec; // 串口接收子线程
+  //共享智能指针
   std::shared_ptr<SerialPort> serialPort = nullptr;
   std::string portName; // 端口名字
   bool isOpen = false;
   SerialStruct serialStr; // 串口通信数据结构体
 
   /**
-   * @brief 32位数据内存对齐/联合体
+   * @brief 32位数据内存对齐/联合体（共享储存空间）
    *
    */
   typedef union {
@@ -74,7 +82,7 @@ private:
     try {
       /*从串口读取一个数据,指定msTimeout时长内,没有收到数据，抛出异常。
       如果msTimeout为0，则该方法将阻塞，直到数据可用为止。*/
-      serialPort->ReadByte(charBuffer, msTimeout); // 可能出现异常的代码段
+      serialPort->ReadByte(charBuffer, 0); // 可能出现异常的代码段
     } catch (const ReadTimeout &) // catch捕获并处理 try 检测到的异常。
     {
       // std::cerr << "The ReadByte() call has timed out." << std::endl;
@@ -115,6 +123,7 @@ public:
   Uart(const std::string &port) : portName(port){};
   // 定义析构函数
   ~Uart() { close(); };
+
   bool keypress = false; // 按键
 
   /**
@@ -137,6 +146,7 @@ public:
    * @return int
    */
   int open(void) {
+      //创建一个共享指针
     serialPort = std::make_shared<SerialPort>();
     if (serialPort == nullptr) {
       std::cerr << "Serial Create Failed ." << std::endl;
@@ -201,7 +211,7 @@ public:
     printf(" uart thread exit!\n");
     carControl(0, PWMSERVOMID);
     threadRec->join();
-    if (serialPort != nullptr) {
+    if (serialPort != nullptr) {// 释放串口资源
       serialPort->Close();
       serialPort = nullptr;
     }
@@ -218,7 +228,9 @@ public:
 
     uint8_t resByte = 0;
     int ret = receiveBytes(resByte, 0);
+    // 没有报错
     if (ret == 0) {
+        //接受到帧头
       if (resByte == USB_FRAME_HEAD && !serialStr.start) // 监听帧头
       {
         serialStr.start = true;                   // 开始接收数据
@@ -298,7 +310,7 @@ public:
 
     buff[0] = USB_FRAME_HEAD;   // 通信帧头
     buff[1] = USB_ADDR_CARCTRL; // 地址
-    buff[2] = 10;               // 帧长
+    buff[2] = USB_FRAME_LEN_CARCTRL;// 帧长
 
     bit32U.float32 = speed; // X轴线速度
     for (int i = 0; i < 4; i++)
@@ -330,7 +342,7 @@ public:
 
     buff[0] = USB_FRAME_HEAD;  // 帧头
     buff[1] = USB_ADDR_BUZZER; // 地址
-    buff[2] = 5;               // 帧长
+    buff[2] = USB_FRAME_LEN_BUZZER;// 帧长
     switch (sound) {
     case Buzzer::BUZZER_OK: // 确认
       buff[3] = 1;

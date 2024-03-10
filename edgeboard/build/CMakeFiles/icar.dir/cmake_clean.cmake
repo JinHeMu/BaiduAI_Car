@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/icar.dir/src/icar.cpp.obj"
-  "CMakeFiles/icar.dir/src/icar.cpp.obj.d"
-  "icar.exe"
-  "icar.exe.manifest"
+  "CMakeFiles/icar.dir/src/icar.cpp.o"
+  "CMakeFiles/icar.dir/src/icar.cpp.o.d"
+  "icar"
   "icar.pdb"
-  "libicar.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

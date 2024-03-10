@@ -29,16 +29,13 @@
 
 
 #**************************Linux********************************
-cmake_minimum_required(VERSION 3.4...3.18)#设置cmake版本
+cmake_minimum_required(VERSION 3.4...3.18)
+set(CMAKE_CXX_STANDARD 17)
 project(BaiduAI_Car)#工程名字
-
-set(CMAKE_CXX_STANDARD 17)#设置c++版本特性
-
+# set(CMAKE_CXX_FLAGS "-O3 -Wall -mcpu=native -flto -pthread")
+# set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(INCLUDE_PATH "/usr/local/include")
-set(LIB_PATH "/usr/local/lib")  
-
-
-
+set(LIB_PATH "/usr/local/lib")
 
 set(COMMON_LIB_DIR "${PROJECT_SOURCE_DIR}/lib/")
 set(COMMON_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include"
@@ -49,6 +46,11 @@ set(COMMON_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include"
 
 link_directories(${COMMON_LIB_DIR})
 include_directories( ${COMMON_INCLUDE_DIR} )
+
+
+include_directories(${SERIAL_INCLUDE_DIRS})
+link_directories(${SERIAL_LIBRARY_DIRS})
+
 
 find_package(OpenCV REQUIRED)#查找opencv依赖
 include_directories(${OpenCV_INCLUDE_DIRS})#包含头文件

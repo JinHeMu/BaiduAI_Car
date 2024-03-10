@@ -94,37 +94,3 @@ private:
     Mat cameraMatrix;	 // 摄像机内参矩阵
     Mat distCoeffs;		 // 相机的畸变矩阵
 };
-
-
-//int main()
-//{
-//    string path = "E:/jhm files/modelcar/sample.mp4";
-//    VideoCapture cap(path);
-////	VideoCapture cap(0);读取设备摄像头
-//    Mat img;
-//    Mat imgBin;
-//    Preprocess preprocess;
-//    while(true)
-//    {
-//        cap.read(img);
-//
-//
-//        Mat imageCorrection = preprocess.correction(img);
-//        Mat imageBinary = preprocess.binaryzation(imageCorrection);
-//
-//
-//        Display display(2); // 创建一个窗口数量为1的对象
-//
-//        // 设置新窗口的属性并显示图像
-//        display.setNewWindow(1, "Original Image", img);
-//        display.setNewWindow(1, "imageBinary", imageBinary);
-//
-//        // 显示融合后的图像
-//        display.show();
-//
-//
-//
-//        waitKey(1);
-//
-//    }
-//}
