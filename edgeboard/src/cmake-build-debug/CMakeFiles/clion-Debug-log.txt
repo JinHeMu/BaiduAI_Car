@@ -1,9 +1,4 @@
-"D:\CLion 2023.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/CLion 2023.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S "E:\jhm files\github-repository\BaiduAI_Car\edgeboard\src" -B "E:\jhm files\github-repository\BaiduAI_Car\edgeboard\src\cmake-build-debug"
--- OpenCV ARCH: x64
--- OpenCV RUNTIME: mingw
--- OpenCV STATIC: OFF
--- Found OpenCV 4.9.0 in D:/OpenCV/opencv/mingw_build/install/x64/mingw/lib
--- You might need to add D:\OpenCV\opencv\mingw_build\install\x64\mingw\bin to your PATH to be able to run your applications.
--- Configuring done (0.1s)
+/snap/clion/265/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/265/bin/ninja/linux/x64/ninja -G Ninja -S /home/jinhemu/BaiduAI_Car/edgeboard/src -B /home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug
+-- Configuring done (0.0s)
 -- Generating done (0.0s)
--- Build files have been written to: E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/cmake-build-debug
+-- Build files have been written to: /home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug

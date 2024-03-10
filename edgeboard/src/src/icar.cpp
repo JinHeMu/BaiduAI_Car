@@ -28,7 +28,7 @@ using namespace cv;
 
 int main(int argc, char const *argv[]) {
 
-    string path = "E:/jhm files/modelcar/sample.mp4";
+    string path = "../res/samples/sample.mp4";
     // LINUX string path = "../res/samples/sample.mp4";
 
     VideoCapture cap(path);

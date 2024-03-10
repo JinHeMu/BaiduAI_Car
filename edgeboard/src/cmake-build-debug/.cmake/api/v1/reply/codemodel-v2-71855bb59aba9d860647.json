@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.4"
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "icar::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-icar-Debug-e70755ad407da8916111.json",
+					"jsonFile" : "target-icar-Debug-b0cfd8d0f8e0132194b6.json",
 					"name" : "icar",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src/cmake-build-debug",
-		"source" : "E:/jhm files/github-repository/BaiduAI_Car/edgeboard/src"
+		"build" : "/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug",
+		"source" : "/home/jinhemu/BaiduAI_Car/edgeboard/src"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }
