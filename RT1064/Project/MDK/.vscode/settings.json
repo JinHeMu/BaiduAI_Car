@@ -10,7 +10,8 @@
         "servo.h": "c",
         "encoder.h": "c",
         "common.h": "c",
-        "motor.h": "c"
+        "motor.h": "c",
+        "timer_pit.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

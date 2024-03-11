@@ -2234,6 +2234,16 @@
               <FileType>5</FileType>
               <FilePath>..\CODE\pid.h</FilePath>
             </File>
+            <File>
+              <FileName>timer_pit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\timer_pit.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_pit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\timer_pit.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -4464,6 +4474,16 @@
               <FileName>pid.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\CODE\pid.h</FilePath>
+            </File>
+            <File>
+              <FileName>timer_pit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\timer_pit.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer_pit.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\timer_pit.h</FilePath>
             </File>
           </Files>
         </Group>

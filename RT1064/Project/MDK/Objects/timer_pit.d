@@ -1,4 +1,4 @@
-./objects/timer_pit.o: ..\CODE\timer_pit.c ..\CODE\encoder.h \
+./objects/timer_pit.o: ..\CODE\timer_pit.c ..\CODE\timer_pit.h \
   ..\..\Libraries\seekfree_libraries\headfile.h \
   D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\..\Libraries\nxp_libraries\drives\fsl_common.h \
@@ -32,9 +32,7 @@
   ..\..\Libraries\nxp_libraries\drives\fsl_clock.h \
   ..\..\Libraries\seekfree_libraries\board\pin_mux.h \
   ..\..\Libraries\seekfree_libraries\board\clock_config.h \
-  ..\..\Libraries\nxp_libraries\drives\fsl_cache.h \
-  ..\..\Libraries\seekfree_libraries\common\common.h \
-  D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\math.h \
+  ..\..\Libraries\nxp_libraries\drives\fsl_cache.h ..\CODE\common.h \
   ..\..\Libraries\seekfree_libraries\zf_vector.h \
   ..\..\Libraries\nxp_libraries\middleware\fatfs\source\ff.h \
   ..\..\Libraries\nxp_libraries\middleware\fatfs\source\ffconf.h \
@@ -47,6 +45,7 @@
   ..\..\Libraries\nxp_libraries\middleware\sdmmc\inc\fsl_sdmmc_spec.h \
   ..\..\Libraries\seekfree_libraries\common\SEEKFREE_PRINTF.h \
   ..\..\Libraries\seekfree_libraries\common\common.h \
+  D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\math.h \
   ..\..\Libraries\seekfree_libraries\zf_gpio.h \
   ..\..\Libraries\nxp_libraries\deceive\MIMXRT1064.h \
   ..\..\Libraries\seekfree_libraries\zf_iomuxc.h \
@@ -124,8 +123,5 @@
   ..\..\Libraries\rttherad_libraries\include\rtservice.h \
   ..\..\Libraries\rttherad_libraries\include\rtm.h \
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
-  ..\CODE\motor.h ..\CODE\encoder.h ..\CODE\timer_pit.h \
-  ..\CODE\display.h ..\CODE\smotor.h ..\CODE\buzzer.h ..\CODE\button.h \
-  ..\CODE\filter.h ..\CODE\carmove.h ..\CODE\imu963.h ..\CODE\openart1.h \
-  ..\CODE\openart2.h ..\CODE\icm20602.h ..\CODE\motor.h \
-  ..\CODE\timer_pit.h
+  ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
+  ..\CODE\pid.h ..\CODE\timer_pit.h
