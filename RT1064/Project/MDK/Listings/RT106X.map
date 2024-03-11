@@ -9511,7 +9511,6 @@ Section Cross References
     encoder.o(.text.Encoder_Get) refers to encoder.o(.bss.encoder) for encoder
     encoder.o(.text.Encoder_Get) refers to encoder.o(.data.RC_Encoder) for RC_Encoder
     encoder.o(.text.Encoder_Get) refers to common_1.o(.text.RCFilter) for RCFilter
-    encoder.o(.text.Encoder_Get) refers to encoder.o(.bss.RC_encoder) for RC_encoder
     encoder.o(.text.Encoder_Get) refers to motor.o(.bss.motorStr) for motorStr
     encoder.o(.text.Encoder_Get) refers to pid.o(.bss.pidStr) for pidStr
     encoder.o(.text.Encoder_Get) refers to zf_qtimer.o(.text.qtimer_quad_clear) for qtimer_quad_clear
@@ -9526,7 +9525,7 @@ Section Cross References
     motor.o(.ARM.exidx.text.MOTOR_SetPwmValue) refers to motor.o(.text.MOTOR_SetPwmValue) for [Anonymous Symbol]
     motor.o(.text.MOTOR_ControlLoop) refers to motor.o(.bss.motorStr) for motorStr
     motor.o(.text.MOTOR_ControlLoop) refers to pid.o(.bss.pidStr) for pidStr
-    motor.o(.text.MOTOR_ControlLoop) refers to pid.o(.text.Incremental_pid) for Incremental_pid
+    motor.o(.text.MOTOR_ControlLoop) refers to pid.o(.text.PID_MoveCalculate) for PID_MoveCalculate
     motor.o(.text.MOTOR_ControlLoop) refers to motor.o(.text.MOTOR_SetPwmValue) for MOTOR_SetPwmValue
     motor.o(.ARM.exidx.text.MOTOR_ControlLoop) refers to motor.o(.text.MOTOR_ControlLoop) for [Anonymous Symbol]
     servo.o(.text.SERVO_Init) refers to zf_pwm.o(.text.pwm_init) for pwm_init
@@ -9541,11 +9540,9 @@ Section Cross References
     servo.o(.text.SERVO_AngleControl) refers to servo.o(.data.ServoPwm) for ServoPwm
     servo.o(.text.SERVO_AngleControl) refers to servo.o(.text.SERVO_SetPwmValue) for SERVO_SetPwmValue
     servo.o(.ARM.exidx.text.SERVO_AngleControl) refers to servo.o(.text.SERVO_AngleControl) for [Anonymous Symbol]
-    pid.o(.text.Incremental_pid) refers to pid.o(.bss.Incremental_KI) for Incremental_KI
-    pid.o(.text.Incremental_pid) refers to pid.o(.bss.Incremental_pid.Last_Bias) for Incremental_pid.Last_Bias
-    pid.o(.text.Incremental_pid) refers to pid.o(.bss.Incremental_KP) for Incremental_KP
-    pid.o(.text.Incremental_pid) refers to pid.o(.bss.Incremental_pid.Pwm) for Incremental_pid.Pwm
-    pid.o(.ARM.exidx.text.Incremental_pid) refers to pid.o(.text.Incremental_pid) for [Anonymous Symbol]
+    pid.o(.text.PID_Init) refers to pid.o(.bss.pidStr) for pidStr
+    pid.o(.ARM.exidx.text.PID_Init) refers to pid.o(.text.PID_Init) for [Anonymous Symbol]
+    pid.o(.ARM.exidx.text.PID_MoveCalculate) refers to pid.o(.text.PID_MoveCalculate) for [Anonymous Symbol]
     asin.o(i.__hardfp_asin) refers (Special) to iusefp.o(.text) for __I$use$fp
     asin.o(i.__hardfp_asin) refers to dunder.o(i.__mathlib_dbl_infnan) for __mathlib_dbl_infnan
     asin.o(i.__hardfp_asin) refers to errno.o(i.__set_errno) for __set_errno
@@ -15581,7 +15578,7 @@ Removing Unused input sections from the image.
     Removing encoder.o(.text), (0 bytes).
     Removing encoder.o(.text.Encoder_Init), (14 bytes).
     Removing encoder.o(.ARM.exidx.text.Encoder_Init), (8 bytes).
-    Removing encoder.o(.text.Encoder_Get), (96 bytes).
+    Removing encoder.o(.text.Encoder_Get), (86 bytes).
     Removing encoder.o(.ARM.exidx.text.Encoder_Get), (8 bytes).
     Removing encoder.o(.data.Encoder_Para), (12 bytes).
     Removing encoder.o(.data.RC_Encoder), (4 bytes).
@@ -15592,7 +15589,7 @@ Removing Unused input sections from the image.
     Removing motor.o(.ARM.exidx.text.MOTOR_Init), (8 bytes).
     Removing motor.o(.text.MOTOR_SetPwmValue), (60 bytes).
     Removing motor.o(.ARM.exidx.text.MOTOR_SetPwmValue), (8 bytes).
-    Removing motor.o(.text.MOTOR_ControlLoop), (164 bytes).
+    Removing motor.o(.text.MOTOR_ControlLoop), (148 bytes).
     Removing motor.o(.ARM.exidx.text.MOTOR_ControlLoop), (8 bytes).
     Removing motor.o(.bss.motorStr), (20 bytes).
     Removing servo.o(.text), (0 bytes).
@@ -15608,12 +15605,10 @@ Removing Unused input sections from the image.
     Removing servo.o(.bss.pwm_Servo), (2 bytes).
     Removing servo.o(.data.ServoPwm), (2 bytes).
     Removing pid.o(.text), (0 bytes).
-    Removing pid.o(.text.Incremental_pid), (100 bytes).
-    Removing pid.o(.ARM.exidx.text.Incremental_pid), (8 bytes).
-    Removing pid.o(.bss.Incremental_KP), (4 bytes).
-    Removing pid.o(.bss.Incremental_KI), (4 bytes).
-    Removing pid.o(.bss.Incremental_pid.Pwm), (4 bytes).
-    Removing pid.o(.bss.Incremental_pid.Last_Bias), (4 bytes).
+    Removing pid.o(.text.PID_Init), (48 bytes).
+    Removing pid.o(.ARM.exidx.text.PID_Init), (8 bytes).
+    Removing pid.o(.text.PID_MoveCalculate), (66 bytes).
+    Removing pid.o(.ARM.exidx.text.PID_MoveCalculate), (8 bytes).
     Removing pid.o(.bss.pidStr), (32 bytes).
     Removing dadd.o(.text), (334 bytes).
     Removing dmul.o(.text), (228 bytes).
@@ -15624,7 +15619,7 @@ Removing Unused input sections from the image.
     Removing d2f.o(.text), (56 bytes).
     Removing fepilogue.o(.text), (110 bytes).
 
-5611 unused section(s) (total 474432 bytes) removed from the image.
+5609 unused section(s) (total 474412 bytes) removed from the image.
 
 ==============================================================================
 
@@ -17681,7 +17676,7 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x70011f20   0x00000004   Data   RW         7794    .data               mc_w.l(errno.o)
+    0x20000000   0x70011f20   0x00000004   Data   RW         7793    .data               mc_w.l(errno.o)
     0x20000004   0x70011f24   0x00000028   Data   RW         4461    .data.PORTPTR       zf_gpio.o
     0x2000002c   0x70011f4c   0x00000004   Data   RW          314    .data.SystemCoreClock  system_mimxrt1064.o
     0x20000030   0x70011f50   0x00000024   Data   RW         4839    .data.UARTN         zf_uart.o
@@ -17812,25 +17807,25 @@ Memory Map of the image
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x70002400   0x70002400   0x00000000   Code   RO         7382  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x70002400   0x70002400   0x00000004   Code   RO         7751    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
-    0x70002404   0x70002404   0x00000004   Code   RO         7754    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x70002408   0x70002408   0x00000000   Code   RO         7756    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x70002408   0x70002408   0x00000000   Code   RO         7758    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x70002408   0x70002408   0x00000008   Code   RO         7759    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x70002410   0x70002410   0x00000000   Code   RO         7761    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x70002410   0x70002410   0x00000000   Code   RO         7763    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x70002410   0x70002410   0x00000004   Code   RO         7752    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
+    0x70002400   0x70002400   0x00000000   Code   RO         7381  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x70002400   0x70002400   0x00000004   Code   RO         7750    .ARM.Collect$$$$00000003  mc_w.l(entry4.o)
+    0x70002404   0x70002404   0x00000004   Code   RO         7753    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x70002408   0x70002408   0x00000000   Code   RO         7755    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x70002408   0x70002408   0x00000000   Code   RO         7757    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x70002408   0x70002408   0x00000008   Code   RO         7758    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x70002410   0x70002410   0x00000000   Code   RO         7760    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x70002410   0x70002410   0x00000000   Code   RO         7762    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x70002410   0x70002410   0x00000004   Code   RO         7751    .ARM.Collect$$$$00002714  mc_w.l(entry4.o)
     0x70002414   0x70002414   0x00000224   Code   RO         5762    .text               startup_mimxrt1064.o
-    0x70002638   0x70002638   0x00000024   Code   RO         7817    .text               mc_w.l(init.o)
+    0x70002638   0x70002638   0x00000024   Code   RO         7816    .text               mc_w.l(init.o)
     0x7000265c   0x7000265c   0x00000004   PAD
     0x70002660   0x70002660   0x0000015e   Code   RO          308    .text.SystemInit    system_mimxrt1064.o
     0x700027be   0x700027be   0x00000002   PAD
     0x700027c0   0x700027c0   0x00000002   Code   RO          310    .text.SystemInitHook  system_mimxrt1064.o
-    0x700027c2   0x700027c2   0x0000000e   Code   RO         7874    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x700027d0   0x700027d0   0x00000002   Code   RO         7875    i.__scatterload_null  mc_w.l(handlers.o)
-    0x700027d2   0x700027d2   0x0000000e   Code   RO         7876    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x700027e0   0x700027e0   0x00000030   Data   RO         7873    Region$$Table       anon$$obj.o
+    0x700027c2   0x700027c2   0x0000000e   Code   RO         7873    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x700027d0   0x700027d0   0x00000002   Code   RO         7874    i.__scatterload_null  mc_w.l(handlers.o)
+    0x700027d2   0x700027d2   0x0000000e   Code   RO         7875    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x700027e0   0x700027e0   0x00000030   Data   RO         7872    Region$$Table       anon$$obj.o
 
 
     Execution Region VECTOR_RAM (Exec base: 0x80000000, Load base: 0x70002810, Size: 0x00000400, Max: 0x00000400, ABSOLUTE)
@@ -17845,23 +17840,23 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x80000400   0x70002810   0x00000134   Code   RO         7188    .text               context_rvds.o
-    0x80000534   0x70002944   0x00000062   Code   RO         7385    .text               mc_w.l(uldiv.o)
-    0x80000596   0x700029a6   0x00000062   Code   RO         7387    .text               mc_w.l(ldiv.o)
-    0x800005f8   0x70002a08   0x00000028   Code   RO         7389    .text               mc_w.l(memcpy.o)
-    0x80000620   0x70002a30   0x00000024   Code   RO         7393    .text               mc_w.l(memseta.o)
-    0x80000644   0x70002a54   0x00000018   Code   RO         7395    .text               mc_w.l(strcat.o)
-    0x8000065c   0x70002a6c   0x00000018   Code   RO         7397    .text               mc_w.l(strncpy.o)
-    0x80000674   0x70002a84   0x0000000e   Code   RO         7401    .text               mc_w.l(strlen.o)
-    0x80000682   0x70002a92   0x0000001a   Code   RO         7405    .text               mc_w.l(memcmp.o)
-    0x8000069c   0x70002aac   0x00000012   Code   RO         7407    .text               mc_w.l(strcpy.o)
-    0x800006ae   0x70002abe   0x0000001e   Code   RO         7409    .text               mc_w.l(strncmp.o)
-    0x800006cc   0x70002adc   0x00000028   Code   RO         7704    .text               mf_w.l(dfltl.o)
-    0x800006f4   0x70002b04   0x0000004a   Code   RO         7706    .text               mf_w.l(dfixl.o)
-    0x8000073e   0x70002b4e   0x0000001e   Code   RO         7781    .text               mc_w.l(llshl.o)
-    0x8000075c   0x70002b6c   0x00000020   Code   RO         7783    .text               mc_w.l(llushr.o)
-    0x8000077c   0x70002b8c   0x00000000   Code   RO         7802    .text               mc_w.l(iusefp.o)
-    0x8000077c   0x70002b8c   0x000000ba   Code   RO         7803    .text               mf_w.l(depilogue.o)
-    0x80000836   0x70002c46   0x0000002e   Code   RO         7811    .text               mf_w.l(dscalb.o)
+    0x80000534   0x70002944   0x00000062   Code   RO         7384    .text               mc_w.l(uldiv.o)
+    0x80000596   0x700029a6   0x00000062   Code   RO         7386    .text               mc_w.l(ldiv.o)
+    0x800005f8   0x70002a08   0x00000028   Code   RO         7388    .text               mc_w.l(memcpy.o)
+    0x80000620   0x70002a30   0x00000024   Code   RO         7392    .text               mc_w.l(memseta.o)
+    0x80000644   0x70002a54   0x00000018   Code   RO         7394    .text               mc_w.l(strcat.o)
+    0x8000065c   0x70002a6c   0x00000018   Code   RO         7396    .text               mc_w.l(strncpy.o)
+    0x80000674   0x70002a84   0x0000000e   Code   RO         7400    .text               mc_w.l(strlen.o)
+    0x80000682   0x70002a92   0x0000001a   Code   RO         7404    .text               mc_w.l(memcmp.o)
+    0x8000069c   0x70002aac   0x00000012   Code   RO         7406    .text               mc_w.l(strcpy.o)
+    0x800006ae   0x70002abe   0x0000001e   Code   RO         7408    .text               mc_w.l(strncmp.o)
+    0x800006cc   0x70002adc   0x00000028   Code   RO         7703    .text               mf_w.l(dfltl.o)
+    0x800006f4   0x70002b04   0x0000004a   Code   RO         7705    .text               mf_w.l(dfixl.o)
+    0x8000073e   0x70002b4e   0x0000001e   Code   RO         7780    .text               mc_w.l(llshl.o)
+    0x8000075c   0x70002b6c   0x00000020   Code   RO         7782    .text               mc_w.l(llushr.o)
+    0x8000077c   0x70002b8c   0x00000000   Code   RO         7801    .text               mc_w.l(iusefp.o)
+    0x8000077c   0x70002b8c   0x000000ba   Code   RO         7802    .text               mf_w.l(depilogue.o)
+    0x80000836   0x70002c46   0x0000002e   Code   RO         7810    .text               mf_w.l(dscalb.o)
     0x80000864   0x70002c74   0x00000004   PAD
     0x80000868   0x70002c78   0x0000000a   Code   RO         6203    .text.$Sub$$main    components.o
     0x80000872   0x70002c82   0x00000006   PAD
@@ -18576,25 +18571,25 @@ Memory Map of the image
     0x8000dd38   0x70010148   0x00000030   Code   RO         4837    .text.uart_set_handle  zf_uart.o
     0x8000dd68   0x70010178   0x000000d8   Code   RO         7233    .text.usage_fault_track  cpuport.o
     0x8000de40   0x70010250   0x0000000a   Code   RO         6732    .text.version       cmd.o
-    0x8000de4a   0x7001025a   0x00000030   Code   RO         7738    i.__ARM_fpclassify  m_wv.l(fpclassify.o)
+    0x8000de4a   0x7001025a   0x00000030   Code   RO         7737    i.__ARM_fpclassify  m_wv.l(fpclassify.o)
     0x8000de7a   0x7001028a   0x00000002   PAD
-    0x8000de7c   0x7001028c   0x000000c0   Code   RO         7351    i.__hardfp_modf     m_wv.l(modf.o)
+    0x8000de7c   0x7001028c   0x000000c0   Code   RO         7350    i.__hardfp_modf     m_wv.l(modf.o)
     0x8000df3c   0x7001034c   0x00000004   PAD
-    0x8000df40   0x70010350   0x000008c4   Code   RO         7357    i.__hardfp_pow      m_wv.l(pow.o)
-    0x8000e804   0x70010c14   0x00000070   Code   RO         7740    i.__kernel_poly     m_wv.l(poly.o)
+    0x8000df40   0x70010350   0x000008c4   Code   RO         7356    i.__hardfp_pow      m_wv.l(pow.o)
+    0x8000e804   0x70010c14   0x00000070   Code   RO         7739    i.__kernel_poly     m_wv.l(poly.o)
     0x8000e874   0x70010c84   0x00000004   PAD
-    0x8000e878   0x70010c88   0x00000018   Code   RO         7718    i.__mathlib_dbl_divzero  m_wv.l(dunder.o)
-    0x8000e890   0x70010ca0   0x00000006   Code   RO         7720    i.__mathlib_dbl_infnan2  m_wv.l(dunder.o)
+    0x8000e878   0x70010c88   0x00000018   Code   RO         7717    i.__mathlib_dbl_divzero  m_wv.l(dunder.o)
+    0x8000e890   0x70010ca0   0x00000006   Code   RO         7719    i.__mathlib_dbl_infnan2  m_wv.l(dunder.o)
     0x8000e896   0x70010ca6   0x00000002   PAD
-    0x8000e898   0x70010ca8   0x00000018   Code   RO         7721    i.__mathlib_dbl_invalid  m_wv.l(dunder.o)
-    0x8000e8b0   0x70010cc0   0x00000018   Code   RO         7722    i.__mathlib_dbl_overflow  m_wv.l(dunder.o)
-    0x8000e8c8   0x70010cd8   0x00000018   Code   RO         7724    i.__mathlib_dbl_underflow  m_wv.l(dunder.o)
-    0x8000e8e0   0x70010cf0   0x0000000c   Code   RO         7793    i.__set_errno       mc_w.l(errno.o)
-    0x8000e8ec   0x70010cfc   0x00000018   Code   RO         7734    i.fabs              m_wv.l(fabs.o)
-    0x8000e904   0x70010d14   0x0000006a   Code   RO         7372    i.sqrt              m_wv.l(sqrt.o)
+    0x8000e898   0x70010ca8   0x00000018   Code   RO         7720    i.__mathlib_dbl_invalid  m_wv.l(dunder.o)
+    0x8000e8b0   0x70010cc0   0x00000018   Code   RO         7721    i.__mathlib_dbl_overflow  m_wv.l(dunder.o)
+    0x8000e8c8   0x70010cd8   0x00000018   Code   RO         7723    i.__mathlib_dbl_underflow  m_wv.l(dunder.o)
+    0x8000e8e0   0x70010cf0   0x0000000c   Code   RO         7792    i.__set_errno       mc_w.l(errno.o)
+    0x8000e8ec   0x70010cfc   0x00000018   Code   RO         7733    i.fabs              m_wv.l(fabs.o)
+    0x8000e904   0x70010d14   0x0000006a   Code   RO         7371    i.sqrt              m_wv.l(sqrt.o)
     0x8000e96e   0x70010d7e   0x00000002   PAD
-    0x8000e970   0x70010d80   0x00000088   Data   RO         7360    .constdata          m_wv.l(pow.o)
-    0x8000e9f8   0x70010e08   0x00000008   Data   RO         7742    .constdata          m_wv.l(qnan.o)
+    0x8000e970   0x70010d80   0x00000088   Data   RO         7359    .constdata          m_wv.l(pow.o)
+    0x8000e9f8   0x70010e08   0x00000008   Data   RO         7741    .constdata          m_wv.l(qnan.o)
     0x8000ea00   0x70010e10   0x00000100   Data   RO         6440    .rodata.__lowest_bit_bitmap  kservice.o
     0x8000eb00   0x70010f10   0x00000008   Data   RO           96    .rodata.armPllConfig_BOARD_BootClockRUN  clock_config.o
     0x8000eb08   0x70010f18   0x00000010   Data   RO          577    .rodata.cst16       fsl_clock.o

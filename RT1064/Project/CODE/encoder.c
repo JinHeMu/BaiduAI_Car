@@ -18,14 +18,13 @@ void Encoder_Get(void)
 
   encoder = qtimer_quad_get(QTIMER_1, QTIMER1_TIMER0_C0); // 这里需要注意第二个参数务必填写A相引脚
 
-  RC_encoder = (int16_t)RCFilter(encoder, RC_Encoder); // 低通滤波
+  motorStr.EncoderValue = (int16_t)RCFilter(encoder, RC_Encoder); // 低通滤波
 
-  motorStr.EncoderValue = RC_encoder;
 
   if(motorStr.EncoderValue > 32767)
       motorStr.EncoderValue = motorStr.EncoderValue - 65536;
   
-  //PID负反馈数据输入
+      //PID负反馈数据输入
   pidStr.Speed_FeedBack = motorStr.EncoderValue;
     
   //计算实际速度	---		m/s

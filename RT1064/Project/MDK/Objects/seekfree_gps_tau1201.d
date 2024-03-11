@@ -125,6 +125,6 @@
   ..\..\Libraries\rttherad_libraries\include\rtservice.h \
   ..\..\Libraries\rttherad_libraries\include\rtm.h \
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
-  ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\pid.h \
-  ..\CODE\motor.h \
+  ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
+  ..\CODE\pid.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_GPS_TAU1201.h

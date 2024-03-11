@@ -50,10 +50,10 @@ void MOTOR_ControlLoop(float speed)
     else if(speed < -MOTOR_SPEED_MAX)
         speed = -MOTOR_SPEED_MAX;
 
-    //pidStr.vi_Ref为编码器的速度
-    pidStr.Speed_Input = (float)(speed*MOTOR_CONTROL_CYCLE / motorStr.DiameterWheel / PI * motorStr.EncoderLine * 4.0f * motorStr.ReductionRatio);
+    //pidStr.Speed_Target为编码器的速度
+    pidStr.Speed_Target = (float)(speed*MOTOR_CONTROL_CYCLE / motorStr.DiameterWheel / PI * motorStr.EncoderLine * 4.0f * motorStr.ReductionRatio);
     
-    MOTOR_SetPwmValue(Incremental_pid(pidStr.Speed_Input, pidStr.Speed_FeedBack));
+    MOTOR_SetPwmValue(PID_MoveCalculate(&pidStr));
 }
 
 
