@@ -1809,6 +1809,11 @@
               <FileType>1</FileType>
               <FilePath>..\USER\src\main.c</FilePath>
             </File>
+            <File>
+              <FileName>common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\common.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1833,6 +1838,11 @@
               <FileName>rtconfig.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Libraries\rttherad_libraries\bsp\rtconfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>common.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\common.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -2173,6 +2183,58 @@
         </Group>
         <Group>
           <GroupName>code</GroupName>
+          <Files>
+            <File>
+              <FileName>uart1_usb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\uart1_usb.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart1_usb.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\uart1_usb.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\servo.h</FilePath>
+            </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\pid.h</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>
@@ -3978,6 +4040,11 @@
               <FileType>1</FileType>
               <FilePath>..\USER\src\main.c</FilePath>
             </File>
+            <File>
+              <FileName>common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\common.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -4002,6 +4069,11 @@
               <FileName>rtconfig.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Libraries\rttherad_libraries\bsp\rtconfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>common.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\common.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -4342,6 +4414,58 @@
         </Group>
         <Group>
           <GroupName>code</GroupName>
+          <Files>
+            <File>
+              <FileName>uart1_usb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\uart1_usb.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart1_usb.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\uart1_usb.h</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\servo.h</FilePath>
+            </File>
+            <File>
+              <FileName>pid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>pid.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\pid.h</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>

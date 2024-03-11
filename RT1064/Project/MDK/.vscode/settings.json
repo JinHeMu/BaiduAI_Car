@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "headfile.h": "c",
+        "ff.h": "c",
+        "rtthread.h": "c",
+        "rtconfig.h": "c",
+        "usb.h": "c",
+        "seekfree_imu963ra.h": "c",
+        "uart1_usb.h": "c",
+        "servo.h": "c",
+        "encoder.h": "c",
+        "common.h": "c",
+        "motor.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}

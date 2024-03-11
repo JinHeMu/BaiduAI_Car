@@ -32,9 +32,7 @@
   ..\..\Libraries\nxp_libraries\drives\fsl_clock.h \
   ..\..\Libraries\seekfree_libraries\board\pin_mux.h \
   ..\..\Libraries\seekfree_libraries\board\clock_config.h \
-  ..\..\Libraries\nxp_libraries\drives\fsl_cache.h \
-  ..\..\Libraries\seekfree_libraries\common\common.h \
-  D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\math.h \
+  ..\..\Libraries\nxp_libraries\drives\fsl_cache.h ..\CODE\common.h \
   ..\..\Libraries\seekfree_libraries\zf_vector.h \
   ..\..\Libraries\nxp_libraries\middleware\fatfs\source\ff.h \
   ..\..\Libraries\nxp_libraries\middleware\fatfs\source\ffconf.h \
@@ -47,6 +45,7 @@
   ..\..\Libraries\nxp_libraries\middleware\sdmmc\inc\fsl_sdmmc_spec.h \
   ..\..\Libraries\seekfree_libraries\common\SEEKFREE_PRINTF.h \
   ..\..\Libraries\seekfree_libraries\common\common.h \
+  D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\math.h \
   ..\..\Libraries\seekfree_libraries\zf_gpio.h \
   ..\..\Libraries\nxp_libraries\deceive\MIMXRT1064.h \
   ..\..\Libraries\seekfree_libraries\zf_iomuxc.h \
@@ -124,4 +123,5 @@
   ..\..\Libraries\rttherad_libraries\include\rtservice.h \
   ..\..\Libraries\rttherad_libraries\include\rtm.h \
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
-  ..\USER\inc\isr.h
+  ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\pid.h \
+  ..\CODE\motor.h ..\USER\inc\isr.h
