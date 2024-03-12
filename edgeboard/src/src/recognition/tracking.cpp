@@ -25,6 +25,7 @@ public:
     uint16_t rowCutUp = 10;           // 图像顶部切行
     uint16_t rowCutBottom = 10;       // 图像底部切行 图像顶部和底部切行的数量，用于裁剪图像以减少处理区域。
 
+
     /**
      * @brief 赛道线识别
      *

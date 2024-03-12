@@ -491,8 +491,12 @@ private:
                 else
                     counter = 0;
 
-                if (counter > 2)//计数器大于2，说明找到跳变点
+                if (counter > 2)
+                {
+                    //计数器大于2，说明找到跳变点
                     rowBreakRightDown = i - 3;
+                    break;
+                }
             }
         }
 
