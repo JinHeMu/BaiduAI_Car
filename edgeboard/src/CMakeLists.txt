@@ -59,7 +59,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})#包含头文件
 add_executable(icar #可执行程序名称
 
         src/icar.cpp
-        include/uart.hpp)#源文件
+        )#源文件
 
 
 target_link_libraries(icar ${OpenCV_LIBS})#链接动态库

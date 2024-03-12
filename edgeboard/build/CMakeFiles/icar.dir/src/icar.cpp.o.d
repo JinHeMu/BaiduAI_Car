@@ -375,10 +375,27 @@ CMakeFiles/icar.dir/src/icar.cpp.o: \
  /usr/local/include/opencv4/opencv2/video.hpp \
  /usr/local/include/opencv4/opencv2/video/tracking.hpp \
  /usr/local/include/opencv4/opencv2/video/background_segm.hpp \
+ /home/jinhemu/BaiduAI_Car/edgeboard/src/src/../include/uart.hpp \
+ /usr/local/include/libserial/SerialPort.h \
+ /usr/local/include/libserial/SerialPortConstants.h \
+ /usr/include/termios.h /usr/include/x86_64-linux-gnu/bits/termios.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
+ /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+ /usr/include/c++/11/thread /usr/include/c++/11/bits/std_thread.h \
+ /usr/include/c++/11/bits/this_thread_sleep.h \
  /home/jinhemu/BaiduAI_Car/edgeboard/src/src/mapping.cpp \
  /home/jinhemu/BaiduAI_Car/edgeboard/src/src/preprocess.cpp \
  /home/jinhemu/BaiduAI_Car/edgeboard/src/src/recognition/crossroad.cpp \
  /home/jinhemu/BaiduAI_Car/edgeboard/src/src/recognition/tracking.cpp \
+ /home/jinhemu/BaiduAI_Car/edgeboard/src/src/recognition/ring.cpp \
  /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
  /usr/include/x86_64-linux-gnu/bits/signum-arch.h \

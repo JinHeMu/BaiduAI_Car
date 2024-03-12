@@ -382,7 +382,7 @@ public:
     }
 
     /**
-     * @brief 边缘斜率计算
+     * @brief 边缘斜率计算，计算边缘点集的标准差，用来衡量边缘的稳定性或波动程度。
      *
      * @param v_edge
      * @param img_height

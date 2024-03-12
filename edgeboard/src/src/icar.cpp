@@ -4,7 +4,7 @@
 
 #include "../include/common.hpp"     //公共类方法文件
 //#include "../include/detection.hpp"  //百度Paddle框架移动端部署
-//#include "../include/uart.hpp"       //串口通信驱动
+#include "../include/uart.hpp"       //串口通信驱动
 //#include "controlcenter.cpp"         //控制中心计算类
 //#include "detection/bridge.cpp"      //AI检测：坡道区
 //#include "detection/danger.cpp"      //AI检测：危险区
@@ -15,7 +15,7 @@
 #include "mapping.cpp"                 //透视变换类
 #include "preprocess.cpp"            //图像预处理类
 #include "recognition/crossroad.cpp" //十字道路识别与路径规划类
-//#include "recognition/ring.cpp"      //环岛道路识别与路径规划类
+#include "recognition/ring.cpp"      //环岛道路识别与路径规划类
 #include "recognition/tracking.cpp"  //赛道识别基础类
 #include <iostream>
 #include <opencv2/highgui.hpp> //OpenCV终端部署
@@ -39,23 +39,33 @@ int main(int argc, char const *argv[]) {
 
     Preprocess preprocess;
     Tracking tracker;
+    Ring ring;
+    Crossroad crossroad;
 
     Mapping IPM(cv::Size(320, 240), cv::Size(COLSIMAGEIPM, ROWSIMAGEIPM));
-    Display display(1); // 创建一个窗口数量为1的对象
+    Display display(2); // 创建一个窗口数量为1的对象
+
+
 
     while(true)
     {
         cap.read(img);
         Mat imageCorrection = preprocess.correction(img);
         Mat imageBinary = preprocess.binaryzation(imageCorrection);
+
+        ring.process(tracker, imageCorrection);
+        crossroad.crossRecognition(tracker);
+
         IPM.homography(imageCorrection, imageIPM);
         tracker.trackRecognition(imageBinary);
 
-
-        tracker.drawImage(imageCorrection);
-        // 设置新窗口的属性并显示图像
+        //ring.drawImage(tracker, img);
+        tracker.drawImage(img);
+        crossroad.drawImage(tracker, imageCorrection);
+        // 设置新窗口的属性并显示图像q
         // display.setNewWindow(1, "Original Image", img);
-        display.setNewWindow(1, "Corrected Image", imageCorrection);
+        display.setNewWindow(1, "tracker Image", img);
+        display.setNewWindow(2, "crossroad Image", imageCorrection);
         // display.setNewWindow(3, "imageBinary", imageBinary);
         // display.setNewWindow(4, "imageIPM", imageIPM);
         // display.setNewWindow(4, "imageIPM", imageBinary);

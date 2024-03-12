@@ -1,0 +1,305 @@
+[0.715s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'list', '-p', '--base-paths', '/home/jinhemu/BaiduAI_Car/edgeboard']
+[0.715s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='list', build_base='build', ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['/home/jinhemu/BaiduAI_Car/edgeboard'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], topological_order=False, names_only=False, paths_only=True, topological_graph=False, topological_graph_dot=False, topological_graph_density=False, topological_graph_legend=False, topological_graph_dot_cluster=False, topological_graph_dot_include_skipped=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x785fb50ee350>, verb_extension=<colcon_package_information.verb.list.ListVerb object at 0x785fb50447c0>, main=<bound method ListVerb.main of <colcon_package_information.verb.list.ListVerb object at 0x785fb50447c0>>)
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.748s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.749s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/jinhemu/BaiduAI_Car/edgeboard'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extensions ['ignore', 'ignore_ament_install']
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extension 'ignore'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extension 'ignore_ament_install'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extensions ['colcon_pkg']
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extension 'colcon_pkg'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extensions ['colcon_meta']
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extension 'colcon_meta'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extensions ['ros']
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extension 'ros'
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extensions ['cmake', 'python']
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extension 'cmake'
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extension 'python'
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extensions ['python_setup_py']
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard) by extension 'python_setup_py'
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extensions ['ignore', 'ignore_ament_install']
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extension 'ignore'
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extension 'ignore_ament_install'
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extensions ['colcon_pkg']
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extension 'colcon_pkg'
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extensions ['colcon_meta']
+[0.757s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extension 'colcon_meta'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extensions ['ros']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extension 'ros'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extensions ['cmake', 'python']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extension 'cmake'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extension 'python'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extensions ['python_setup_py']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build) by extension 'python_setup_py'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extensions ['ignore', 'ignore_ament_install']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extension 'ignore'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extension 'ignore_ament_install'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extensions ['colcon_pkg']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extension 'colcon_pkg'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extensions ['colcon_meta']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extension 'colcon_meta'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extensions ['ros']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extension 'ros'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extensions ['cmake', 'python']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extension 'cmake'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extension 'python'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extensions ['python_setup_py']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles) by extension 'python_setup_py'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extensions ['ignore', 'ignore_ament_install']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extension 'ignore'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extension 'ignore_ament_install'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extensions ['colcon_pkg']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extension 'colcon_pkg'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extensions ['colcon_meta']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extension 'colcon_meta'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extensions ['ros']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extension 'ros'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extensions ['cmake', 'python']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extension 'cmake'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extension 'python'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extensions ['python_setup_py']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1) by extension 'python_setup_py'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extensions ['ignore', 'ignore_ament_install']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extension 'ignore'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extension 'ignore_ament_install'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extensions ['colcon_pkg']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extension 'colcon_pkg'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extensions ['colcon_meta']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extension 'colcon_meta'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extensions ['ros']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extension 'ros'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extensions ['cmake', 'python']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extension 'cmake'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extension 'python'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extensions ['python_setup_py']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC) by extension 'python_setup_py'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extensions ['ignore', 'ignore_ament_install']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extension 'ignore'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extension 'ignore_ament_install'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extensions ['colcon_pkg']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extension 'colcon_pkg'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extensions ['colcon_meta']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extension 'colcon_meta'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extensions ['ros']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extension 'ros'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extensions ['cmake', 'python']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extension 'cmake'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extension 'python'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extensions ['python_setup_py']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdC/tmp) by extension 'python_setup_py'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extensions ['ignore', 'ignore_ament_install']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extension 'ignore'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extension 'ignore_ament_install'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extensions ['colcon_pkg']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extension 'colcon_pkg'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extensions ['colcon_meta']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extension 'colcon_meta'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extensions ['ros']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extension 'ros'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extensions ['cmake', 'python']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extension 'cmake'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extension 'python'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extensions ['python_setup_py']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX) by extension 'python_setup_py'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extensions ['ignore', 'ignore_ament_install']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extension 'ignore'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extension 'ignore_ament_install'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extensions ['colcon_pkg']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extension 'colcon_pkg'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extensions ['colcon_meta']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extension 'colcon_meta'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extensions ['ros']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extension 'ros'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extensions ['cmake', 'python']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extension 'cmake'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extension 'python'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extensions ['python_setup_py']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/3.22.1/CompilerIdCXX/tmp) by extension 'python_setup_py'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extensions ['ignore', 'ignore_ament_install']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extension 'ignore'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extension 'ignore_ament_install'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extensions ['colcon_pkg']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extension 'colcon_pkg'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extensions ['colcon_meta']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extension 'colcon_meta'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extensions ['ros']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extension 'ros'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extensions ['cmake', 'python']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extension 'cmake'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extension 'python'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extensions ['python_setup_py']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/CMakeTmp) by extension 'python_setup_py'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extensions ['ignore', 'ignore_ament_install']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extension 'ignore'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extension 'ignore_ament_install'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extensions ['colcon_pkg']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extension 'colcon_pkg'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extensions ['colcon_meta']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extension 'colcon_meta'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extensions ['ros']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extension 'ros'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extensions ['cmake', 'python']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extension 'cmake'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extension 'python'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extensions ['python_setup_py']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir) by extension 'python_setup_py'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extensions ['ignore', 'ignore_ament_install']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extension 'ignore'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extension 'ignore_ament_install'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extensions ['colcon_pkg']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extension 'colcon_pkg'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extensions ['colcon_meta']
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extension 'colcon_meta'
+[0.761s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extensions ['ros']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extension 'ros'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extensions ['cmake', 'python']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extension 'cmake'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extension 'python'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extensions ['python_setup_py']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir/src) by extension 'python_setup_py'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/log) by extensions ['ignore', 'ignore_ament_install']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/log) by extension 'ignore'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/log) ignored
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extensions ['ignore', 'ignore_ament_install']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extension 'ignore'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extension 'ignore_ament_install'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extensions ['colcon_pkg']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extension 'colcon_pkg'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extensions ['colcon_meta']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extension 'colcon_meta'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extensions ['ros']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extension 'ros'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extensions ['cmake', 'python']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extension 'cmake'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extension 'python'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extensions ['python_setup_py']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res) by extension 'python_setup_py'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extensions ['ignore', 'ignore_ament_install']
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extension 'ignore'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extension 'ignore_ament_install'
+[0.762s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extensions ['colcon_pkg']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extension 'colcon_pkg'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extensions ['colcon_meta']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extension 'colcon_meta'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extensions ['ros']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extension 'ros'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extensions ['cmake', 'python']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extension 'cmake'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extension 'python'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extensions ['python_setup_py']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration) by extension 'python_setup_py'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extensions ['ignore', 'ignore_ament_install']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extension 'ignore'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extension 'ignore_ament_install'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extensions ['colcon_pkg']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extension 'colcon_pkg'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extensions ['colcon_meta']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extension 'colcon_meta'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extensions ['ros']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extension 'ros'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extensions ['cmake', 'python']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extension 'cmake'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extension 'python'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extensions ['python_setup_py']
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/corners) by extension 'python_setup_py'
+[0.763s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extensions ['ignore', 'ignore_ament_install']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extension 'ignore'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extension 'ignore_ament_install'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extensions ['colcon_pkg']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extension 'colcon_pkg'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extensions ['colcon_meta']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extension 'colcon_meta'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extensions ['ros']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extension 'ros'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extensions ['cmake', 'python']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extension 'cmake'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extension 'python'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extensions ['python_setup_py']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/correct) by extension 'python_setup_py'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extensions ['ignore', 'ignore_ament_install']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extension 'ignore'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extension 'ignore_ament_install'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extensions ['colcon_pkg']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extension 'colcon_pkg'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extensions ['colcon_meta']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extension 'colcon_meta'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extensions ['ros']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extension 'ros'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extensions ['cmake', 'python']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extension 'cmake'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extension 'python'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extensions ['python_setup_py']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/temp) by extension 'python_setup_py'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extensions ['ignore', 'ignore_ament_install']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extension 'ignore'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extension 'ignore_ament_install'
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extensions ['colcon_pkg']
+[0.764s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extension 'colcon_pkg'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extensions ['colcon_meta']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extension 'colcon_meta'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extensions ['ros']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extension 'ros'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extensions ['cmake', 'python']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extension 'cmake'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extension 'python'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extensions ['python_setup_py']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/calibration/valid) by extension 'python_setup_py'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extensions ['ignore', 'ignore_ament_install']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extension 'ignore'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extension 'ignore_ament_install'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extensions ['colcon_pkg']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extension 'colcon_pkg'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extensions ['colcon_meta']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extension 'colcon_meta'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extensions ['ros']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extension 'ros'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extensions ['cmake', 'python']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extension 'cmake'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extension 'python'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extensions ['python_setup_py']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model) by extension 'python_setup_py'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extensions ['ignore', 'ignore_ament_install']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extension 'ignore'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extension 'ignore_ament_install'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extensions ['colcon_pkg']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extension 'colcon_pkg'
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extensions ['colcon_meta']
+[0.765s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extension 'colcon_meta'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extensions ['ros']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extension 'ros'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extensions ['cmake', 'python']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extension 'cmake'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extension 'python'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extensions ['python_setup_py']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/model/yolov3_mobilenet_v1) by extension 'python_setup_py'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extensions ['ignore', 'ignore_ament_install']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extension 'ignore'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extension 'ignore_ament_install'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extensions ['colcon_pkg']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extension 'colcon_pkg'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extensions ['colcon_meta']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extension 'colcon_meta'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extensions ['ros']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extension 'ros'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extensions ['cmake', 'python']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extension 'cmake'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extension 'python'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extensions ['python_setup_py']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/res/samples) by extension 'python_setup_py'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extensions ['ignore', 'ignore_ament_install']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extension 'ignore'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extension 'ignore_ament_install'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extensions ['colcon_pkg']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extension 'colcon_pkg'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extensions ['colcon_meta']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extension 'colcon_meta'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extensions ['ros']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extension 'ros'
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extensions ['cmake', 'python']
+[0.766s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extension 'cmake'
+[0.768s] Level 1:colcon.colcon_core.package_identification:_identify(/home/jinhemu/BaiduAI_Car/edgeboard/src) by extension 'python'
+[0.768s] DEBUG:colcon.colcon_core.package_identification:Package '/home/jinhemu/BaiduAI_Car/edgeboard/src' with type 'cmake' and name 'BaiduAI_Car'
+[0.768s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
