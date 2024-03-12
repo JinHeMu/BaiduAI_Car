@@ -114,18 +114,19 @@ public:
                         if (pointBreakRD.y > track.spurroad[i].y && pointBreakRD.x > track.spurroad[i].x)
                         {
                             if (pointBreakRD.x - track.spurroad[i].x < pointBreakRD.x - track.spurroad[indexSP].x)
-                                indexSP = i;
+                                indexSP = i;//右上方的点
                         }
                     }
 
                     if (pointBreakRD.y > track.spurroad[indexSP].y && pointBreakRD.x > track.spurroad[indexSP].x)
                     {
                         uint16_t rowEnd = rowBreakRightDown; // 赛道重搜索行
+                        //从右下角点向上寻找
                         for (int i = rowBreakRightDown; i < track.pointsEdgeRight.size(); i++)
                         {
                             if (track.pointsEdgeRight[i].x <= track.spurroad[indexSP].x)
                             {
-                                rowEnd = i - 1;
+                                rowEnd = i - 1;//角点找到rowed正上方位置
                                 break;
                             }
                         }
@@ -134,7 +135,7 @@ public:
                         POINT endPoint = track.spurroad[indexSP];                                                     // 补线终点
                         POINT midPoint = POINT((startPoint.x + endPoint.x) * 0.5, (startPoint.y + endPoint.y) * 0.5); // 补线中点
                         vector<POINT> input = {startPoint, midPoint, endPoint};
-                        vector<POINT> repair = Bezier(0.04, input);
+                        vector<POINT> repair = Bezier(0.04, input);//贝塞尔曲线拟合
 
                         track.pointsEdgeRight.resize(rowBreakRightDown); // 重绘右边缘
                         for (int i = 0; i < repair.size(); i++)
@@ -182,7 +183,7 @@ public:
                     vector<POINT> input = {startPoint, midPoint, endPoint};
                     vector<POINT> repair = Bezier(0.05, input);
 
-                    track.pointsEdgeRight.resize(rowBreakRightDown); // 重绘右边缘
+                    track.pointsEdgeRight.resize(rowBreakRightDown); // 重绘右边缘使其仅保留索引小于 rowBreakRightDown 的部分
                     for (int i = 0; i < repair.size(); i++)
                     {
                         track.pointsEdgeRight.push_back(repair[i]);
@@ -201,7 +202,7 @@ public:
             for (int i = 2; i < track.widthBlock.size() - 10; i++)
             {
                 // 直入十字判断
-                if (track.spurroad.size() > 0 && track.widthBlock[i].y > COLSIMAGE - 5)
+                if (track.spurroad.size() > 0 && track.widthBlock[i].y > COLSIMAGE - 5)//有岔路而且还有直道
                 {
                     counterStrightA++;
                 }
@@ -246,7 +247,7 @@ public:
                     double b = pointBreakLU.y - k * pointBreakLU.x;
                     for (int i = rowBreakLD; i <= rowBreakLU; i++)
                     {
-                        track.pointsEdgeLeft[i].y = (int)(k * track.pointsEdgeLeft[i].x + b);
+                        track.pointsEdgeLeft[i].y = (int)(k * track.pointsEdgeLeft[i].x + b);//斜率补线
                     }
                     repaired = true; // 补线成功
                 }
@@ -521,7 +522,7 @@ private:
         {
             if (pointsEdgeLeft[i].x > ROWSIMAGE / 2)//如果横坐标大于ROWSIMAGE / 2，说明超出寻找范围
                 break;
-            else if (pointsEdgeLeft[i].y < 2)//找到直道
+            else if (pointsEdgeLeft[i].y < 2)//找到左直道
                 counterLeft++;
         }
         // 从右边点集向下搜索
@@ -529,10 +530,10 @@ private:
         {
             if (pointsEdgeRight[i].x > ROWSIMAGE / 2)//如果横坐标大于ROWSIMAGE / 2，说明超出寻找范围
                 break;
-            else if (pointsEdgeRight[i].y > COLSIMAGE - 2)//找到直道
+            else if (pointsEdgeRight[i].y > COLSIMAGE - 2)//找到右直道
                 counterRight++;
         }
-        if (counterLeft > 30 && counterRight > 30)
+        if (counterLeft > 30 && counterRight > 30)//如果左右边缘点集都大于30，说明找到直道
             return true;
         else
             return false;

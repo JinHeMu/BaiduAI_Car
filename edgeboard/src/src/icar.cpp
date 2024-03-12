@@ -43,7 +43,7 @@ int main(int argc, char const *argv[]) {
     Crossroad crossroad;
 
     Mapping IPM(cv::Size(320, 240), cv::Size(COLSIMAGEIPM, ROWSIMAGEIPM));
-    Display display(2); // 创建一个窗口数量为1的对象
+    Display display(1); // 创建一个窗口数量为1的对象
 
 
 
@@ -53,22 +53,12 @@ int main(int argc, char const *argv[]) {
         Mat imageCorrection = preprocess.correction(img);
         Mat imageBinary = preprocess.binaryzation(imageCorrection);
 
-        ring.process(tracker, imageCorrection);
-        crossroad.crossRecognition(tracker);
-
-        IPM.homography(imageCorrection, imageIPM);
         tracker.trackRecognition(imageBinary);
-
-        //ring.drawImage(tracker, img);
-        tracker.drawImage(img);
+        crossroad.crossRecognition(tracker);
         crossroad.drawImage(tracker, imageCorrection);
-        // 设置新窗口的属性并显示图像q
-        // display.setNewWindow(1, "Original Image", img);
-        display.setNewWindow(1, "tracker Image", img);
-        display.setNewWindow(2, "crossroad Image", imageCorrection);
-        // display.setNewWindow(3, "imageBinary", imageBinary);
-        // display.setNewWindow(4, "imageIPM", imageIPM);
-        // display.setNewWindow(4, "imageIPM", imageBinary);
+
+        display.setNewWindow(1, "tracker Image", imageCorrection);
+
 
         // 显示融合后的图像
         display.show();

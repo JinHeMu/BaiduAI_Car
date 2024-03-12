@@ -239,6 +239,7 @@ public:
                 vector<int> indexBlocks;               // 色块序号（行）
                 for (int i = 0; i < counterBlock; i++) // 上下行色块的连通性判断
                 {
+                    //判断是否连通
                     int g_cover = min(endBlock[i], pointsEdgeRight[pointsEdgeRight.size() - 1].y) -
                                   max(startBlock[i], pointsEdgeLeft[pointsEdgeLeft.size() - 1].y);
                     if (g_cover >= 0)
