@@ -26,6 +26,9 @@
 using namespace std;
 using namespace cv;
 
+#define VIDEO
+//#define IMAGE
+
 int main(int argc, char const *argv[]) {
 
     string path = "../res/samples/sample2.mp4";
@@ -36,7 +39,7 @@ int main(int argc, char const *argv[]) {
     Mat imgBin;
     Mat imgTracker;
     Mat imgCross;
-    Mat imageIPM(240, 320, CV_8UC3, Scalar(0, 0, 0));
+    Mat imgRing;
 
     Preprocess preprocess;
     Tracking tracker;
@@ -44,26 +47,13 @@ int main(int argc, char const *argv[]) {
     Crossroad crossroad;
 
     Mapping IPM(cv::Size(320, 240), cv::Size(COLSIMAGEIPM, ROWSIMAGEIPM));
-    Display display(1); // 创建一个窗口数量为1的对象
+    Display display(2); // 创建一个窗口数量为1的对象
 
-//    img = imread("../res/samples/1.jpg");
-//        Mat imageCorrection = preprocess.correction(img);
-//        Mat imageBinary = preprocess.binaryzation(imageCorrection);
-//
-//        imgTracker = imageCorrection.clone();
-//        imgCross = imageCorrection.clone();
-//
-//
-//        tracker.trackRecognition(imageBinary);
-//        tracker.drawImage(imgTracker);
-//
-//        crossroad.crossRecognition(tracker);
-//        crossroad.drawImage(tracker, imgCross);
-//    tracker.printPointsEdgeRight();
-//    imshow("tracker Image", imgTracker);
-//    imshow("cross Image", imgCross);
-//    waitKey(0);
-    while(true)
+
+
+#ifdef VIDEO
+
+while(true)
     {
         cap.read(img);
 
@@ -73,7 +63,7 @@ int main(int argc, char const *argv[]) {
 
         imgTracker = imageCorrection.clone();
         imgCross = imageCorrection.clone();
-
+        imgRing = imageCorrection.clone();
 
         tracker.trackRecognition(imageBinary);
         tracker.drawImage(imgTracker);
@@ -81,11 +71,14 @@ int main(int argc, char const *argv[]) {
         crossroad.crossRecognition(tracker);
         crossroad.drawImage(tracker, imgCross);
 
+        ring.process(tracker, imgRing);
+        ring.drawImage(tracker, imgRing);
+
         //        ring.process(tracker, imageCorrection);
 //        ring.drawImage(tracker,imageCorrection);
 
-        //display.setNewWindow(2, "tracker Image", imgTracker);
-        display.setNewWindow(1, "cross Image", imgCross);
+        display.setNewWindow(2, "tracker Image", imgTracker);
+        display.setNewWindow(1, "ring Image", imgRing);
 
 
 
@@ -100,6 +93,33 @@ int main(int argc, char const *argv[]) {
         }
     }
 
+#endif
+
+#ifdef IMAGE
+    img = imread("../res/samples/train/ring/290.jpg");
+        Mat imageCorrection = preprocess.correction(img);
+        Mat imageBinary = preprocess.binaryzation(imageCorrection);
+
+        imgTracker = imageCorrection.clone();
+        imgCross = imageCorrection.clone();
+        imgRing = imageCorrection.clone();
+
+        tracker.trackRecognition(imageBinary);
+        tracker.drawImage(imgTracker);
+
+        crossroad.crossRecognition(tracker);
+        crossroad.drawImage(tracker, imgCross);
+
+        ring.process(tracker, imgRing);
+        ring.drawImage(tracker, imgRing);
+
+
+        display.setNewWindow(2, "tracker Image", imgTracker);
+        display.setNewWindow(1, "ring Image", imgRing);
+        display.show();
+        waitKey(0);
+
+#endif
 
 
 

@@ -53,7 +53,7 @@ public:
      */
     bool process(Tracking &track, Mat &imagePath)
     {
-        if (counterShield < 40)
+        if (counterShield < 40)// 确保在环岛检测被触发后的一段时间内不会再次触发
         {
             counterShield++;
             return false;
@@ -72,14 +72,14 @@ public:
 
         // 算环用布线的候选点
         rowRepairLine = max(rowRepairLine - 5, 0);
-        if (ringStep == RingStep::Entering && !track.spurroad.empty())
+        if (ringStep == RingStep::Entering && !track.spurroad.empty())// 进入圆环 并且存在岔路
         {
-            if (ringType == RingType::RingLeft && track.pointsEdgeLeft.size() > 20)
+            if (ringType == RingType::RingLeft && track.pointsEdgeLeft.size() > 20)//左入圆环，并且左侧点集大于20
             {
                 for (int j = max(rowRepairLine - 30, 10);
                      j < track.pointsEdgeLeft.size() - 10 && j < rowRepairLine + 30 &&
                      track.pointsEdgeLeft[j].x >= track.spurroad[0].x;
-                     j++)
+                     j++)// j小于左点集-10并且小于rowRepairLine+30，j点row大于岔路点
                 {
                     if (track.pointsEdgeLeft[j].y > track.pointsEdgeLeft[j - 10].y &&
                         track.pointsEdgeLeft[j].y > track.pointsEdgeLeft[j + 10].y)
@@ -111,6 +111,7 @@ public:
         {
             rowBreakpointLeft = track.pointsEdgeLeft[ii].x;
             if (track.pointsEdgeLeft[ii].y > 2)
+
                 break;
         }
         for (int ii = 0; ii < track.pointsEdgeRight.size(); ++ii)
@@ -122,8 +123,10 @@ public:
 
         // 判环
         int countWide = 0; // 环岛入口变宽区域行数
+        //从下往上搜索
         for (int i = 1; i < track.widthBlock.size(); ++i)
         {
+            //上行宽度大于下行，并且宽度大于图像列宽0.6并且行大于30，左点集标准差大于120，右点集标准差小于50，判断赛道平直程度
             if (track.widthBlock[i].y > track.widthBlock[i - 1].y && track.widthBlock[i].y > COLSIMAGE * 0.6 && track.widthBlock[i].x > 30 &&
                 ((track.stdevLeft > 120 && track.stdevRight < 50) || ringStep == RingStep::Entering)) // 搜索突然变宽的路径行数
             {
@@ -133,7 +136,7 @@ public:
             {
                 countWide = 0;
             }
-            // [1] 入环判断
+            // [1] 入环判断 countwide计数器大于五，并且存在岔路点，则认为入环
             if ((ringStep == RingStep::None || ringStep == RingStep::Entering) && countWide >= 5 && !track.spurroad.empty())
             {
                 if (ringTypeTemp == RingType::RingNone) // 环岛方向判定
@@ -141,6 +144,7 @@ public:
                     int tmp_flag = 0;
                     for (int j = 0; j < track.spurroad.size(); j++)
                     {
+                        //纯在岔路点row 小于 左点集row
                         if (track.spurroad[j].x < track.pointsEdgeLeft[i - 5].x)
                         {
                             tmp_flag = 1;
@@ -151,16 +155,18 @@ public:
                         countWide = 0;
                         continue;
                     }
+                    //如果存在前第5个点左集col大于当前col，说明有向左拐的趋向
                     if (track.pointsEdgeLeft[i].y < track.pointsEdgeLeft[i - 5].y)
                     {
                         ringTypeTemp = RingType::RingLeft;            // 环岛类型：左入环
                         colEnterRing = track.pointsEdgeLeft[i - 5].y; // 入环点列号
-                        _ringPoint.x = track.pointsEdgeLeft[i - 5].x;
-                        _ringPoint.y = track.pointsEdgeLeft[i - 5].y;
+                        _ringPoint.x = track.pointsEdgeLeft[i - 5].x; // 入环点行号
+                        _ringPoint.y = track.pointsEdgeLeft[i - 5].y; // 入环点列号
 
                         rowRepairLine = i;                         // 用于环补线的行号
                         colRepairLine = track.pointsEdgeLeft[i].x; // 用于环补线的列号
                     }
+                    //如果存在前第5个点右集col小于当前col，说明有向右拐的趋向
                     else if (track.pointsEdgeRight[i].y > track.pointsEdgeRight[i - 5].y)
                     {
                         ringTypeTemp = RingType::RingRight;            // 环岛类型：右入环
@@ -171,12 +177,13 @@ public:
                 }
 
                 // 内圆检测
+                // 存在入环类型，并且入环点列号大于当前col（左大右小）
                 if ((ringTypeTemp == RingType::RingLeft && colEnterRing - track.pointsEdgeLeft[i].y >= 3) ||
                     (ringTypeTemp == RingType::RingRight && track.pointsEdgeRight[i].y - colEnterRing >= 3))
                 {
-                    ringEnable = true;
-                    ringStep = RingStep::Entering;
-                    ringType = ringTypeTemp;
+                    ringEnable = true;//存在圆环
+                    ringStep = RingStep::Entering;//进入圆环
+                    ringType = ringTypeTemp;// 储存入环类型
                     if (rowRepairStraightside == track.widthBlock.size() - 1)
                     {
                         rowRepairStraightside = i - countWide;

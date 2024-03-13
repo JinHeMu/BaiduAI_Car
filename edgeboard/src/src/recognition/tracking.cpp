@@ -15,7 +15,7 @@ class Tracking
 public:
     vector<POINT> pointsEdgeLeft;     // 赛道左边缘点集
     vector<POINT> pointsEdgeRight;    // 赛道右边缘点集
-    vector<POINT> widthBlock;         // 色块宽度=终-起（每行）存储赛道宽度信息，每个元素表示一行中赛道的起始和终止点。
+    vector<POINT> widthBlock;         // 色块宽度=终-起（每行）存储赛道宽度信息，每个元素表示一行中赛道的起始和终止点。x->row y->width
     vector<POINT> spurroad;           // 保存岔路信息
     double stdevLeft;                 // 边缘斜率方差（左）
     double stdevRight;                // 边缘斜率方差（右）评估赛道线的直线性
