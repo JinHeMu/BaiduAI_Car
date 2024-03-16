@@ -1,2 +1,4 @@
-*.jpg
-
+/edgeboard/res/samples/
+/edgeboard/build/
+/edgeboard/.idea/
+/edgeboard/.vscode/
