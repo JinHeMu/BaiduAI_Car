@@ -5,13 +5,13 @@
 #include "../include/common.hpp"     //公共类方法文件
 //#include "../include/detection.hpp"  //百度Paddle框架移动端部署
 #include "../include/uart.hpp"       //串口通信驱动
-//#include "controlcenter.cpp"         //控制中心计算类
 //#include "detection/bridge.cpp"      //AI检测：坡道区
 //#include "detection/danger.cpp"      //AI检测：危险区
 //#include "detection/parking.cpp"     //AI检测：停车区
 //#include "detection/racing.cpp"      //AI检测：追逐区
 //#include "detection/rescue.cpp"      //AI检测：救援区
-//#include "motion.cpp"                //智能车运动控制类
+#include "controlcenter.cpp"         //控制中心计算类
+#include "motion.cpp"                //智能车运动控制类
 #include "mapping.cpp"                 //透视变换类
 #include "preprocess.cpp"            //图像预处理类
 #include "recognition/crossroad.cpp" //十字道路识别与路径规划类
@@ -40,14 +40,16 @@ int main(int argc, char const *argv[]) {
     Mat imgTracker;
     Mat imgCross;
     Mat imgRing;
+    Mat imgControl;
 
     Preprocess preprocess;
     Tracking tracker;
     Ring ring;
     Crossroad crossroad;
+    ControlCenter controlcenter;
 
     Mapping IPM(cv::Size(320, 240), cv::Size(COLSIMAGEIPM, ROWSIMAGEIPM));
-    Display display(2); // 创建一个窗口数量为1的对象
+    Display display(1); // 创建一个窗口数量为1的对象
 
 
 
@@ -64,21 +66,28 @@ while(true)
         imgTracker = imageCorrection.clone();
         imgCross = imageCorrection.clone();
         imgRing = imageCorrection.clone();
+        imgControl = imageCorrection.clone();
+
 
         tracker.trackRecognition(imageBinary);
         tracker.drawImage(imgTracker);
 
         crossroad.crossRecognition(tracker);
-        crossroad.drawImage(tracker, imgCross);
-
+//        crossroad.drawImage(tracker, imgCross);
+//
         ring.process(tracker, imgRing);
-        ring.drawImage(tracker, imgRing);
+        controlcenter.fitting(tracker);
+
+//        ring.drawImage(tracker, imgRing);
 
         //        ring.process(tracker, imageCorrection);
 //        ring.drawImage(tracker,imageCorrection);
 
-        display.setNewWindow(2, "tracker Image", imgTracker);
-        display.setNewWindow(1, "ring Image", imgRing);
+
+        controlcenter.drawImage(tracker, imgControl);
+
+        display.setNewWindow(1, "Control Image", imgControl);
+//        display.setNewWindow(1, "ring Image", imgRing);
 
 
 
@@ -86,7 +95,7 @@ while(true)
         display.show();
 
 
-        int key = waitKey(10);
+        int key = waitKey(17);
         if (key == 'q' || key == 27)
         { // 按下 "q" 键或 ESC 键退出循环
             break;
