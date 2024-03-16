@@ -1,3 +1,0 @@
-/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/icar.dir
-/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/edit_cache.dir
-/home/jinhemu/BaiduAI_Car/edgeboard/build/CMakeFiles/rebuild_cache.dir

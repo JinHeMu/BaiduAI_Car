@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/jinhemu/BaiduAI_Car/edgeboard/build",
-  "command": "/usr/bin/g++  -I/home/jinhemu/BaiduAI_Car/edgeboard/src/include -I/home/jinhemu/BaiduAI_Car/edgeboard/src/config -I/home/jinhemu/BaiduAI_Car/edgeboard/src/src -I/home/jinhemu/BaiduAI_Car/edgeboard/src/tool -isystem /usr/local/include/opencv4 -g -o CMakeFiles/icar.dir/src/icar.cpp.o -c /home/jinhemu/BaiduAI_Car/edgeboard/src/src/icar.cpp",
-  "file": "/home/jinhemu/BaiduAI_Car/edgeboard/src/src/icar.cpp"
-}
-]
