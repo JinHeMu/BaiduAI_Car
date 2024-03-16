@@ -1,6 +1,4 @@
-./objects/seekfree_mma8451.o: \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_MMA8451.c \
-  ..\..\Libraries\seekfree_libraries\zf_systick.h ..\CODE\common.h \
+./objects/gpio.o: ..\CODE\gpio.c ..\CODE\gpio.h \
   ..\..\Libraries\seekfree_libraries\headfile.h \
   D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\..\Libraries\nxp_libraries\drives\fsl_common.h \
@@ -34,7 +32,7 @@
   ..\..\Libraries\nxp_libraries\drives\fsl_clock.h \
   ..\..\Libraries\seekfree_libraries\board\pin_mux.h \
   ..\..\Libraries\seekfree_libraries\board\clock_config.h \
-  ..\..\Libraries\nxp_libraries\drives\fsl_cache.h \
+  ..\..\Libraries\nxp_libraries\drives\fsl_cache.h ..\CODE\common.h \
   ..\..\Libraries\seekfree_libraries\zf_vector.h \
   ..\..\Libraries\nxp_libraries\middleware\fatfs\source\ff.h \
   ..\..\Libraries\nxp_libraries\middleware\fatfs\source\ffconf.h \
@@ -120,6 +118,4 @@
   ..\..\Libraries\rttherad_libraries\include\rtm.h \
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
-  ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_IIC.h \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_MMA8451.h
+  ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h

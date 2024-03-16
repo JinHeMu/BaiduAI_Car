@@ -6,12 +6,6 @@ RC_Filter_pt RC_Encoder = &Encoder_Para;
 
 int16_t encoder,RC_encoder;
 
-void Encoder_Init(void)
-{
-  // 初始化 QTIMER_1 A相使用QTIMER1_TIMER0_C0 B相使用QTIMER1_TIMER1_C1
-  qtimer_quad_init(QTIMER_1, QTIMER1_TIMER0_C0, QTIMER1_TIMER1_C1);
-
-}
 
 void Encoder_Get(void)
 {
@@ -31,5 +25,13 @@ void Encoder_Get(void)
   //icarStr.SpeedFeedback = (float)(motorStr.EncoderValue * PI * motorStr.DiameterWheel)/ MOTOR_CONTROL_CYCLE / motorStr.EncoderLine / 4.0f / motorStr.ReductionRatio; //  m/s
 
   qtimer_quad_clear(QTIMER_1, QTIMER1_TIMER0_C0);
+
+}
+
+
+void Encoder_Init(void)
+{
+  // 初始化 QTIMER_1 A相使用QTIMER1_TIMER0_C0 B相使用QTIMER1_TIMER1_C1
+  qtimer_quad_init(QTIMER_1, QTIMER1_TIMER0_C0, QTIMER1_TIMER1_C1);
 
 }

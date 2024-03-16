@@ -92,13 +92,7 @@
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_MMA8451.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_L3G4200D.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_ICM20602.h \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.h \
-  ..\..\Libraries\seekfree_libraries\zf_uart.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_WIRELESS.h \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X_CSI.h \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_W25QXXJV.h \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_SCC8660_CSI.h \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_SCC8660.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_BLUETOOTH_CH9141.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_GPS_TAU1201.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_IMU963RA.h \
@@ -124,4 +118,4 @@
   ..\..\Libraries\rttherad_libraries\include\rtm.h \
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
-  ..\CODE\pid.h ..\CODE\timer_pit.h
+  ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h

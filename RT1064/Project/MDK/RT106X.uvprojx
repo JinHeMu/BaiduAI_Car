@@ -1585,16 +1585,6 @@
               <FilePath>..\..\Libraries\seekfree_peripheral\SEEKFREE_WIRELESS.h</FilePath>
             </File>
             <File>
-              <FileName>SEEKFREE_W25QXXJV.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\seekfree_peripheral\SEEKFREE_W25QXXJV.c</FilePath>
-            </File>
-            <File>
-              <FileName>SEEKFREE_W25QXXJV.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Libraries\seekfree_peripheral\SEEKFREE_W25QXXJV.h</FilePath>
-            </File>
-            <File>
               <FileName>SEEKFREE_MT9V03X.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.c</FilePath>
@@ -2243,6 +2233,16 @@
               <FileName>timer_pit.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\CODE\timer_pit.h</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\gpio.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -3826,16 +3826,6 @@
               <FilePath>..\..\Libraries\seekfree_peripheral\SEEKFREE_WIRELESS.h</FilePath>
             </File>
             <File>
-              <FileName>SEEKFREE_W25QXXJV.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Libraries\seekfree_peripheral\SEEKFREE_W25QXXJV.c</FilePath>
-            </File>
-            <File>
-              <FileName>SEEKFREE_W25QXXJV.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Libraries\seekfree_peripheral\SEEKFREE_W25QXXJV.h</FilePath>
-            </File>
-            <File>
               <FileName>SEEKFREE_MT9V03X.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Libraries\seekfree_peripheral\SEEKFREE_MT9V03X.c</FilePath>
@@ -4484,6 +4474,16 @@
               <FileName>timer_pit.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\CODE\timer_pit.h</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\gpio.h</FilePath>
             </File>
           </Files>
         </Group>

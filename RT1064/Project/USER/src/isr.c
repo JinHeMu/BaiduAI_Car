@@ -68,16 +68,16 @@ void GPIO2_Combined_16_31_IRQHandler(void)
 
 void GPIO2_Combined_0_15_IRQHandler(void)
 {
-    if(GET_GPIO_FLAG(MT9V03X_VSYNC_PIN))
-    {
-        //不用清除标志位，标志位在mt9v03x_vsync函数内部会清除
-        if(CAMERA_GRAYSCALE == flexio_camera_type)mt9v03x_vsync();
-    }
-    if(GET_GPIO_FLAG(SCC8660_VSYNC_PIN))
-    {
-        //不用清除标志位，标志位在scc8660_vsync函数内部会清除
-        if(CAMERA_COLOR == flexio_camera_type)scc8660_vsync();
-    }
+//    if(GET_GPIO_FLAG(MT9V03X_VSYNC_PIN))
+//    {
+//        //不用清除标志位，标志位在mt9v03x_vsync函数内部会清除
+//        if(CAMERA_GRAYSCALE == flexio_camera_type)mt9v03x_vsync();
+//    }
+//    if(GET_GPIO_FLAG(SCC8660_VSYNC_PIN))
+//    {
+//        //不用清除标志位，标志位在scc8660_vsync函数内部会清除
+//        if(CAMERA_COLOR == flexio_camera_type)scc8660_vsync();
+//    }
 }
 
 

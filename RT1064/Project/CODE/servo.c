@@ -9,11 +9,7 @@ ServoStruct servoStr = {
 	.thresholdRight = SERVO_PWM_MAX_R    // 舵机右向转角最大值PWM为 1850
 };
 
-void SERVO_Init(void)
-{
-    pwm_init(SERVO_MOTOR_PWM, SERVO_MOTOR_FREQ, SERVO_PWM_MIDDLE);
 
-}
 
 /**
 * @brief        舵机输出PWM设置
@@ -79,3 +75,29 @@ void SERVO_AngleControl(float angle)
 	ServoPwm = pwm;
 	SERVO_SetPwmValue(pwm);
 }
+
+void SERVO_Init(void)
+{
+    pwm_init(SERVO_MOTOR_PWM, SERVO_MOTOR_FREQ, SERVO_PWM_MIDDLE);
+
+}
+
+
+static void servo_test(int argc, char**argv)
+{
+
+	float angle = strtof(argv[1], NULL); // 将字符串转换为浮点数
+	if (abs(angle) > SERVO_ANGLE_MAX)
+	{
+		rt_kprintf("angle should be [-%d, %d]\n", SERVO_ANGLE_MAX, SERVO_ANGLE_MAX);
+	}
+	else
+	{
+		SERVO_AngleControl(angle);
+		rt_kprintf("angle = %f\n", angle);
+	}
+	
+
+}
+
+MSH_CMD_EXPORT(servo_test, angle);

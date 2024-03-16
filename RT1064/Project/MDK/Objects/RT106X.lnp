@@ -112,7 +112,6 @@
 ".\objects\seekfree_oled.o"
 ".\objects\seekfree_virsco.o"
 ".\objects\seekfree_wireless.o"
-".\objects\seekfree_w25qxxjv.o"
 ".\objects\seekfree_mt9v03x.o"
 ".\objects\seekfree_mt9v03x_csi.o"
 ".\objects\seekfree_scc8660.o"
@@ -180,6 +179,7 @@
 ".\objects\servo.o"
 ".\objects\pid.o"
 ".\objects\timer_pit.o"
+".\objects\gpio.o"
 --library_type=microlib --diag_suppress 6314,6329 --strict --scatter ".\scf\MIMXRT1064xxxxx_flexspi_nor.scf"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

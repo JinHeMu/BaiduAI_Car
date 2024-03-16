@@ -40,17 +40,15 @@ void Timer_PIT_entry(void *parameter)//一个时钟节拍一毫秒
 
 void Timer_PIT_Init(void)
 {
-    rt_timer_t Timer_Src;
+    rt_timer_t Timer1;
     
     //创建一个定时器 周期运行
-    Timer_Src = rt_timer_create("Timer", Timer_PIT_entry, RT_NULL, 1, RT_TIMER_FLAG_PERIODIC);
+    Timer1 = rt_timer_create("Timer1", Timer_PIT_entry, RT_NULL, 1, RT_TIMER_FLAG_PERIODIC);
     
     //启动定时器
-    if(RT_NULL != Timer_Src)
+    if(RT_NULL != Timer1)
     {
-        rt_timer_start(Timer_Src);
+        rt_timer_start(Timer1);
     }
-
-
     
 }
