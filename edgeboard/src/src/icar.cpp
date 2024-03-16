@@ -86,7 +86,7 @@ while(true)
         display.show();
 
 
-        int key = waitKey(15);
+        int key = waitKey(10);
         if (key == 'q' || key == 27)
         { // 按下 "q" 键或 ESC 键退出循环
             break;
@@ -96,7 +96,7 @@ while(true)
 #endif
 
 #ifdef IMAGE
-    img = imread("../res/samples/train/ring/290.jpg");
+    img = imread("../res/samples/train/ring/270.jpg");
         Mat imageCorrection = preprocess.correction(img);
         Mat imageBinary = preprocess.binaryzation(imageCorrection);
 

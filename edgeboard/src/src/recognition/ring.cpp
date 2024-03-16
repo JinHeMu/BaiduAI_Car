@@ -187,6 +187,7 @@ public:
                     if (rowRepairStraightside == track.widthBlock.size() - 1)
                     {
                         rowRepairStraightside = i - countWide;
+                        //cout << "i=" << i <<",countWide=" << countWide<< endl;
                     }
                 }
                 else
@@ -221,6 +222,7 @@ public:
                         int y = (track.pointsEdgeLeft[rowRepairStraightside].y +
                                  track.pointsEdgeRight[rowRepairStraightside].y) /
                                 2;
+
 
                         POINT startPoint = track.pointsEdgeRight[rowRepairStraightside]; // 补线：起点
                         POINT midPoint(x, y);                                            // 补线：中点
@@ -336,7 +338,7 @@ public:
             }
         }
         // 环中
-        if (ringStep == RingStep::Entering && track.spurroad.empty() && counterSpurroad >= 3)
+        if (ringStep == RingStep::Entering && track.spurroad.empty() && counterSpurroad >= 3)//上一个状态为进入并且没有角点，同时计数器大于3
         {
             ringStep = RingStep::Inside;
         }
@@ -556,7 +558,7 @@ public:
                 Point(30, ROWSIMAGE - 50), FONT_HERSHEY_TRIPLEX, 0.3, Scalar(0, 0, 255), 1, cv::LINE_AA);
 
         putText(ringImage, "[7] RING - ENABLE", Point(COLSIMAGE / 2 - 30, 10), cv::FONT_HERSHEY_TRIPLEX, 0.3, cv::Scalar(0, 255, 0), 1, cv::LINE_AA);
-        circle(ringImage, Point(_ringPoint.y, _ringPoint.x), 4, Scalar(255, 0, 0), -1); // 红色点
+        circle(ringImage, Point(_ringPoint.y, _ringPoint.x), 4, Scalar(255, 0, 0), -1); // 蓝色点，入环点
     }
 
 private:
