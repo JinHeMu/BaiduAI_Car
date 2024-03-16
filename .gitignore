@@ -1,4 +1,8 @@
-edgeboard/res/samples/
+edgeboard/res/samples/train
 edgeboard/build/
 edgeboard/.idea/
 edgeboard/.vscode/
+edgeboard/log
+edgeboard/src/cmake-build-debug
+edgeboard/src/.vscode
+
