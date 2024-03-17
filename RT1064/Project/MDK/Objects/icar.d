@@ -1,4 +1,4 @@
-./objects/main.o: ..\USER\src\main.c \
+./objects/icar.o: ..\CODE\icar.c ..\CODE\icar.h \
   ..\..\Libraries\seekfree_libraries\headfile.h \
   D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\..\Libraries\nxp_libraries\drives\fsl_common.h \

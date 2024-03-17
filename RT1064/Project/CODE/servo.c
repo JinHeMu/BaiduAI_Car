@@ -96,8 +96,6 @@ static void servo_test(int argc, char**argv)
 		SERVO_AngleControl(angle);
 		rt_kprintf("angle = %f\n", angle);
 	}
-	
-
 }
 
 MSH_CMD_EXPORT(servo_test, angle);

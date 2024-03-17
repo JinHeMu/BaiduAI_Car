@@ -120,7 +120,7 @@
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_GPS_TAU1201.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_IMU963RA.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
-  ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h \
+  ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h ..\CODE\icar.h \
   ..\..\Libraries\nxp_libraries\drives\fsl_lpuart.h \
   ..\..\Libraries\seekfree_libraries\board\board.h \
   ..\..\Libraries\nxp_libraries\middleware\sdmmc\port\fsl_sdmmc_event.h

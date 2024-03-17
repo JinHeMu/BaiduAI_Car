@@ -2244,6 +2244,16 @@
               <FileType>5</FileType>
               <FilePath>..\CODE\gpio.h</FilePath>
             </File>
+            <File>
+              <FileName>icar.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\icar.c</FilePath>
+            </File>
+            <File>
+              <FileName>icar.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\icar.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -4484,6 +4494,16 @@
               <FileName>gpio.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\CODE\gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>icar.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\icar.c</FilePath>
+            </File>
+            <File>
+              <FileName>icar.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\icar.h</FilePath>
             </File>
           </Files>
         </Group>

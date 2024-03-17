@@ -22,7 +22,7 @@ void Encoder_Get(void)
   pidStr.Speed_FeedBack = motorStr.EncoderValue;
     
   //计算实际速度	---		m/s
-  //icarStr.SpeedFeedback = (float)(motorStr.EncoderValue * PI * motorStr.DiameterWheel)/ MOTOR_CONTROL_CYCLE / motorStr.EncoderLine / 4.0f / motorStr.ReductionRatio; //  m/s
+  icarStr.SpeedFeedback = (float)(motorStr.EncoderValue * PI * motorStr.DiameterWheel)/ MOTOR_CONTROL_CYCLE / motorStr.EncoderLine / 4.0f / motorStr.ReductionRatio; //  m/s
 
   qtimer_quad_clear(QTIMER_1, QTIMER1_TIMER0_C0);
 
@@ -35,3 +35,4 @@ void Encoder_Init(void)
   qtimer_quad_init(QTIMER_1, QTIMER1_TIMER0_C0, QTIMER1_TIMER1_C1);
 
 }
+

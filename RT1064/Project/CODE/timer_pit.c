@@ -7,7 +7,8 @@ void Timer_PIT_entry(void *parameter)//一个时钟节拍一毫秒
       	
     if(0 == (time%10))//10ms采集一次
     {
-		Encoder_Get();
+			Encoder_Get();
+			//rt_kprintf("encoder:%d\t,speed:%d\t\n", (int)motorStr.EncoderValue,(int)(icarStr.SpeedFeedback*1000));
 
 
         //MOTOR_ControlLoop();

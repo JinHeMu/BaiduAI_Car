@@ -90,6 +90,7 @@
 #include "pid.h"
 #include "timer_pit.h"
 #include "gpio.h"
+#include "icar.h"
 
 
 typedef union 

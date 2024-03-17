@@ -280,29 +280,29 @@ void USB_Edgeboard_TransmitKey(uint16_t time)
 * @brief        发送车速信息
 * @ref                
 **/
-// void USB_Edgeboard_CarSpeed(void)
-// {
-//     Bint32_Union bint32_Union;
-//     uint8_t check = 0;
-//     uint8_t buff[10];
-//     buff[0] = 0x42; //帧头
-//     buff[1] = USB_ADDR_SPEEDBACK; //地址
-//     buff[2] = 0x08; //帧长
+ void USB_Edgeboard_CarSpeed(void)
+ {
+     Bint32_Union bint32_Union;
+     uint8_t check = 0;
+     uint8_t buff[10];
+     buff[0] = 0x42; //帧头
+     buff[1] = USB_ADDR_SPEEDBACK; //地址
+     buff[2] = 0x08; //帧长
         
-//     bint32_Union.Float = icarStr.SpeedFeedback;
-//     buff[3] = bint32_Union.U8_Buff[0];
-//     buff[4] = bint32_Union.U8_Buff[1];
-//     buff[5] = bint32_Union.U8_Buff[2];
-//     buff[6] = bint32_Union.U8_Buff[3];
+     bint32_Union.Float = icarStr.SpeedFeedback;
+     buff[3] = bint32_Union.U8_Buff[0];
+     buff[4] = bint32_Union.U8_Buff[1];
+     buff[5] = bint32_Union.U8_Buff[2];
+     buff[6] = bint32_Union.U8_Buff[3];
 
-//     for(int i=0;i<7;i++)
-//         check += buff[i];
+     for(int i=0;i<7;i++)
+         check += buff[i];
     
-//     buff[7] = check;
+     buff[7] = check;
     
-//     for(int i=0;i<10;i++)
-//         USB_Edgeboard_TransmitByte(buff[i]);
-// }
+     for(int i=0;i<10;i++)
+         USB_Edgeboard_TransmitByte(buff[i]);
+ }
 
 
 /**
@@ -311,85 +311,85 @@ void USB_Edgeboard_TransmitKey(uint16_t time)
 * @author       Leo
 * @note         
 **/
-// void USB_Edgeboard_Selfcheck(uint8_t step)
-// {
-//     Bint16_Union bint16_Union;
-//     uint8_t check = 0;
-//     uint8_t buff[9];
-//     buff[0] = 0x42; //帧头
-//     buff[1] = USB_ADDR_SELFCHECK; //地址
-//     buff[2] = 0x07; //帧长
+ void USB_Edgeboard_Selfcheck(uint8_t step)
+ {
+     Bint16_Union bint16_Union;
+     uint8_t check = 0;
+     uint8_t buff[9];
+     buff[0] = 0x42; //帧头
+     buff[1] = USB_ADDR_SELFCHECK; //地址
+     buff[2] = 0x07; //帧长
         
-//     buff[3] = step;
+     buff[3] = step;
     
-//     bint16_Union.U16 = icarStr.errorCode;
-//     buff[4] = bint16_Union.U8_Buff[0];
-//     buff[5] = bint16_Union.U8_Buff[1];
+     bint16_Union.U16 = icarStr.errorCode;
+     buff[4] = bint16_Union.U8_Buff[0];
+     buff[5] = bint16_Union.U8_Buff[1];
 
-//     for(int i=0;i<6;i++)
-//         check += buff[i];
+     for(int i=0;i<6;i++)
+         check += buff[i];
     
-//     buff[6] = check;
+     buff[6] = check;
     
-//     for(int i=0;i<9;i++)
-//         USB_Edgeboard_TransmitByte(buff[i]);
-// }
+     for(int i=0;i<9;i++)
+         USB_Edgeboard_TransmitByte(buff[i]);
+ }
 
 
 //----------------------------------------------[UNIT-智能汽车自检软件通信内容（此部分未开源）]----------------------------------------------------------
-// /**
-// * @brief        发送舵机阈值
-// * @param        chanel: 1/左转阈值，2/右转阈值，3/中值
-// * @ref          
-// * @author       Leo
-// * @note         
-// **/
-// void USB_Edgeboard_ServoThreshold(uint8_t chanel)
-// {
-//     if(chanel<1 || chanel>3)
-//         return;
+ /**
+ * @brief        发送舵机阈值
+ * @param        chanel: 1/左转阈值，2/右转阈值，3/中值
+ * @ref          
+ * @author       Leo
+ * @note         
+ **/
+ void USB_Edgeboard_ServoThreshold(uint8_t chanel)
+ {
+     if(chanel<1 || chanel>3)
+         return;
     
-//     Bint16_Union bint16_Union;
-//     uint8_t check = 0;
-//     uint8_t buff[9];
-//     buff[0] = 0x42; //帧头
-//     buff[1] = USB_ADDR_SERVOTHRESHOLD; //地址
-//     buff[2] = 0x07; //帧长
-//     buff[3] = chanel; //通道
+     Bint16_Union bint16_Union;
+     uint8_t check = 0;
+     uint8_t buff[9];
+     buff[0] = 0x42; //帧头
+     buff[1] = USB_ADDR_SERVOTHRESHOLD; //地址
+     buff[2] = 0x07; //帧长
+     buff[3] = chanel; //通道
     
-//     switch(chanel)
-//     {
-//         case 1:
-//         {  
-//             bint16_Union.U16 = servoStr.thresholdLeft;
-//             buff[4] = bint16_Union.U8_Buff[0];
-//             buff[5] = bint16_Union.U8_Buff[1];
-//             break;
-//         }
-//         case 2:
-//         {
-//             bint16_Union.U16 = servoStr.thresholdRight;
-//             buff[4] = bint16_Union.U8_Buff[0];
-//             buff[5] = bint16_Union.U8_Buff[1];
-//             break;
-//         }
-//         case 3:
-//         {
-//             bint16_Union.U16 = servoStr.thresholdMiddle;
-//             buff[4] = bint16_Union.U8_Buff[0];
-//             buff[5] = bint16_Union.U8_Buff[1];
-//             break;
-//         }
-//     }
+     switch(chanel)
+     {
+         case 1:
+         {  
+             bint16_Union.U16 = servoStr.thresholdLeft;
+             buff[4] = bint16_Union.U8_Buff[0];
+             buff[5] = bint16_Union.U8_Buff[1];
+             break;
+         }
+         case 2:
+         {
+             bint16_Union.U16 = servoStr.thresholdRight;
+             buff[4] = bint16_Union.U8_Buff[0];
+             buff[5] = bint16_Union.U8_Buff[1];
+             break;
+         }
+         case 3:
+         {
+             bint16_Union.U16 = servoStr.thresholdMiddle;
+             buff[4] = bint16_Union.U8_Buff[0];
+             buff[5] = bint16_Union.U8_Buff[1];
+             break;
+         }
+     }
     
-//     for(int i=0;i<6;i++)
-//         check += buff[i];
+     for(int i=0;i<6;i++)
+         check += buff[i];
     
-//     buff[6] = check;
+     buff[6] = check;
     
-//     for(int i=0;i<9;i++)
-//         USB_Edgeboard_TransmitByte(buff[i]);
-// }
+     for(int i=0;i<9;i++)
+         USB_Edgeboard_TransmitByte(buff[i]);
+ }
 
 
 /**
@@ -398,7 +398,7 @@ void USB_Edgeboard_TransmitKey(uint16_t time)
 **/
 void USB_Edgeboard_Init(void)
 {
-    uart_init(USART_1, 115200, UART1_TX_B12, UART1_RX_B13);
+  uart_init(USART_1, 115200, UART1_TX_B12, UART1_RX_B13);
 	NVIC_SetPriority(LPUART1_IRQn, 0); // 设置串口中断优先级 范围0-15 越小优先级越高
 	uart_rx_irq(USART_1, 1);
 	uart_tx_irq(USART_1, 1);

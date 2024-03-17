@@ -16,6 +16,11 @@
 #define USB_ADDR_KEYINPUT            0x06                //按键输入
 #define USB_ADDR_BATTERY             0x07                //电池信息
 
+//仅限自检软件通信使用
+#define USB_ADDR_INSPECTOR           0x0A                //智能车自检软件连接心跳
+#define USB_ADDR_SELFCHECK           0x0B                //智能车自检开始
+#define USB_ADDR_SPEEDBACK           0x08                //车速信息反馈：m/s
+
 // USB通信帧长
 
 #define USB_FRAME_LEN_BUZZER 5  //

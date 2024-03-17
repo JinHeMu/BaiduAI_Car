@@ -74,9 +74,9 @@ void Key_init(void)
     Timer2 = rt_timer_create("key", key_entry, RT_NULL, 20, RT_TIMER_FLAG_PERIODIC);
 
     key1Str.sem = rt_sem_create("key1", 0, RT_IPC_FLAG_FIFO); // 创建按键的信号量，当按键按下就释放信号量，在需要使用按键的地方获取信号量即可
-    key1Str.sem = rt_sem_create("key2", 0, RT_IPC_FLAG_FIFO);
-    key1Str.sem = rt_sem_create("key3", 0, RT_IPC_FLAG_FIFO);
-    key1Str.sem = rt_sem_create("key4", 0, RT_IPC_FLAG_FIFO);
+    key2Str.sem = rt_sem_create("key2", 0, RT_IPC_FLAG_FIFO);
+    key3Str.sem = rt_sem_create("key3", 0, RT_IPC_FLAG_FIFO);
+    key4Str.sem = rt_sem_create("key4", 0, RT_IPC_FLAG_FIFO);
 
     if (RT_NULL != Timer2)
     {

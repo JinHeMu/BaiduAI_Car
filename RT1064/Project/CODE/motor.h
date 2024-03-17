@@ -6,12 +6,12 @@
 
 /*---------------------------------------  D E F I N I T I O N  ---------------------------------------*/
 
-#define MOTOR_DIR D0
-#define MOTOR_PWM PWM2_MODULE3_CHA_D2
+#define MOTOR_DIR D2
+#define MOTOR_PWM PWM1_MODULE3_CHA_D0
 #define MOTOR_FREQ 12000
 
-#define  MOTOR_PWM_MAX   			1500		//OCR=95%,禁止满占空比输出，造成MOS损坏
-#define  MOTOR_PWM_MIN			    -1500		//OCR=95%
+#define  MOTOR_PWM_MAX   			4000		
+#define  MOTOR_PWM_MIN			    -4000		
 #define  MOTOR_SPEED_MAX		    10.0f	 	//电机最大转速(m/s) (0.017,8.04)
 #define  MOTOR_CONTROL_CYCLE	    0.01f    	//电机控制周期T：10ms
 
@@ -35,7 +35,6 @@ extern MotorStruct motorStr;
 void MOTOR_Init(void);
 void MOTOR_SetPwmValue(signed int pwm);
 void MOTOR_ControlLoop(float speed);
-void MOTOR_Timer(void);
 
 
 //===========================================  End Of File  ===========================================//
