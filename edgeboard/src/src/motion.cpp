@@ -70,7 +70,7 @@ public:
         bool debug = false;                                // 调试模式使能
         bool saveImg = false;                              // 存图使能
         uint16_t rowCutUp = 10;                            // 图像顶部切行
-        uint16_t rowCutBottom = 10;                        // 图像顶部切行
+        uint16_t rowCutBottom = 10;                        // 图像低部切行
         bool bridge = true;                                // 坡道区使能
         bool danger = true;                                // 危险区使能
         bool rescue = true;                                // 救援区使能

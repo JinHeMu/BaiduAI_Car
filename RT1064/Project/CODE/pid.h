@@ -5,9 +5,9 @@
 #include "headfile.h"
 
 /******************************************************************************/
-#define PID_KP					1.6f					//PID标定值
-#define PID_KI					0.5f					//PID标定值
-#define PID_KD					0.02f					//PID标定值
+#define PID_KP					0.0f					//PID标定值
+#define PID_KI					0.0f					//PID标定值
+#define PID_KD					0.0f					//PID标定值
 
 /**
 * @brief    PID相关

@@ -38,7 +38,7 @@ void MOTOR_ControlLoop(float speed)
     else if(speed < -MOTOR_SPEED_MAX)
         speed = -MOTOR_SPEED_MAX;
 
-    //pidStr.Speed_Target为编码器的速度
+    //pidStr.Speed_Target为编码器的值(10ms控制周期)
     pidStr.Speed_Target = (float)(speed*MOTOR_CONTROL_CYCLE / motorStr.DiameterWheel / PI * motorStr.EncoderLine * 4.0f * motorStr.ReductionRatio);
     
     MOTOR_SetPwmValue(PID_MoveCalculate(&pidStr));
@@ -65,68 +65,3 @@ static void motor_test(int argc, char**argv)
 }
 
 MSH_CMD_EXPORT(motor_test, pwm);
-
-
-///**
-//* @brief        电机闭环速控
-//* @param        speed：速度m/s
-//* @ref          
-//* @author       Leo
-//* @note         
-//**/
-//void MOTOR_ControlLoop(float speed)
-//{	
-//    if(speed > MOTOR_SPEED_MAX)
-//        speed = MOTOR_SPEED_MAX;
-//    else if(speed < -MOTOR_SPEED_MAX)
-//        speed = -MOTOR_SPEED_MAX;
-//    
-//    pidStr.vi_Ref = (float)(speed*MOTOR_CONTROL_CYCLE / motorStr.DiameterWheel / PI * motorStr.EncoderLine * 4.0f * motorStr.ReductionRatio);
-//    
-//    MOTOR_SetPwmValue(PID_MoveCalculate(&pidStr));
-//}
-
-
-
-
-
-
-// /**
-// * @brief        电机控制线程
-// * @param        
-// * @ref          
-// * @author       Leo
-// * @note         
-// **/
-// void MOTOR_Timer(void)
-// {
-//     motorStr.Counter++;
-//     if(motorStr.Counter >= 10)							    //速控:10ms
-//     {
-//         ENCODER_RevSample();								//编码器采样
-
-//         if(icarStr.sprintEnable || usbStr.connected)        //通信连接或电机测试才开启闭环（保护+省电）
-//         {
-//             if(motorStr.CloseLoop)
-//             {
-//                 MOTOR_ControlLoop(icarStr.SpeedSet);		//闭环速控
-//             }
-//             else//开环百分比控制
-//             {
-//                 if(icarStr.SpeedSet > 100)
-//                     icarStr.SpeedSet = 100;
-//                 else if(icarStr.SpeedSet < -100)
-//                     icarStr.SpeedSet = -100;
-//                 signed int speedRate = MOTOR_PWM_MAX/100.f*icarStr.SpeedSet; //开环：百分比%
-                
-//                 MOTOR_SetPwmValue(speedRate);		//开环速控
-//             }
-//         }
-//         else
-//         {
-//             MOTOR_SetPwmValue(0);
-//         }
-       
-//         motorStr.Counter = 0;
-//     }
-// }

@@ -41,6 +41,9 @@ typedef struct
     uint16_t counterSend;                                   //自检数据发送计数器
     bool connected;                                         //上位机通信连接状态
     bool inspectorEnable;                                   //智能汽车自检软件连接使能
+
+	rt_thread_t thread;                                 //USB线程
+	rt_sem_t receiveFinished_sem;
 }UsbStruct;
 
 

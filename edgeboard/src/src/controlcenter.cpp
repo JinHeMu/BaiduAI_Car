@@ -195,7 +195,6 @@ public:
         for (int i = 0; i < centerEdge.size(); i++)
         {
             circle(centerImage, Point(centerEdge[i].y, centerEdge[i].x), 1, Scalar(0, 0, 255), -1);//红色点
-            cout << "1" <<endl  ;
         }
         // 绘制加权控制中心：方向
         Rect rect(controlCenter, ROWSIMAGE - 20, 10, 20);

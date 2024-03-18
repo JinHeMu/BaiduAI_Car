@@ -16,6 +16,11 @@
 
 #define BUZZER_ON        (gpio_set(BUZZER_PIN, 1))  			
 #define BUZZER_OFF       (gpio_set(BUZZER_PIN, 0))
+#define BuzzerOk			70
+#define BuzzerWarnning		100
+#define BuzzerDing			30
+#define BuzzerSysStart		60
+#define BuzzerFinish		200
 
 #define KEY_GET(x)		(gpio_get(x))
 
@@ -37,6 +42,8 @@ typedef struct
 
 }BuzzerStruct;
 
+
+extern BuzzerStruct buzzerStr;
 
 
 void GPIO_Init(void);

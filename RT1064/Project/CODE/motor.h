@@ -10,8 +10,8 @@
 #define MOTOR_PWM PWM1_MODULE3_CHA_D0
 #define MOTOR_FREQ 12000
 
-#define  MOTOR_PWM_MAX   			4000		
-#define  MOTOR_PWM_MIN			    -4000		
+#define  MOTOR_PWM_MAX   			5000		
+#define  MOTOR_PWM_MIN			    -5000		
 #define  MOTOR_SPEED_MAX		    10.0f	 	//电机最大转速(m/s) (0.017,8.04)
 #define  MOTOR_CONTROL_CYCLE	    0.01f    	//电机控制周期T：10ms
 

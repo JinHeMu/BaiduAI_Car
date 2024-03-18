@@ -55,6 +55,7 @@ void USB_UART_Callback(LPUART_Type *base, lpuart_handle_t *handle, status_t stat
             {
                 memcpy(usbStr.receiveBuffFinished,usbStr.receiveBuff,USB_FRAME_LENMAX);	
                 usbStr.receiveFinished = true;
+                rt_sem_release(usbStr.receiveFinished_sem);
                 
                 //智能车控制指令特殊处理（保障实时性）
                 if(USB_ADDR_CONTROL  == usbStr.receiveBuffFinished[1])
@@ -67,15 +68,15 @@ void USB_UART_Callback(LPUART_Type *base, lpuart_handle_t *handle, status_t stat
                     bint16_Union.U8_Buff[0] = usbStr.receiveBuffFinished[7];
                     bint16_Union.U8_Buff[1] = usbStr.receiveBuffFinished[8];
                     
-                    // SERVO_SetPwmValueCorrect(bint16_Union.U16);
-                    // icarStr.ServoPwmSet = bint16_Union.U16;         //方向
-                    // icarStr.SpeedSet = bint32_Union.Float;          //速度				
+                    SERVO_SetPwmValueCorrect(bint16_Union.U16);     //PWM
+                    icarStr.ServoPwmSet = bint16_Union.U16;         //方向
+                    icarStr.SpeedTarget = bint32_Union.Float;          //速度				
                 }
 				
                 if(!usbStr.connected)//上位机初次连接通信
                 {
                     //RGB_SetAllColor(RGB_COLOR_GREEN);
-                    //GPIO_BuzzerEnable(BuzzerOk);
+                    rt_mb_send(buzzerStr.mailbox, 1000);//蜂鸣器响1s
                     usbStr.connected = true;
                 }
                 
@@ -97,111 +98,111 @@ void USB_UART_Callback(LPUART_Type *base, lpuart_handle_t *handle, status_t stat
 * @brief        USB通信处理函数
 * @param              
 **/
-// void USB_Edgeboard_Handle(void)
-// {
-//     if(usbStr.receiveFinished)																//接收成功
-//     {
-//         usbStr.receiveFinished = false;
-//         Bint32_Union bint32_Union;
-//         Bint16_Union bint16_Union;
+void USB_Edgeboard_Handle(void)
+{
+    if(usbStr.receiveFinished)																//接收成功
+    {
+        usbStr.receiveFinished = false;
+        Bint32_Union bint32_Union;
+        Bint16_Union bint16_Union;
            
-//         // 判断receiveBuffFinished[1]()最高位是否为1,读地址为0x81
-//         if(usbStr.receiveBuffFinished[1] & 0x80)	//读数据
-//         {
-//             uint8_t Addr = (uint8_t)(usbStr.receiveBuffFinished[1] & 0x7F);//将最高位qin
-//             switch(Addr)
-//             {
-//                 case USB_ADDR_BATTERY :             //电池信息
-//                     break;
+        // 判断receiveBuffFinished[1]()最高位是否为1,读地址为0x81
+        if(usbStr.receiveBuffFinished[1] & 0x80)	//读数据
+        {
+            uint8_t Addr = (uint8_t)(usbStr.receiveBuffFinished[1] & 0x7F);//将最高位qin
+            switch(Addr)
+            {
+                case USB_ADDR_BATTERY :             //电池信息
+                    break;
                 
-//                 case USB_ADDR_SERVOTHRESHOLD :      //舵机阈值
-//                     break;
-//             }
-//         }
-//         // 写地址为0x01
-//         else //写数据
-//         {
-//             switch(usbStr.receiveBuffFinished[1])
-//             {
-//                 case USB_ADDR_SERVOTHRESHOLD :   //舵机阈值
-//                     if(usbStr.receiveBuffFinished[3] == 1)          //左转阈值
-//                     {
-//                         bint16_Union.U8_Buff[0] = usbStr.receiveBuffFinished[4];
-//                         bint16_Union.U8_Buff[1] = usbStr.receiveBuffFinished[5];
-//                         servoStr.thresholdLeft = bint16_Union.U16;
-//                         flashSaveEnable = true; //等待Flash存储
-//                         SERVO_SetPwmValue(servoStr.thresholdLeft);
-//                         GPIO_BuzzerEnable(BuzzerDing);
-//                     }
-//                     else if(usbStr.receiveBuffFinished[3] == 2)     //右转阈值
-//                     {
-//                         bint16_Union.U8_Buff[0] = usbStr.receiveBuffFinished[4];
-//                         bint16_Union.U8_Buff[1] = usbStr.receiveBuffFinished[5];
-//                         servoStr.thresholdRight = bint16_Union.U16;
-//                         flashSaveEnable = true; //等待Flash存储
-//                         SERVO_SetPwmValue(servoStr.thresholdRight);
-//                         GPIO_BuzzerEnable(BuzzerDing);
-//                     }
-//                     else if(usbStr.receiveBuffFinished[3] == 3)     //中值
-//                     {
-//                         bint16_Union.U8_Buff[0] = usbStr.receiveBuffFinished[4];
-//                         bint16_Union.U8_Buff[1] = usbStr.receiveBuffFinished[5];
-//                         servoStr.thresholdMiddle = bint16_Union.U16;
-//                         flashSaveEnable = true; //等待Flash存储
-//                         SERVO_SetPwmValue(servoStr.thresholdMiddle);
-//                         GPIO_BuzzerEnable(BuzzerDing);
-//                     }
-//                     break;
+                case USB_ADDR_SERVOTHRESHOLD :      //舵机阈值
+                    break;
+            }
+        }
+        // 写地址为0x01
+        else //写数据
+        {
+            switch(usbStr.receiveBuffFinished[1])
+            {
+                // case USB_ADDR_SERVOTHRESHOLD :   //舵机阈值
+                //     if(usbStr.receiveBuffFinished[3] == 1)          //左转阈值
+                //     {
+                //         bint16_Union.U8_Buff[0] = usbStr.receiveBuffFinished[4];
+                //         bint16_Union.U8_Buff[1] = usbStr.receiveBuffFinished[5];
+                //         servoStr.thresholdLeft = bint16_Union.U16;
+                //         flashSaveEnable = true; //等待Flash存储
+                //         SERVO_SetPwmValue(servoStr.thresholdLeft);
+                //         GPIO_BuzzerEnable(BuzzerDing);
+                //     }
+                //     else if(usbStr.receiveBuffFinished[3] == 2)     //右转阈值
+                //     {
+                //         bint16_Union.U8_Buff[0] = usbStr.receiveBuffFinished[4];
+                //         bint16_Union.U8_Buff[1] = usbStr.receiveBuffFinished[5];
+                //         servoStr.thresholdRight = bint16_Union.U16;
+                //         flashSaveEnable = true; //等待Flash存储
+                //         SERVO_SetPwmValue(servoStr.thresholdRight);
+                //         GPIO_BuzzerEnable(BuzzerDing);
+                //     }
+                //     else if(usbStr.receiveBuffFinished[3] == 3)     //中值
+                //     {
+                //         bint16_Union.U8_Buff[0] = usbStr.receiveBuffFinished[4];
+                //         bint16_Union.U8_Buff[1] = usbStr.receiveBuffFinished[5];
+                //         servoStr.thresholdMiddle = bint16_Union.U16;
+                //         flashSaveEnable = true; //等待Flash存储
+                //         SERVO_SetPwmValue(servoStr.thresholdMiddle);
+                //         GPIO_BuzzerEnable(BuzzerDing);
+                //     }
+                //     break;
                 
-//                 case USB_ADDR_BUZZER :      //蜂鸣器音效
-//                     if(usbStr.receiveBuffFinished[3] == 1)          //OK
-//                         GPIO_BuzzerEnable(BuzzerOk);
-//                     else if(usbStr.receiveBuffFinished[3] == 2)     //Warnning
-//                         GPIO_BuzzerEnable(BuzzerWarnning);
-//                     else if(usbStr.receiveBuffFinished[3] == 3)     //Finish
-//                         GPIO_BuzzerEnable(BuzzerFinish);
-//                     else if(usbStr.receiveBuffFinished[3] == 4)     //Ding
-//                         GPIO_BuzzerEnable(BuzzerDing);
-//                     else if(usbStr.receiveBuffFinished[3] == 5)     //SystemStart
-//                         GPIO_BuzzerEnable(BuzzerSysStart);
+                case USB_ADDR_BUZZER :      //蜂鸣器音效
+                    if(usbStr.receiveBuffFinished[3] == 1)          //OK
+                        rt_mb_send(buzzerStr.mailbox, BuzzerOk);
+                    else if(usbStr.receiveBuffFinished[3] == 2)     //Warnning
+                        rt_mb_send(buzzerStr.mailbox, BuzzerWarnning);
+                    else if(usbStr.receiveBuffFinished[3] == 3)     //Finish
+                        rt_mb_send(buzzerStr.mailbox, BuzzerFinish);
+                    else if(usbStr.receiveBuffFinished[3] == 4)     //Ding
+                        rt_mb_send(buzzerStr.mailbox, BuzzerDing);
+                    else if(usbStr.receiveBuffFinished[3] == 5)     //SystemStart
+                        rt_mb_send(buzzerStr.mailbox, BuzzerSysStart);
                     
-//                     break;
+                    break;
                 
-//                 case USB_ADDR_LIGHT :         //LED灯效
-//                     for(int i=0;i<4;i++)
-//                         bint32_Union.U8_Buff[i] = usbStr.receiveBuffFinished[i+3];
+                // case USB_ADDR_LIGHT :         //LED灯效
+                //     for(int i=0;i<4;i++)
+                //         bint32_Union.U8_Buff[i] = usbStr.receiveBuffFinished[i+3];
                 
-//                     RGB_SetAllColor((unsigned long)bint32_Union.U32);
-//                     rgbStr.lastColor = (unsigned long)bint32_Union.U32;
+                //     RGB_SetAllColor((unsigned long)bint32_Union.U32);
+                //     rgbStr.lastColor = (unsigned long)bint32_Union.U32;
                 
-//                     break;
+                //     break;
 
-//                 case USB_ADDR_SPEEDMODE:        //速控模式切换
-//                     if(usbStr.receiveBuffFinished[3] == 1)    //开环模式
-//                         motorStr.CloseLoop = false;                    
-//                     else
-//                         motorStr.CloseLoop = true;
+                // case USB_ADDR_SPEEDMODE:        //速控模式切换
+                //     if(usbStr.receiveBuffFinished[3] == 1)    //开环模式
+                //         motorStr.CloseLoop = false;                    
+                //     else
+                //         motorStr.CloseLoop = true;
                     
-//                     icarStr.SpeedSet = 0;
-//                     GPIO_BuzzerEnable(BuzzerDing);
-//                     break;
+                //     icarStr.SpeedSet = 0;
+                //     GPIO_BuzzerEnable(BuzzerDing);
+                //     break;
                 
                     
-//                 //-----------------------------[自检软件相关]-------------------------------------------
-//                 case USB_ADDR_INSPECTOR :           //自检软件心跳
-//                     usbStr.inspectorEnable = true;
-//                     break;
+                // //-----------------------------[自检软件相关]-------------------------------------------
+                // case USB_ADDR_INSPECTOR :           //自检软件心跳
+                //     usbStr.inspectorEnable = true;
+                //     break;
                 
-//                 case USB_ADDR_SELFCHECK :           //开始自检
-//                     ICAR_SelfcheckControl(usbStr.receiveBuffFinished[3]);
-//                     break;             
-//             }      
+                // case USB_ADDR_SELFCHECK :           //开始自检
+                //     ICAR_SelfcheckControl(usbStr.receiveBuffFinished[3]);
+                //     break;             
+            }      
             
-//         }
-//     }
+        }
+    }
     
     
-    //-----------------------[自检软件数据发送]-----------------------------
+    // -----------------------[自检软件数据发送]-----------------------------
     // if(usbStr.inspectorEnable && usbStr.connected && usbStr.counterSend > 150)//150ms
     // {
     //     USB_Edgeboard_ServoThreshold(1);        //发送舵机阈值
@@ -215,7 +216,7 @@ void USB_UART_Callback(LPUART_Type *base, lpuart_handle_t *handle, status_t stat
     //     USB_Edgeboard_CarSpeed();               //发送车速
     //     usbStr.counterSend = 0; 
     // }
-// }
+}
 
 
 // void USB_Edgeboard_Timr(void)
@@ -277,7 +278,7 @@ void USB_Edgeboard_TransmitKey(uint16_t time)
 }
 
 /**
-* @brief        发送车速信息
+* @brief        发送车速反馈信息
 * @ref                
 **/
  void USB_Edgeboard_CarSpeed(void)
@@ -392,13 +393,27 @@ void USB_Edgeboard_TransmitKey(uint16_t time)
  }
 
 
+
+
+
+void usb_entry(void *parameter)
+{
+    while (1)
+    {
+        rt_sem_take(usbStr.receiveFinished_sem, RT_WAITING_FOREVER);
+        USB_Edgeboard_Handle();
+
+    }
+}
+
+
 /**
 * @brief        USB/UART初始化(串口1)
 * @param              
 **/
 void USB_Edgeboard_Init(void)
 {
-  uart_init(USART_1, 115200, UART1_TX_B12, UART1_RX_B13);
+    uart_init(USART_1, 115200, UART1_TX_B12, UART1_RX_B13);
 	NVIC_SetPriority(LPUART1_IRQn, 0); // 设置串口中断优先级 范围0-15 越小优先级越高
 	uart_rx_irq(USART_1, 1);
 	uart_tx_irq(USART_1, 1);
@@ -408,4 +423,6 @@ void USB_Edgeboard_Init(void)
 	// 设置中断函数及其参数
 	uart_set_handle(USART_1, &USB_g_lpuartHandle, USB_UART_Callback, NULL, 0, USB_receivexfer.data, 1);
 
+
+    usbStr.thread = rt_thread_create("usb", usb_entry, RT_NULL, 1024, 20, 1);
 }

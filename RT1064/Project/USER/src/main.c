@@ -16,7 +16,7 @@ void main()
 
 	MOTOR_Init();
 	
-	MOTOR_SetPwmValue(3000);
+	//MOTOR_SetPwmValue(3000);
 
 	USB_Edgeboard_Init(); // USB串口通信初始化
 	
@@ -27,7 +27,7 @@ void main()
 	while (1)
 	{
 		gpio_toggle(LED_PIN);
-		USB_Edgeboard_CarSpeed();
+		//USB_Edgeboard_CarSpeed();
 		rt_thread_mdelay(500);
 	}
 }

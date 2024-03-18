@@ -33,4 +33,27 @@ signed int PID_MoveCalculate(PIDStruct *PID)
     return (int)PID->Speed_Output;
 }
 
+static void pid_i_test(int argc, char**argv)
+{
+
+	float i = strtof(argv[1], NULL); // 将字符串转换为浮点数
+  pidStr.Ki = i;
+  rt_kprintf("value_i= %d\n", (int)pidStr.Ki*1000);
+  
+
+}
+MSH_CMD_EXPORT(pid_i_test, value_i);
+
+
+static void pid_p_test(int argc, char**argv)
+{
+
+	float p = strtof(argv[1], NULL); // 将字符串转换为浮点数
+  pidStr.Kp = p;
+  rt_kprintf("value_p= %d\n", (int)pidStr.Kp*1000);
+  
+
+}
+MSH_CMD_EXPORT(pid_p_test, value_p);
+
 
