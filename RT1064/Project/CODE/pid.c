@@ -33,27 +33,38 @@ signed int PID_MoveCalculate(PIDStruct *PID)
     return (int)PID->Speed_Output;
 }
 
-static void pid_i_test(int argc, char**argv)
-{
 
-	float i = strtof(argv[1], NULL); // 将字符串转换为浮点数
-  pidStr.Ki = i;
-  rt_kprintf("value_i= %d\n", (int)pidStr.Ki*1000);
-  
+int Incremental_pid1(int Target, int Encoder)
+{
+    static float Bias1, Pwm1, Last_Bias1;
+    Bias1 = (float)(Target - Encoder);
+    Pwm1 += pidStr.Kp * (Bias1 - Last_Bias1)  + pidStr.Ki * Bias1;
+    Last_Bias1 = Bias1;
+    return (int)Pwm1;
+}
+
+
+
+
+
+
+
+
+
+
+static void pid_test(int argc, char**argv)
+{
+	float time = strtof(argv[1], NULL); // 将字符串转换为浮点数
+	icarStr.SpeedTarget = 0.3;
+	rt_thread_mdelay(time);
+	icarStr.SpeedTarget = 0.0;
+	icarStr.SpeedTarget = -0.3;
+	rt_thread_mdelay(time);
+	icarStr.SpeedTarget = 0.0;
 
 }
-MSH_CMD_EXPORT(pid_i_test, value_i);
+MSH_CMD_EXPORT(pid_test, time);
 
 
-static void pid_p_test(int argc, char**argv)
-{
-
-	float p = strtof(argv[1], NULL); // 将字符串转换为浮点数
-  pidStr.Kp = p;
-  rt_kprintf("value_p= %d\n", (int)pidStr.Kp*1000);
-  
-
-}
-MSH_CMD_EXPORT(pid_p_test, value_p);
 
 

@@ -121,7 +121,7 @@
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
   ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h ..\CODE\icar.h \
-  ..\..\Libraries\seekfree_libraries\zf_pit.h \
+  ..\CODE\debug.h ..\..\Libraries\seekfree_libraries\zf_pit.h \
   ..\..\Libraries\seekfree_libraries\zf_camera.h \
   ..\..\Libraries\seekfree_libraries\zf_gpio.h \
   ..\..\Libraries\seekfree_libraries\zf_iomuxc.h \

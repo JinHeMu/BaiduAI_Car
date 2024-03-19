@@ -119,7 +119,7 @@
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
   ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h ..\CODE\icar.h \
-  ..\..\Libraries\nxp_libraries\drives\fsl_lpi2c.h \
+  ..\CODE\debug.h ..\..\Libraries\nxp_libraries\drives\fsl_lpi2c.h \
   D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\stddef.h \
   ..\..\Libraries\seekfree_libraries\zf_systick.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_IIC.h \

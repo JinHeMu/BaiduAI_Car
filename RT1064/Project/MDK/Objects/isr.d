@@ -119,4 +119,4 @@
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
   ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h ..\CODE\icar.h \
-  ..\USER\inc\isr.h
+  ..\CODE\debug.h ..\USER\inc\isr.h

@@ -120,5 +120,5 @@
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
   ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h ..\CODE\icar.h \
-  ..\..\Libraries\nxp_libraries\drives\fsl_lpuart.h \
+  ..\CODE\debug.h ..\..\Libraries\nxp_libraries\drives\fsl_lpuart.h \
   ..\..\Libraries\seekfree_libraries\common\SEEKFREE_PRINTF.h

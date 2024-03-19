@@ -1,9 +1,9 @@
-./objects/seekfree_bluetooth_ch9141.o: \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_BLUETOOTH_CH9141.c \
+./objects/debug.o: ..\CODE\debug.c ..\CODE\debug.h \
+  ..\..\Libraries\seekfree_libraries\headfile.h \
+  D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\..\Libraries\nxp_libraries\drives\fsl_common.h \
   D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\assert.h \
   D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\stdbool.h \
-  D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\stdint.h \
   D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\string.h \
   D:\keil_5.33\ARM\ARMCLANG\Bin\..\include\stdlib.h \
   ..\..\Libraries\nxp_libraries\deceive\fsl_device_registers.h \
@@ -19,9 +19,6 @@
   ..\..\Libraries\nxp_libraries\deceive\MIMXRT1064_features.h \
   ..\..\Libraries\nxp_libraries\drives\fsl_clock.h \
   ..\..\Libraries\nxp_libraries\drives\fsl_common.h \
-  ..\..\Libraries\nxp_libraries\drives\fsl_gpio.h \
-  ..\..\Libraries\seekfree_libraries\zf_systick.h ..\CODE\common.h \
-  ..\..\Libraries\seekfree_libraries\headfile.h \
   ..\..\Libraries\nxp_libraries\utilities\debug_console\fsl_debug_console.h \
   ..\..\Libraries\nxp_libraries\components\serial_manager\serial_manager.h \
   ..\..\Libraries\nxp_libraries\components\serial_manager\serial_port_uart.h \
@@ -31,10 +28,11 @@
   ..\..\Libraries\seekfree_libraries\board\board.h \
   ..\USER\inc\RT106X_config.h \
   ..\..\Libraries\seekfree_libraries\board\clock_config.h \
+  ..\..\Libraries\nxp_libraries\drives\fsl_gpio.h \
   ..\..\Libraries\nxp_libraries\drives\fsl_clock.h \
   ..\..\Libraries\seekfree_libraries\board\pin_mux.h \
   ..\..\Libraries\seekfree_libraries\board\clock_config.h \
-  ..\..\Libraries\nxp_libraries\drives\fsl_cache.h \
+  ..\..\Libraries\nxp_libraries\drives\fsl_cache.h ..\CODE\common.h \
   ..\..\Libraries\seekfree_libraries\zf_vector.h \
   ..\..\Libraries\nxp_libraries\middleware\fatfs\source\ff.h \
   ..\..\Libraries\nxp_libraries\middleware\fatfs\source\ffconf.h \
@@ -121,7 +119,4 @@
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
   ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h ..\CODE\icar.h \
-  ..\CODE\debug.h ..\..\Libraries\seekfree_libraries\zf_gpio.h \
-  ..\..\Libraries\seekfree_libraries\zf_iomuxc.h \
-  ..\..\Libraries\seekfree_libraries\zf_uart.h \
-  ..\..\Libraries\seekfree_peripheral\SEEKFREE_BLUETOOTH_CH9141.h
+  ..\CODE\debug.h

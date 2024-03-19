@@ -55,6 +55,7 @@ void USB_UART_Callback(LPUART_Type *base, lpuart_handle_t *handle, status_t stat
             {
                 memcpy(usbStr.receiveBuffFinished,usbStr.receiveBuff,USB_FRAME_LENMAX);	
                 usbStr.receiveFinished = true;
+								rt_mb_send(buzzerStr.mailbox, BuzzerOk);
                 rt_sem_release(usbStr.receiveFinished_sem);
                 
                 //智能车控制指令特殊处理（保障实时性）
@@ -70,7 +71,8 @@ void USB_UART_Callback(LPUART_Type *base, lpuart_handle_t *handle, status_t stat
                     
                     SERVO_SetPwmValueCorrect(bint16_Union.U16);     //PWM
                     icarStr.ServoPwmSet = bint16_Union.U16;         //方向
-                    icarStr.SpeedTarget = bint32_Union.Float;          //速度				
+                    icarStr.SpeedTarget = bint32_Union.Float;          //速度
+										//rt_kprintf("PWM:%d,Speed:%d mm/s\n", (int)icarStr.ServoPwmSet, (int)(icarStr.SpeedTarget*100));
                 }
 				
                 if(!usbStr.connected)//上位机初次连接通信
@@ -423,6 +425,11 @@ void USB_Edgeboard_Init(void)
 	// 设置中断函数及其参数
 	uart_set_handle(USART_1, &USB_g_lpuartHandle, USB_UART_Callback, NULL, 0, USB_receivexfer.data, 1);
 
-
-    usbStr.thread = rt_thread_create("usb", usb_entry, RT_NULL, 1024, 20, 1);
+    usbStr.receiveFinished_sem = rt_sem_create("usbRecFin", 0, RT_IPC_FLAG_FIFO);
+    usbStr.thread = rt_thread_create("usb", usb_entry, RT_NULL, 1024, 25, 1);
+        // 启动线程
+    if (RT_NULL != usbStr.thread)
+    {
+        rt_thread_startup(usbStr.thread);
+    }
 }

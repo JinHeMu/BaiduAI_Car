@@ -5,6 +5,13 @@ void Timer_PIT_entry(void *parameter)//一个时钟节拍10毫秒
 
     Encoder_Get();
     MOTOR_ControlLoop(icarStr.SpeedTarget);//电机闭环控制
+	if(flag)
+	{
+		rt_kprintf("targer:%d,%d\n", (int)pidStr.Speed_Target, (int)pidStr.Speed_FeedBack);
+		
+	}
+
+//		MOTOR_ControlLoop(0.3);//电机闭环控制
 	
 }
 

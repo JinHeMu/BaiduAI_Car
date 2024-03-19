@@ -41,7 +41,8 @@ void MOTOR_ControlLoop(float speed)
     //pidStr.Speed_Target为编码器的值(10ms控制周期)
     pidStr.Speed_Target = (float)(speed*MOTOR_CONTROL_CYCLE / motorStr.DiameterWheel / PI * motorStr.EncoderLine * 4.0f * motorStr.ReductionRatio);
     
-    MOTOR_SetPwmValue(PID_MoveCalculate(&pidStr));
+		MOTOR_SetPwmValue(Incremental_pid1((int)pidStr.Speed_Target, (int)pidStr.Speed_FeedBack));
+//    MOTOR_SetPwmValue(PID_MoveCalculate(&pidStr));
 }
 
 void MOTOR_Init(void)
@@ -59,9 +60,9 @@ void MOTOR_Init(void)
 static void motor_test(int argc, char**argv)
 {
 
-	signed int pwm = atoi(argv[1]); // 将字符串转换为浮点数
-    MOTOR_SetPwmValue(pwm);
+	float speed = strtof(argv[1], NULL); // 将字符串转换为浮点数
+	icarStr.SpeedTarget = speed;
 
 }
 
-MSH_CMD_EXPORT(motor_test, pwm);
+MSH_CMD_EXPORT(motor_test, speed);

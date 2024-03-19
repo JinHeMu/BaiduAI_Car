@@ -121,5 +121,5 @@
   ..\..\Libraries\rttherad_libraries\components\finsh\finsh_api.h \
   ..\CODE\uart1_usb.h ..\CODE\servo.h ..\CODE\encoder.h ..\CODE\motor.h \
   ..\CODE\pid.h ..\CODE\timer_pit.h ..\CODE\gpio.h ..\CODE\icar.h \
-  ..\..\Libraries\seekfree_libraries\zf_uart.h \
+  ..\CODE\debug.h ..\..\Libraries\seekfree_libraries\zf_uart.h \
   ..\..\Libraries\seekfree_peripheral\SEEKFREE_GPS_TAU1201.h

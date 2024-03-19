@@ -2,10 +2,10 @@
 
 BuzzerStruct buzzerStr;
 
-KeyStruct key1Str;
-KeyStruct key2Str;
-KeyStruct key3Str;
-KeyStruct key4Str;
+KeyStruct key1Str = {true, true};
+KeyStruct key2Str = {true, true};
+KeyStruct key3Str = {true, true};
+KeyStruct key4Str = {true, true};
 
 void buzzer_entry(void *parameter)
 {
@@ -38,16 +38,21 @@ void key_entry(void *parameter)
     {
         rt_sem_release(key1Str.sem);
         rt_mb_send(buzzerStr.mailbox, 100); // 给buzzer_mailbox发送100
+				
     }
     if (key2Str.status && !key2Str.last_status)
     {
         rt_sem_release(key2Str.sem);
         rt_mb_send(buzzerStr.mailbox, 100); // 给buzzer_mailbox发送100
+//				pidStr.Ki += 0.5;
+//				rt_kprintf("ki = %d\n", (int)(pidStr.Ki*10));
     }
     if (key3Str.status && !key3Str.last_status)
     {
         rt_sem_release(key3Str.sem);
         rt_mb_send(buzzerStr.mailbox, 100); // 给buzzer_mailbox发送100
+//				pidStr.Kp += 5;
+//				rt_kprintf("kp = %d\n", (int)(pidStr.Kp*10));
     }
     if (key4Str.status && !key4Str.last_status)
     {

@@ -2254,6 +2254,16 @@
               <FileType>5</FileType>
               <FilePath>..\CODE\icar.h</FilePath>
             </File>
+            <File>
+              <FileName>debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\debug.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>
@@ -4504,6 +4514,16 @@
               <FileName>icar.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\CODE\icar.h</FilePath>
+            </File>
+            <File>
+              <FileName>debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CODE\debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CODE\debug.h</FilePath>
             </File>
           </Files>
         </Group>
