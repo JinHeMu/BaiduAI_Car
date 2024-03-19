@@ -29,14 +29,13 @@ typedef struct
 {
 	bool status;
 	bool last_status;
-	rt_sem_t sem;
 
 }KeyStruct;
 
 typedef struct 
 {
 
-  rt_thread_t thread;
+  	rt_thread_t thread;
 	rt_ubase_t mb_data;
 	rt_mailbox_t mailbox;
 
@@ -48,6 +47,7 @@ extern KeyStruct key1Str;
 extern KeyStruct key2Str;
 extern KeyStruct key3Str;
 extern KeyStruct key4Str;
+extern rt_mailbox_t keymailbox;
 
 void GPIO_Init(void);
 void Key_init(void);
