@@ -33,46 +33,46 @@ pkg_search_module(SERIAL REQUIRED libserial)
 include_directories(${SERIAL_INCLUDE_DIRS})
 link_directories(${SERIAL_LIBRARY_DIRS})
 
-## find ppnc
-#pkg_search_module(PPNC REQUIRED ppnc)
-#include_directories(${PPNC_INCLUDE_DIRS})
-#link_directories(${PPNC_LIBRARY_DIRS})
-#
-## find onnx
-#pkg_search_module(ONNX REQUIRED onnx)
-#include_directories(${ONNX_INCLUDE_DIRS})
-#link_directories(${ONNX_LIBRARY_DIRS})
-#---------------------------------------------------------------------
-#               [ bin ] ==> [ demo ]
-#---------------------------------------------------------------------
-# 图像采集
-set(COL_PROJECT_NAME "collection")
-set(COL_PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/tool/collection.cpp)
-add_executable(${COL_PROJECT_NAME} ${COL_PROJECT_SOURCES})
-target_link_libraries(${COL_PROJECT_NAME} pthread )
-target_link_libraries(${COL_PROJECT_NAME} ${OpenCV_LIBS})
-target_link_libraries(${COL_PROJECT_NAME} ${SERIAL_LIBRARIES})
+# find ppnc
+pkg_search_module(PPNC REQUIRED ppnc)
+include_directories(${PPNC_INCLUDE_DIRS})
+link_directories(${PPNC_LIBRARY_DIRS})
 
-# 图像合成
-set(IMG2V_PROJECT_NAME "img2video")
-set(IMG2V_PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/tool/img2video.cpp)
-add_executable(${IMG2V_PROJECT_NAME} ${IMG2V_PROJECT_SOURCES})
-target_link_libraries(${IMG2V_PROJECT_NAME} pthread )
-target_link_libraries(${IMG2V_PROJECT_NAME} ${OpenCV_LIBS})
+# find onnx
+pkg_search_module(ONNX REQUIRED onnx)
+include_directories(${ONNX_INCLUDE_DIRS})
+link_directories(${ONNX_LIBRARY_DIRS})
+# # #---------------------------------------------------------------------
+# # #               [ bin ] ==> [ demo ]
+# # #---------------------------------------------------------------------
+# # 图像采集
+# set(COL_PROJECT_NAME "collection")
+# set(COL_PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/tool/collection.cpp)
+# add_executable(${COL_PROJECT_NAME} ${COL_PROJECT_SOURCES})
+# target_link_libraries(${COL_PROJECT_NAME} pthread )
+# target_link_libraries(${COL_PROJECT_NAME} ${OpenCV_LIBS})
+# target_link_libraries(${COL_PROJECT_NAME} ${SERIAL_LIBRARIES})
 
-# 相机标定
-set(CAL_PROJECT_NAME "calibration")
-set(CAL_PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/tool/calibration.cpp)
-add_executable(${CAL_PROJECT_NAME} ${CAL_PROJECT_SOURCES})
-target_link_libraries(${CAL_PROJECT_NAME} pthread )
-target_link_libraries(${CAL_PROJECT_NAME} ${OpenCV_LIBS})
+# # 图像合成
+# set(IMG2V_PROJECT_NAME "img2video")
+# set(IMG2V_PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/tool/img2video.cpp)
+# add_executable(${IMG2V_PROJECT_NAME} ${IMG2V_PROJECT_SOURCES})
+# target_link_libraries(${IMG2V_PROJECT_NAME} pthread )
+# target_link_libraries(${IMG2V_PROJECT_NAME} ${OpenCV_LIBS})
 
-# 相机测试
-set(CAM_PROJECT_NAME "camera")
-set(CAM_PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/tool/camera.cpp)
-add_executable(${CAM_PROJECT_NAME} ${CAM_PROJECT_SOURCES})
-target_link_libraries(${CAM_PROJECT_NAME} pthread )
-target_link_libraries(${CAM_PROJECT_NAME} ${OpenCV_LIBS})
+# # 相机标定
+# set(CAL_PROJECT_NAME "calibration")
+# set(CAL_PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/tool/calibration.cpp)
+# add_executable(${CAL_PROJECT_NAME} ${CAL_PROJECT_SOURCES})
+# target_link_libraries(${CAL_PROJECT_NAME} pthread )
+# target_link_libraries(${CAL_PROJECT_NAME} ${OpenCV_LIBS})
+
+# # 相机测试
+# set(CAM_PROJECT_NAME "camera")
+# set(CAM_PROJECT_SOURCES ${PROJECT_SOURCE_DIR}/tool/camera.cpp)
+# add_executable(${CAM_PROJECT_NAME} ${CAM_PROJECT_SOURCES})
+# target_link_libraries(${CAM_PROJECT_NAME} pthread )
+# target_link_libraries(${CAM_PROJECT_NAME} ${OpenCV_LIBS})
 #---------------------------------------------------------------------
 #               [ bin ] ==> [ main ]
 #---------------------------------------------------------------------
