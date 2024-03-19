@@ -1,6 +1,6 @@
 {
-  "speedLow": 0.8,
-  "speedHigh": 0.8,
+  "speedLow": 0.2,
+  "speedHigh": 0.2,
   "speedBridge": 0.6,
   "speedDown": 0.5,
   "runP1": 1.7,
@@ -8,8 +8,8 @@
   "runP3": 0.01,
   "turnP": 3.5,
   "turnD": 3.5,
-  "debug": true,
-  "saveImg": false,
+  "debug": false,
+  "saveImg": true,
   "rowCutUp": 30,
   "rowCutBottom": 10,
   "bridge": true,
@@ -17,11 +17,11 @@
   "rescue": true,
   "racing": true,
   "parking": true,
-  "ring": false,
-  "cross": false,
+  "ring": true,
+  "cross": true,
   "score": 0.4,
   "model": "../res/model/yolov3_mobilenet_v1",
-  "video": "../res/samples/sample.mp4",
+  "video": "../res/samples/sample1.mp4",
   "record": [
     {
       "#speedLow": "智能车最低速: m/s",
@@ -49,4 +49,4 @@
       "#video": "视频路径(../res/samples/sample.mp4)"
     }
   ]
-}c
+}

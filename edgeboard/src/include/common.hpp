@@ -359,7 +359,7 @@ public:
         Rect placeImg = cv::Rect(COLSIMAGE * (index - 1), 0, COLSIMAGE, ROWSIMAGE);
         imgDraw.copyTo(imgShow(placeImg));
 
-        //savePicture(img); // 保存图像
+        savePicture(img); // 保存图像
     }
 
     /**

@@ -1,7 +1,3 @@
-//
-// Created by 49075 on 2024/3/7.
-//
-
 #include "../include/common.hpp" //公共类方法文件
 #include "../include/detection.hpp"  //百度Paddle框架移动端部署
 #include "../include/uart.hpp" //串口通信驱动
@@ -72,7 +68,7 @@ int main(int argc, char const *argv[])
     if (!motion.params.debug)
     {
         printf("--------------[等待按键发车!]-------------------\n");
-        uart->buzzerSound(uart->BUZZER_OK); // 祖传提示音效
+        //uart->buzzerSound(uart->BUZZER_OK); // 祖传提示音效
         while (!uart->keypress)//按键1发车
             waitKey(300);
         while (ret < 10) // 延时3s
@@ -82,7 +78,8 @@ int main(int argc, char const *argv[])
             ret++;
         }
         uart->keypress = false;
-        uart->buzzerSound(uart->BUZZER_START); // 祖传提示音效
+        //uart->buzzerSound(uart->BUZZER_START); // 祖传提示音效
+        printf("---------------------[发车!]-------------------\n");
     }
 
     Scene scene = Scene::NormalScene;     // 初始化场景：常规道路
@@ -102,10 +99,14 @@ int main(int argc, char const *argv[])
         if (motion.params.saveImg && !motion.params.debug) // 存储原始图像
             savePicture(img);
 
+
         //[02] 图像预处理
-        Mat imgCorrect = preprocess.correction(img);         // 图像矫正
+        Mat rotated_image;
+        rotate(img, rotated_image, cv::ROTATE_180);
+        Mat imgCorrect = rotated_image.clone();         // 图像矫正
         Mat imgBinary = preprocess.binaryzation(imgCorrect); // 图像二值化
 
+    
         //[03] 启动AI推理
         // detection->inference(imgCorrect);
 
@@ -118,6 +119,7 @@ int main(int argc, char const *argv[])
             Mat imgTrack = imgCorrect.clone();
             tracking.drawImage(imgTrack); // 图像绘制赛道识别结果
             display.setNewWindow(2, "Track", imgTrack);
+
         }
 
         // //[05] 停车区检测
@@ -224,8 +226,12 @@ int main(int argc, char const *argv[])
             motion.poseCtrl(ctrlCenter.controlCenter);       // 姿态控制（舵机）
             uart->carControl(motion.speed, motion.servoPwm); // 串口通信控制车辆
 
-            //[14] 综合显示调试UI窗口
-            if (motion.params.debug)
+            
+        }
+
+
+        //[14] 综合显示调试UI窗口
+            if (!motion.params.debug)
             {
                 // 帧率计算
                 auto startTime = chrono::duration_cast<chrono::milliseconds>(
@@ -296,21 +302,20 @@ int main(int argc, char const *argv[])
                 display.show(); // 显示综合绘图
                 waitKey(10);    // 等待显示
             }
-        }
 
-        //[15] 状态复位
-        if (sceneLast != scene)
-        {
-            if (scene == Scene::NormalScene)
-                uart->buzzerSound(uart->BUZZER_DING); // 祖传提示音效
-            else
-                uart->buzzerSound(uart->BUZZER_OK); // 祖传提示音效
-        }
-        sceneLast = scene; // 记录当前状态
-        if (scene == Scene::DangerScene)
-            scene = Scene::NormalScene;
-        else if (scene == Scene::CrossScene)
-            scene = Scene::NormalScene;
+        // //[15] 状态复位
+        // if (sceneLast != scene)
+        // {
+        //     if (scene == Scene::NormalScene)
+        //         uart->buzzerSound(uart->BUZZER_DING); // 祖传提示音效
+        //     else
+        //         uart->buzzerSound(uart->BUZZER_OK); // 祖传提示音效
+        // }
+        // sceneLast = scene; // 记录当前状态
+        // if (scene == Scene::DangerScene)
+        //     scene = Scene::NormalScene;
+        // else if (scene == Scene::CrossScene)
+        //     scene = Scene::NormalScene;
 
         //[16] 按键退出程序
         if (uart->keypress)
@@ -320,6 +325,9 @@ int main(int argc, char const *argv[])
             printf("-----> System Exit!!! <-----\n");
             exit(0); // 程序退出
         }
+
+            // display.show(); // 显示综合绘图
+            // waitKey(1);    // 等待显示
     }
 
     uart->close(); // 串口通信关闭
@@ -398,31 +406,31 @@ int main(int argc, char const *argv[])
 // #endif
 
 
-int main(int argc, char const *argv[])
-{
+// int main(int argc, char const *argv[])
+// {
 
-    Display display(1);       // 初始化UI显示窗口
-    VideoCapture capture;     // Opencv相机类
-    capture = VideoCapture(0);
-    Mat img;
-    Mat rotated_image;
+//     Display display(1);       // 初始化UI显示窗口
+//     VideoCapture capture;     // Opencv相机类
+//     capture = VideoCapture(0);
+//     Mat img;
+//     Mat rotated_image;
 
     
 
-    while(1)
-    {
-        capture.read(rotated_image);
-        rotate(rotated_image, img, cv::ROTATE_180);
-        display.setNewWindow(1, "img", img);
-        display.show();
-        waitKey(10);
+//     while(1)
+//     {
+//         capture.read(rotated_image);
+//         rotate(rotated_image, img, cv::ROTATE_180);
+//         display.setNewWindow(1, "img", img);
+//         display.show();
+//         waitKey(10);
 
-        int key = waitKey(17);
-        if (key == 'q' || key == 27)
-        { // 按下 "q" 键或 ESC 键退出循环
-            break;
-        }
+//         int key = waitKey(17);
+//         if (key == 'q' || key == 27)
+//         { // 按下 "q" 键或 ESC 键退出循环
+//             break;
+//         }
 
-    }
+//     }
 
-}
+// }
