@@ -1,7 +1,0 @@
-/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug/CMakeFiles/collection.dir
-/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug/CMakeFiles/img2video.dir
-/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug/CMakeFiles/calibration.dir
-/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug/CMakeFiles/camera.dir
-/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug/CMakeFiles/icar.dir
-/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/jinhemu/BaiduAI_Car/edgeboard/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
