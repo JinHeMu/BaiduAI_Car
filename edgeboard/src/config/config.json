@@ -8,7 +8,7 @@
   "runP3": 0.01,
   "turnP": 3.5,
   "turnD": 3.5,
-  "debug": false,
+  "debug": true,
   "saveImg": true,
   "rowCutUp": 30,
   "rowCutBottom": 10,
@@ -21,7 +21,7 @@
   "cross": true,
   "score": 0.4,
   "model": "../res/model/yolov3_mobilenet_v1",
-  "video": "../res/samples/sample1.mp4",
+  "video": "../res/samples/sample.mp4",
   "record": [
     {
       "#speedLow": "智能车最低速: m/s",
